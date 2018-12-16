@@ -1,11 +1,16 @@
 {
-	"name": "bakery_shop",
+	"name": "BAKERY_SHOP",
 	"version": "1.0.0",
 	"description": "Sklep Ciastkarnia",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "parcel index.html"
+		"start": "parcel index.html",
+		"sass": "sass --watch scss:css"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KP1976/BAKERY_SHOP.git"
 	},
 	"author": "Krzysztof Pawłowski",
 	"license": "ISC"
