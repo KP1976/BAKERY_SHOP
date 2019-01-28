@@ -1,5 +1,5 @@
 {
-	"name": "BAKERY_SHOP",
+	"name": "bakery_shop",
 	"version": "1.0.0",
 	"description": "Sklep Ciastkarnia",
 	"main": "index.js",
