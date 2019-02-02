@@ -32,8 +32,8 @@
 				</li>
 				<li class="menu-list__item">
 					<button class="products-btn">
-						<i class="material-icons"> shopping_cart </i
-						><span class="products-btn__quantity">5</span> produktów –
+						<i class="material-icons">shopping_cart</i>
+						<span class="products-btn__quantity">5</span> produktów –
 						<span class="products-btn__sum-price">26,5</span> zł
 					</button>
 					<ul class="products-list">
@@ -69,20 +69,181 @@
 		</header>
 
 		<!-- SEKCJA O NAS -->
-		<section class="about_us">
-			<h2 class="about_us__title">o nas</h2>
-			<p class="about_us__text">
+		<section class="about-us">
+			<h2 class="about-us__title">o nas</h2>
+			<p class="about-us__text">
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
 				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
 				et ea rebum.
 			</p>
 			<img
-				class="about_us_image"
+				class="about-us__image"
 				srcset="./img/about_us_picture_small.jpg 500w, ./img/about_us_picture.jpg 1000w"
 				src="./img/about_us_picture_small.jpg"
 				alt="some cakes"
 			/>
-			<button class="about_us__btn">więcej</button>
+			<button class="about-us__button">więcej</button>
+		</section>
+
+		<!-- SEKCJA SKLEP -->
+		<section class="shop">
+			<h2 class="shop__title">sklep</h2>
+
+			<ul class="search-tabs">
+				<li class="search-tabs__item--selected">Wszystko</li>
+				<li class="search-tabs__item">Babeczki</li>
+				<li class="search-tabs__item">Ciasta</li>
+				<li class="search-tabs__item">Słodycze</li>
+				<li class="search-tabs__item">Donaty</li>
+			</ul>
+
+			<input class="shop__search-input" type="text" />
+
+			<div class="shop__products">
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/citrus_cupcake_small.jpg 500w, ./img/citrus_cupcake.jpg 1000w"
+						src="./img/citrus_cupcake_small.jpg"
+						alt="citric cupcake"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Babeczka cytrynowa</span>
+						<span class="product__price">5 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/raspberry_candy_small.jpg 500w, ./img/raspberry_candy.jpg 1000w"
+						src="./img/raspberry_candy_small.jpg"
+						alt="raspberry candy"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Malinowy cukierek</span>
+						<span class="product__price">1 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/cheese_cake_small.jpg 500w, ./img/cheese_cake.jpg 1000w"
+						src="./img/cheese_cake_small.jpg"
+						alt="cheese cake"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Sernik</span>
+						<span class="product__price">10 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/meringue_small.jpg 500w, ./img/meringue.jpg 1000w"
+						src="./img/meringue_small.jpg"
+						alt="meringue"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Beza</span>
+						<span class="product__price">3,5 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/opium_cake_small.jpg 500w, ./img/opium_cake.jpg 1000w"
+						src="./img/opium_cake_small.jpg"
+						alt="opium cake"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Makowiec</span>
+						<span class="product__price">6 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/donut1_small.jpg 500w, ./img/donut1.jpg 1000w"
+						src="./img/donut1_small.jpg"
+						alt="donut with chocolate"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Donut z polewą</span>
+						<span class="product__price">4,5 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/citric_candy_small.jpg 500w, ./img/citric_candy.jpg 1000w"
+						src="./img/citric_candy_small.jpg"
+						alt="citric candy"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Cukierek cytrynowy</span>
+						<span class="product__price">2 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/cake_small.jpg 500w, ./img/cake.jpg 1000w"
+						src="./img/cake_small.jpg"
+						alt="cake"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Tort</span>
+						<span class="product__price">35 zł</span>
+					</div>
+				</figure>
+
+				<figure class="product">
+					<img
+						class="product__image"
+						srcset="./img/fruit_cupcake_small.jpg 500w, ./img/fruit_cupcake.jpg 1000w"
+						src="./img/fruit_cupcake_small.jpg"
+						alt="fruit cupcake"
+					/>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">Babeczka z owocami</span>
+						<span class="product__price">5 zł</span>
+					</div>
+				</figure>
+			</div>
 		</section>
 
 		<script src="./js/index.js"></script>
