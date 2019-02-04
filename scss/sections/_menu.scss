@@ -1,0 +1,30 @@
+.hamburger-menu {
+	display: inline-block;
+	height: 2.5rem;
+	margin: 2rem 0 0 2rem;
+	width: 3rem;
+
+	&__bar {
+		background-color: var(--main-color);
+		border-radius: 0.3rem;
+		height: 0.5rem;
+		width: 3rem;
+
+		&:nth-child(even) {
+			margin: 0.5rem 0;
+		}
+	}
+}
+
+.nav-menu {
+	display: none;
+}
+
+.main-title {
+	color: var(--secondary-color);
+	font-size: 2.3rem;
+	font-weight: bold;
+	margin: 2rem 2rem 0 0;
+	text-transform: uppercase;
+	float: right;
+}

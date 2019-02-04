@@ -5,6 +5,17 @@
   --radius: 5px;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 10px;
+}
+
+.titles-underline {
+  fill: var(--dark-color);
+  margin-bottom: 3.5rem;
+}
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -343,5 +354,158 @@ template {
 
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+.hamburger-menu {
+  display: inline-block;
+  height: 2.5rem;
+  margin: 2rem 0 0 2rem;
+  width: 3rem;
+}
+
+.hamburger-menu__bar {
+  background-color: var(--main-color);
+  border-radius: 0.3rem;
+  height: 0.5rem;
+  width: 3rem;
+}
+
+.hamburger-menu__bar:nth-child(even) {
+  margin: 0.5rem 0;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.main-title {
+  color: var(--secondary-color);
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin: 2rem 2rem 0 0;
+  text-transform: uppercase;
+  float: right;
+}
+
+.header {
+  margin-top: 3rem;
+}
+
+.header__image {
+  background-size: cover;
+  width: 100%;
+}
+
+.header__title {
+  color: var(--main-color);
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  margin: 3rem 0 1.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header__text {
+  color: var(--dark-color);
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  margin-bottom: 4rem;
+  padding: 0 3.4rem;
+  text-align: center;
+}
+
+.header__cta-btn {
+  background-color: var(--main-color);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  display: block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 1.8rem 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 20rem;
+}
+
+.header__gradient_graphic {
+  margin-top: 12.7rem;
+  position: relative;
+}
+
+.header__gradient_graphic::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--secondary-color)), color-stop(15%, var(--dark-color)));
+  background: linear-gradient(180deg, var(--secondary-color) 0%, var(--dark-color) 15%);
+  border-radius: 50%;
+  content: '';
+  left: -17rem;
+  position: absolute;
+  top: -9.5rem;
+  width: 70rem;
+  height: 70rem;
+  z-index: -1;
+}
+
+.header__gradient_graphic::after {
+  background-color: #fff;
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 0rem;
+  width: 100%;
+  height: 70rem;
+  z-index: -1;
+}
+
+.about-us {
+  background-color: transparent;
+  padding: 5rem 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-us__title {
+  color: var(--dark-color);
+  font-size: 2.3rem;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-us__text {
+  color: var(--dark-color);
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  margin: 0 0 4rem 0;
+  text-align: center;
+}
+
+.about-us__image {
+  border-radius: var(--radius);
+  display: block;
+  height: 19rem;
+  margin-bottom: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.about-us__button {
+  background-color: var(--main-color);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  display: block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 1.8rem 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 10.4rem;
 }
 /*# sourceMappingURL=main.css.map */

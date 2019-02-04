@@ -6,6 +6,16 @@
 	--radius: 5px;
 }
 
+* {
+	box-sizing: border-box;
+	font-size: 10px;
+}
+
+.titles-underline {
+	fill: var(--dark-color);
+	margin-bottom: 3.5rem;
+}
+
 @import 'abstracts/mixins';
 
 @import 'base/normalize';

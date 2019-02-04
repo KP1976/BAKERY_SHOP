@@ -1,0 +1,36 @@
+.about-us {
+	background-color: transparent;
+	padding: 5rem 2rem 0;
+	position: relative;
+	z-index: 1;
+
+	&__title {
+		color: var(--dark-color);
+		font-size: 2.3rem;
+		margin: 0;
+		position: relative;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	&__text {
+		color: var(--dark-color);
+		font-size: 1.6rem;
+		line-height: 2.5rem;
+		margin: 0 0 4rem 0;
+		text-align: center;
+	}
+
+	&__image {
+		border-radius: var(--radius);
+		display: block;
+		height: 19rem;
+		margin-bottom: 4rem;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	&__button {
+		@include button(10.4rem, 1.6rem);
+	}
+}

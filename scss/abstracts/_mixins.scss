@@ -3,3 +3,19 @@
 		@content;
 	}
 }
+
+@mixin button($width, $font-size) {
+	background-color: var(--main-color);
+	border: none;
+	border-radius: var(--radius);
+	color: #fff;
+	display: block;
+	font-size: $font-size;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 1.8rem 1.7rem;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: $width;
+}
