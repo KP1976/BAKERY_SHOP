@@ -4,6 +4,10 @@
 	margin: 2rem 0 0 2rem;
 	width: 3rem;
 
+	@include mq(576px) {
+		margin: 4rem 0 0 7.5rem;
+	}
+
 	&__bar {
 		background-color: var(--main-color);
 		border-radius: 0.3rem;
@@ -27,4 +31,9 @@
 	margin: 2rem 2rem 0 0;
 	text-transform: uppercase;
 	float: right;
+
+	@include mq(576px) {
+		font-size: 3.6rem;
+		margin: 3.2rem 5rem 0 0;
+	}
 }

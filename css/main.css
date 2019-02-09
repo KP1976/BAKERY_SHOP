@@ -363,6 +363,12 @@ body {
   width: 3rem;
 }
 
+@media only screen and (min-width: 576px) {
+  .hamburger-menu {
+    margin: 4rem 0 0 7.5rem;
+  }
+}
+
 .hamburger-menu__bar {
   background-color: var(--main-color);
   border-radius: 0.3rem;
@@ -385,6 +391,13 @@ body {
   margin: 2rem 2rem 0 0;
   text-transform: uppercase;
   float: right;
+}
+
+@media only screen and (min-width: 576px) {
+  .main-title {
+    font-size: 3.6rem;
+    margin: 3.2rem 5rem 0 0;
+  }
 }
 
 .header {
@@ -479,7 +492,6 @@ body {
 .about-us__image {
   border-radius: var(--radius);
   display: block;
-  height: 19rem;
   margin-bottom: 4rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -573,6 +585,16 @@ body {
 }
 
 .shop__products {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 3rem;
 }
 
