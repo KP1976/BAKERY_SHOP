@@ -93,6 +93,11 @@
 		<!-- SEKCJA SKLEP -->
 		<section class="shop">
 			<h2 class="shop__title">sklep</h2>
+			<svg class="titles-underline" viewBox="-100 0 300 4">
+				<g>
+					<path d="M100,0c0,0-24.9,4-50,4S0,0,0,0l0,0H100L100,0z" />
+				</g>
+			</svg>
 
 			<ul class="search-tabs">
 				<li class="search-tabs__item--selected">Wszystko</li>
@@ -102,7 +107,10 @@
 				<li class="search-tabs__item">Donaty</li>
 			</ul>
 
-			<input class="shop__search-input" type="text" />
+			<div class="shop__search-container">
+				<i class="material-icons">search</i>
+				<input class="shop__search-input" type="text" />
+			</div>
 
 			<div class="shop__products">
 				<figure class="product">
@@ -251,6 +259,7 @@
 			</div>
 		</section>
 
+		<!-- STOPKA -->
 		<footer class="footer">&copy; Krzysztof Pawłowski</footer>
 
 		<script src="./js/index.js"></script>

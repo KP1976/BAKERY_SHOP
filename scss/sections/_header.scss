@@ -3,7 +3,7 @@
 	overflow: hidden;
 
 	&__image {
-		background-size: cover;
+		object-fit: cover;
 		width: 100%;
 	}
 
