@@ -389,6 +389,7 @@ body {
 
 .header {
   margin-top: 3rem;
+  overflow: hidden;
 }
 
 .header__image {
@@ -440,22 +441,14 @@ body {
   background: linear-gradient(180deg, var(--secondary-color) 0%, var(--dark-color) 15%);
   border-radius: 50%;
   content: '';
-  left: -17rem;
+  -webkit-transform: translateX(-25%);
+          transform: translateX(-25%);
   position: absolute;
   top: -9.5rem;
-  width: 70rem;
-  height: 70rem;
-  z-index: -1;
-}
-
-.header__gradient_graphic::after {
-  background-color: #fff;
-  content: '';
-  left: 0;
-  position: absolute;
-  top: 0rem;
-  width: 100%;
-  height: 70rem;
+  width: 200%;
+  height: 200%;
+  min-width: 70rem;
+  min-height: 70rem;
   z-index: -1;
 }
 
