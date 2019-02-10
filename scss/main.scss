@@ -11,11 +11,6 @@
 	font-size: 10px;
 }
 
-.titles-underline {
-	fill: var(--dark-color);
-	margin-bottom: 3.5rem;
-}
-
 @import 'abstracts/mixins';
 
 @import 'base/normalize';
@@ -26,3 +21,15 @@
 @import 'sections/aboutme';
 @import 'sections/shop';
 @import 'sections/footer';
+
+.titles-underline {
+	fill: var(--dark-color);
+	margin-bottom: 3.5rem;
+	transform: translateX(50%);
+	text-align: center;
+	width: 50%;
+
+	@include mq(576px) {
+		margin-bottom: 5rem;
+	}
+}
