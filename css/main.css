@@ -396,7 +396,7 @@ body {
 @media only screen and (min-width: 576px) {
   .main-title {
     font-size: 3.6rem;
-    margin: 3.2rem 5rem 0 0;
+    margin: 3.2rem 7.55rem 0 0;
   }
 }
 
@@ -405,10 +405,22 @@ body {
   overflow: hidden;
 }
 
+@media only screen and (min-width: 576px) {
+  .header {
+    padding: 0 5rem;
+  }
+}
+
 .header__image {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
+}
+
+@media only screen and (min-width: 576px) {
+  .header__image {
+    border-radius: var(--radius);
+  }
 }
 
 .header__title {
@@ -420,6 +432,14 @@ body {
   text-transform: uppercase;
 }
 
+@media only screen and (min-width: 576px) {
+  .header__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 5rem 0 1.5rem 0;
+  }
+}
+
 .header__text {
   color: var(--dark-color);
   font-size: 1.6rem;
@@ -427,6 +447,15 @@ body {
   margin-bottom: 4rem;
   padding: 0 3.4rem;
   text-align: center;
+}
+
+@media only screen and (min-width: 576px) {
+  .header__text {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin-bottom: 5rem;
+    padding: 0 5.7rem;
+  }
 }
 
 .header__cta-btn {
@@ -438,16 +467,40 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   margin: 0 auto;
-  padding: 1.8rem 1.7rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   width: 20rem;
+  padding: 1.8rem 1.7rem;
+}
+
+@media only screen and (min-width: 576px) {
+  .header__cta-btn {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: var(--radius);
+    color: #fff;
+    display: block;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 28rem;
+    padding: 2.1rem 2.6rem;
+  }
 }
 
 .header__gradient_graphic {
   margin-top: 12.7rem;
   position: relative;
+}
+
+@media only screen and (min-width: 576px) {
+  .header__gradient_graphic {
+    height: 14rem;
+  }
 }
 
 .header__gradient_graphic::before {
@@ -464,6 +517,14 @@ body {
   min-width: 70rem;
   min-height: 70rem;
   z-index: -1;
+}
+
+@media only screen and (min-width: 576px) {
+  .header__gradient_graphic::before {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--secondary-color)), color-stop(30%, var(--dark-color)));
+    background: linear-gradient(180deg, var(--secondary-color) 0%, var(--dark-color) 30%);
+    top: -7rem;
+  }
 }
 
 .about-us {
@@ -507,11 +568,11 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   margin: 0 auto;
-  padding: 1.8rem 1.7rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   width: 10.4rem;
+  padding: 1.8rem 1.7rem;
 }
 
 .shop {
