@@ -13,7 +13,8 @@
 		margin-bottom: 4rem;
 
 		@include mq(576px) {
-			@include titles(4rem);
+			@include titles(3rem);
+			margin-bottom: 0;
 		}
 	}
 
@@ -40,7 +41,7 @@
 		width: 100%;
 
 		@include mq(576px) {
-			margin-bottom: 5rem;
+			margin-bottom: 4rem;
 		}
 	}
 
