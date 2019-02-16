@@ -5,7 +5,7 @@
 	width: 3rem;
 
 	@include mq(576px) {
-		margin: 4rem 0 0 7.5rem;
+		margin: 4rem 0 0 5rem;
 	}
 
 	&__bar {
@@ -34,6 +34,6 @@
 
 	@include mq(576px) {
 		font-size: 3.6rem;
-		margin: 3.2rem 7.55rem 0 0;
+		margin: 3.2rem 5rem 0 0;
 	}
 }
