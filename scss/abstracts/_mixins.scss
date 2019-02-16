@@ -9,6 +9,7 @@
 	border: none;
 	border-radius: var(--radius);
 	color: #fff;
+	cursor: pointer;
 	display: block;
 	font-size: $font-size;
 	font-weight: bold;
@@ -22,7 +23,6 @@
 @mixin titles($font-size) {
 	color: var(--dark-color);
 	font-size: $font-size;
-	margin: 0;
 	text-align: center;
 	text-transform: uppercase;
 }

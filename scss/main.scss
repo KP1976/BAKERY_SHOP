@@ -11,6 +11,15 @@
 	font-size: 10px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
 @import 'abstracts/mixins';
 
 @import 'base/normalize';
@@ -21,15 +30,3 @@
 @import 'sections/aboutme';
 @import 'sections/shop';
 @import 'sections/footer';
-
-.titles-underline {
-	fill: var(--dark-color);
-	margin-bottom: 3.5rem;
-	transform: translateX(50%);
-	text-align: center;
-	width: 50%;
-
-	@include mq(576px) {
-		margin-bottom: 5rem;
-	}
-}
