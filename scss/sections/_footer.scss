@@ -4,4 +4,8 @@
 	font-weight: bold;
 	padding: 4rem 0;
 	text-align: center;
+
+	@include mq(576px) {
+		padding: 5rem 0;
+	}
 }
