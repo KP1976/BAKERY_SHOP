@@ -2,7 +2,7 @@
 	padding: 5rem 2rem 0;
 
 	@include mq(576px) {
-		padding: 7rem 5rem 0;
+		padding: 8rem 5rem 0;
 	}
 
 	&__title {
@@ -10,7 +10,8 @@
 		margin-bottom: 4rem;
 
 		@include mq(576px) {
-			@include titles(4rem);
+			@include titles(3rem);
+			margin-bottom: 0;
 		}
 	}
 
@@ -25,7 +26,7 @@
 		max-width: 29.4rem;
 
 		@include mq(576px) {
-			max-width: 53rem;
+			max-width: 56rem;
 		}
 
 		&__item {
@@ -37,14 +38,26 @@
 			margin: 0 1.4rem 2rem 0;
 			padding: 1rem;
 
-			&:nth-child(2),
 			&:last-child {
 				margin-right: 0;
 			}
 
+			&:nth-child(2) {
+				margin-right: 0;
+				@include mq(576px) {
+					margin-right: 3rem;
+				}
+			}
+
+			&:nth-child(3) {
+				@include mq(576px) {
+					margin-right: 0;
+				}
+			}
+
 			@include mq(576px) {
 				font-size: 1.8rem;
-				margin: 0 0 3rem 3rem;
+				margin: 0 3rem 3rem 0;
 				padding: 1rem 2rem;
 			}
 
@@ -60,7 +73,7 @@
 
 				@include mq(576px) {
 					font-size: 1.8rem;
-					margin: 0 0 3rem 3rem;
+					margin: 0 3rem 3rem 0;
 					padding: 1rem 2rem;
 				}
 			}
@@ -68,6 +81,7 @@
 	}
 
 	&__search-container {
+		margin-top: 1rem;
 		position: relative;
 
 		.material-icons {
@@ -75,7 +89,7 @@
 			font-size: 3rem;
 			left: 1rem;
 			position: absolute;
-			top: 1.5rem;
+			top: 0.5rem;
 		}
 	}
 
@@ -83,7 +97,6 @@
 		border: solid 0.1rem var(--main-color);
 		border-radius: var(--radius);
 		font-size: 1.6rem;
-		margin-top: 1rem;
 		outline: none;
 		padding: 1rem 1rem 1rem 4.5rem;
 		width: 100%;
@@ -94,6 +107,10 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: 3rem;
+
+		@include mq(576px) {
+			margin-top: 4rem;
+		}
 	}
 
 	.product {
@@ -104,6 +121,11 @@
 		overflow: hidden;
 		position: relative;
 		width: 28rem;
+
+		@include mq(576px) {
+			height: 35.6rem;
+			width: 47.6rem;
+		}
 
 		&:last-child {
 			margin-bottom: 0;
@@ -117,10 +139,22 @@
 
 		&__shop-cart-box {
 			background-color: #fff;
-			padding: 0.5rem;
+			padding: 0.6rem;
 			position: absolute;
 			right: 0;
 			top: 0;
+
+			@include mq(576px) {
+				padding: 1.2rem;
+			}
+
+			.material-icons {
+				font-size: 1.8rem;
+
+				@include mq(576px) {
+					font-size: 2.5rem;
+				}
+			}
 		}
 
 		&__description-box {
@@ -133,18 +167,31 @@
 			bottom: 0;
 			height: 5rem;
 			width: 100%;
+
+			@include mq(576px) {
+				height: 6.2rem;
+				padding: 1.7rem 2rem;
+			}
 		}
 
 		&__name {
 			color: var(--main-color);
 			font-size: 1.6rem;
 			font-weight: bold;
+
+			@include mq(576px) {
+				font-size: 2.2rem;
+			}
 		}
 
 		&__price {
 			color: var(--dark-color);
 			font-size: 1.6rem;
 			font-weight: bold;
+
+			@include mq(576px) {
+				font-size: 2.2rem;
+			}
 		}
 	}
 }
