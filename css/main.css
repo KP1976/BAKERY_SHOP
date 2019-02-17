@@ -373,6 +373,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
 .hamburger-menu__bar {
   background-color: var(--main-color);
   border-radius: 0.3rem;
@@ -384,8 +390,73 @@ body {
   margin: 0.5rem 0;
 }
 
-.nav-menu {
+@media only screen and (min-width: 768px) {
+  .nav-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 4rem;
+  }
+}
+
+.nav-menu .menu-list {
   display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-menu .menu-list {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 2px dashed var(--secondary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 6rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    list-style-type: none;
+    padding: 0 3rem;
+    margin: 0 0 0 4rem;
+    width: 100%;
+  }
+  .nav-menu .menu-list__phone-number {
+    display: none;
+  }
+  .nav-menu .menu-list__item {
+    font-size: 1.6rem;
+  }
+  .nav-menu .menu-list__item .products-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+  }
+  .nav-menu .menu-list__item .products-btn .material-icons {
+    font-size: 3rem;
+  }
+  .nav-menu .menu-list__item .products-btn__quantity {
+    color: var(--main-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    right: 7px;
+    text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+    top: 0;
+  }
+  .nav-menu .menu-list__item .products-list {
+    display: none;
+  }
+  .nav-menu .menu-list__item:nth-child(4) {
+    cursor: pointer;
+  }
+  .nav-menu .menu-list__link {
+    color: var(--dark-color);
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
 }
 
 .main-title {
@@ -401,6 +472,15 @@ body {
   .main-title {
     font-size: 3rem;
     margin: 3.5rem 5rem 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main-title {
+    float: none;
+    font-size: 2.3rem;
+    margin: 0;
+    width: 12.3rem;
   }
 }
 
