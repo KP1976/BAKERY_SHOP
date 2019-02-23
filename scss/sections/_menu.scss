@@ -26,8 +26,41 @@
 
 .nav-menu {
 	@include mq(768px) {
+		align-items: center;
 		display: flex;
 		margin: 4rem;
+	}
+
+	@include mq(992px) {
+		justify-content: space-between;
+		margin: 5rem;
+	}
+
+	.main-title {
+		color: var(--secondary-color);
+		font-size: 2.3rem;
+		font-weight: bold;
+		margin: 2rem 2rem 0 0;
+		text-transform: uppercase;
+		float: right;
+
+		@include mq(576px) {
+			font-size: 3rem;
+			margin: 3.5rem 5rem 0 0;
+		}
+
+		@include mq(768px) {
+			float: none;
+			font-size: 2.3rem;
+			margin: 0;
+			width: 12.3rem;
+		}
+
+		@include mq(992px) {
+			font-size: 3rem;
+			margin: 0;
+			width: auto;
+		}
 	}
 
 	.menu-list {
@@ -88,26 +121,10 @@
 				text-decoration: none;
 			}
 		}
-	}
-}
 
-.main-title {
-	color: var(--secondary-color);
-	font-size: 2.3rem;
-	font-weight: bold;
-	margin: 2rem 2rem 0 0;
-	text-transform: uppercase;
-	float: right;
-
-	@include mq(576px) {
-		font-size: 3rem;
-		margin: 3.5rem 5rem 0 0;
-	}
-
-	@include mq(768px) {
-		float: none;
-		font-size: 2.3rem;
-		margin: 0;
-		width: 12.3rem;
+		@include mq(992px) {
+			margin: 0;
+			width: 59.5%;
+		}
 	}
 }
