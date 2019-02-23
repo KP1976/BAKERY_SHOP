@@ -11,12 +11,26 @@
 		padding: 0 4rem;
 	}
 
+	@include mq(992px) {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		grid-template-rows: repeat(5, auto);
+		grid-column-gap: 6.615%;
+		padding: 0 5rem;
+		flex-wrap: wrap;
+	}
+
 	&__image {
 		object-fit: cover;
 		width: 100%;
 
 		@include mq(576px) {
 			border-radius: var(--radius);
+		}
+
+		@include mq(992px) {
+			grid-column: 2 / 3;
+			grid-row: 1 / 6;
 		}
 	}
 
@@ -38,6 +52,17 @@
 			font-size: 5.5rem;
 			line-height: 5.5rem;
 			margin: 4rem 0 2rem 0;
+		}
+
+		@include mq(992px) {
+			align-self: end;
+			font-size: 4rem;
+			line-height: 4.5rem;
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+			margin: 0;
+			text-align: left;
+			width: 30.5rem;
 		}
 	}
 
@@ -62,10 +87,21 @@
 			margin: 0 0 6rem 0;
 			padding: 0 12.3rem;
 		}
+
+		@include mq(992px) {
+			font-size: 1.8rem;
+			grid-column: 1 / 2;
+			grid-row: 3 / 4;
+			line-height: 2.6rem;
+			margin: 2rem 0 5rem;
+			padding: 0;
+			text-align: left;
+		}
 	}
 
 	&__cta-btn {
 		@include button(20rem, 1.6rem);
+		margin: 0 auto;
 		padding: 1.8rem 1.7rem;
 
 		@include mq(576px) {
@@ -76,6 +112,14 @@
 		@include mq(768px) {
 			@include button(33rem, 2.6rem);
 			padding: 1.9rem 3rem;
+		}
+
+		@include mq(992px) {
+			@include button(26.8rem, 2rem);
+			grid-column: 1 / 2;
+			grid-row: 4 / 5;
+			margin: 0;
+			padding: 1.5rem 3rem;
 		}
 	}
 
