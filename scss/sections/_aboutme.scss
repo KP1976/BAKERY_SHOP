@@ -12,6 +12,14 @@
 		padding: 10rem 10.4rem 0;
 	}
 
+	@include mq(992px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(6, auto);
+		grid-column-gap: 10.3%;
+		padding: 10rem 5rem 0;
+	}
+
 	&__title {
 		@include titles(2.3rem);
 		margin-bottom: 4rem;
@@ -23,6 +31,10 @@
 
 		@include mq(768px) {
 			@include titles(4rem);
+		}
+
+		@include mq(992px) {
+			grid-column: 1 / -1;
 		}
 	}
 
@@ -45,6 +57,14 @@
 			line-height: 3.3rem;
 			padding: 0;
 		}
+
+		@include mq(992px) {
+			font-size: 1.8rem;
+			grid-column: 2 / 3;
+			grid-row: 4 / 5;
+			line-height: 2.6rem;
+			text-align: left;
+		}
 	}
 
 	&__image {
@@ -61,6 +81,12 @@
 		@include mq(765px) {
 			margin-bottom: 5rem;
 		}
+
+		@include mq(992px) {
+			grid-column: 1 / 2;
+			grid-row: 3 / 7;
+			margin-bottom: 0;
+		}
 	}
 
 	&__button {
@@ -73,9 +99,17 @@
 			padding: 2.1rem 2.6rem;
 		}
 
-		@include mq(576px) {
+		@include mq(768px) {
 			@include button(17.2rem, 2.6rem);
 			padding: 1.9rem 3rem;
+		}
+
+		@include mq(992px) {
+			@include button(14.6rem, 2rem);
+			grid-column: 2 / 3;
+			grid-row: 5 / 6;
+			margin: 0;
+			padding: 1.5rem 3rem;
 		}
 	}
 }
