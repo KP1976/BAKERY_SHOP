@@ -675,6 +675,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .about-us {
+    padding: 10rem 10.4rem 0;
+  }
+}
+
 .about-us__title {
   color: var(--dark-color);
   font-size: 2.3rem;
@@ -690,6 +696,15 @@ body {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about-us__title {
+    color: var(--dark-color);
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -710,6 +725,14 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .about-us__text {
+    font-size: 2.2rem;
+    line-height: 3.3rem;
+    padding: 0;
+  }
+}
+
 .about-us__image {
   border-radius: var(--radius);
   display: block;
@@ -722,6 +745,12 @@ body {
 @media only screen and (min-width: 576px) {
   .about-us__image {
     margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (min-width: 765px) {
+  .about-us__image {
+    margin-bottom: 5rem;
   }
 }
 
@@ -758,6 +787,25 @@ body {
     text-transform: uppercase;
     width: 14.8rem;
     padding: 2.1rem 2.6rem;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .about-us__button {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: var(--radius);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 17.2rem;
+    padding: 1.9rem 3rem;
   }
 }
 
@@ -1040,6 +1088,13 @@ body {
     height: 0;
     margin-bottom: 4rem;
     width: 38rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .title-underline {
+    margin-bottom: 5rem;
+    width: 45rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
