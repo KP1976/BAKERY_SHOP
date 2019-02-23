@@ -5,6 +5,10 @@
 		padding: 8rem 5rem 0;
 	}
 
+	@include mq(768px) {
+		padding: 10rem 4rem 0;
+	}
+
 	&__title {
 		@include titles(2.3rem);
 		margin-bottom: 4rem;
@@ -12,6 +16,10 @@
 		@include mq(576px) {
 			@include titles(3rem);
 			margin-bottom: 0;
+		}
+
+		@include mq(768px) {
+			@include titles(4rem);
 		}
 	}
 
@@ -27,6 +35,10 @@
 
 		@include mq(576px) {
 			max-width: 56rem;
+		}
+
+		@include mq(768px) {
+			max-width: 66rem;
 		}
 
 		&__item {
@@ -47,6 +59,10 @@
 				@include mq(576px) {
 					margin-right: 3rem;
 				}
+
+				@include mq(768px) {
+					margin-right: 4rem;
+				}
 			}
 
 			&:nth-child(3) {
@@ -59,6 +75,12 @@
 				font-size: 1.8rem;
 				margin: 0 3rem 3rem 0;
 				padding: 1rem 2rem;
+			}
+
+			@include mq(768px) {
+				font-size: 2.2rem;
+				margin: 0 4rem 4rem 0;
+				padding: 0.9rem 2rem;
 			}
 
 			&--selected {
@@ -76,6 +98,12 @@
 					margin: 0 3rem 3rem 0;
 					padding: 1rem 2rem;
 				}
+
+				@include mq(768px) {
+					font-size: 2.2rem;
+					margin: 0 4rem 4rem 0;
+					padding: 0.9rem 2rem;
+				}
 			}
 		}
 	}
@@ -83,6 +111,11 @@
 	&__search-container {
 		margin-top: 1rem;
 		position: relative;
+
+		@include mq(768px) {
+			margin: 1rem auto 0;
+			max-width: 70rem;
+		}
 
 		.material-icons {
 			color: var(--main-color);
@@ -111,6 +144,14 @@
 		@include mq(576px) {
 			margin-top: 4rem;
 		}
+
+		@include mq(768px) {
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			justify-content: space-between;
+			margin: 5rem auto 0;
+			max-width: 70rem;
+		}
 	}
 
 	.product {
@@ -126,6 +167,12 @@
 			height: 35.6rem;
 			margin: 0 0 5rem 0;
 			width: 47.6rem;
+		}
+
+		@include mq(768px) {
+			height: 24rem;
+			margin: 0 0 4rem 0;
+			width: 32rem;
 		}
 
 		&:last-child {
@@ -149,11 +196,19 @@
 				padding: 1.2rem;
 			}
 
+			@include mq(768px) {
+				padding: 0.7rem;
+			}
+
 			.material-icons {
 				font-size: 1.8rem;
 
 				@include mq(576px) {
 					font-size: 2.5rem;
+				}
+
+				@include mq(768px) {
+					font-size: 2.065rem;
 				}
 			}
 		}
@@ -173,6 +228,11 @@
 				height: 6.2rem;
 				padding: 1.7rem 2rem;
 			}
+
+			@include mq(768px) {
+				height: 5.7rem;
+				padding: 1.9rem;
+			}
 		}
 
 		&__name {
@@ -183,6 +243,10 @@
 			@include mq(576px) {
 				font-size: 2.2rem;
 			}
+
+			@include mq(768px) {
+				font-size: 1.7rem;
+			}
 		}
 
 		&__price {
@@ -192,6 +256,10 @@
 
 			@include mq(576px) {
 				font-size: 2.2rem;
+			}
+
+			@include mq(768px) {
+				font-size: 1.7rem;
 			}
 		}
 	}
