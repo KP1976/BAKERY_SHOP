@@ -6,6 +6,11 @@
 		padding: 0 5rem;
 	}
 
+	@include mq(768px) {
+		margin-top: 0;
+		padding: 0 4rem;
+	}
+
 	&__image {
 		object-fit: cover;
 		width: 100%;
@@ -28,21 +33,34 @@
 			line-height: 3.8rem;
 			margin: 4rem 0 1.5rem 0;
 		}
+
+		@include mq(768px) {
+			font-size: 5.5rem;
+			line-height: 5.5rem;
+			margin: 4rem 0 2rem 0;
+		}
 	}
 
 	&__text {
 		color: var(--dark-color);
 		font-size: 1.6rem;
 		line-height: 2.5rem;
-		margin-bottom: 4rem;
+		margin: 0 0 4rem 0;
 		padding: 0 3.4rem;
 		text-align: center;
 
 		@include mq(576px) {
 			font-size: 1.8rem;
 			line-height: 2.8rem;
-			margin-bottom: 5rem;
+			margin: 0 0 5rem 0;
 			padding: 0 5.7rem;
+		}
+
+		@include mq(768px) {
+			font-size: 2.2rem;
+			line-height: 3.3rem;
+			margin: 0 0 6rem 0;
+			padding: 0 12.3rem;
 		}
 	}
 
@@ -54,6 +72,11 @@
 			@include button(28rem, 2.2rem);
 			padding: 2.1rem 2.6rem;
 		}
+
+		@include mq(768px) {
+			@include button(33rem, 2.6rem);
+			padding: 1.9rem 3rem;
+		}
 	}
 
 	&__gradient_graphic {
@@ -62,6 +85,10 @@
 
 		@include mq(576px) {
 			height: 14rem;
+		}
+
+		@include mq(768px) {
+			display: none;
 		}
 
 		&::before {
