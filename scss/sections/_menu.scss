@@ -35,7 +35,12 @@
 		margin: 5rem 5rem 10rem;
 		display: grid;
 		grid-column-gap: 6.615%;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: auto 2fr;
+	}
+
+	@include mq(1200px) {
+		margin: 5rem 5rem 7.5rem;
+		grid-column-gap: 6.815%;
 	}
 
 	.main-title {
@@ -81,10 +86,32 @@
 
 			&__phone-number {
 				display: none;
+
+				@include mq(1200px) {
+					color: var(--main-color);
+					display: inline-block;
+					font-size: 1.8rem;
+					font-weight: bold;
+					margin: 0 0 0 2rem;
+					position: relative;
+				}
+
+				.material-icons {
+					color: var(--main-color);
+					font-size: 3rem;
+					left: -2.5rem;
+					position: absolute;
+					top: -5px;
+					transform: rotate(45deg);
+				}
 			}
 
 			&__item {
 				font-size: 1.6rem;
+
+				@include mq(1200px) {
+					font-size: 1.8rem;
+				}
 
 				.products-btn {
 					background: transparent;
@@ -95,6 +122,10 @@
 
 					.material-icons {
 						font-size: 3rem;
+
+						@include mq(1200px) {
+							font-size: 4rem;
+						}
 					}
 
 					&__quantity {
@@ -105,6 +136,11 @@
 						right: 7px;
 						text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
 						top: 0;
+
+						@include mq(1200px) {
+							right: 12px;
+							top: -5px;
+						}
 					}
 				}
 
@@ -114,6 +150,10 @@
 
 				&:nth-child(4) {
 					cursor: pointer;
+
+					@include mq(1200px) {
+						cursor: auto;
+					}
 				}
 			}
 
@@ -121,12 +161,19 @@
 				color: var(--dark-color);
 				font-size: 1.6rem;
 				text-decoration: none;
+
+				@include mq(1200px) {
+					font-size: 1.8rem;
+				}
 			}
 		}
 
 		@include mq(992px) {
 			margin: 0;
-			// width: 100%;
+		}
+
+		@include mq(1200px) {
+			height: 8rem;
 		}
 	}
 }
