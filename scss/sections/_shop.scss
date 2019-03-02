@@ -25,6 +25,11 @@
 		@include mq(768px) {
 			@include titles(4rem);
 		}
+
+		@include mq(1200px) {
+			@include titles(5rem);
+			margin-bottom: 5rem;
+		}
 	}
 
 	.search-tabs {
@@ -49,6 +54,11 @@
 			max-width: 100%;
 		}
 
+		@include mq(1200px) {
+			justify-content: space-between;
+			max-width: 120rem;
+		}
+
 		&__item {
 			border: solid 0.1rem var(--dark-color);
 			border-radius: var(--radius);
@@ -57,31 +67,6 @@
 			font-size: 1.6rem;
 			margin: 0 1.4rem 2rem 0;
 			padding: 1rem;
-
-			&:last-child {
-				margin-right: 0;
-			}
-
-			&:nth-child(2) {
-				margin-right: 0;
-				@include mq(576px) {
-					margin-right: 3rem;
-				}
-
-				@include mq(768px) {
-					margin-right: 4rem;
-				}
-			}
-
-			&:nth-child(3) {
-				@include mq(576px) {
-					margin-right: 0;
-				}
-
-				@include mq(992px) {
-					margin-right: 4rem;
-				}
-			}
 
 			@include mq(576px) {
 				font-size: 1.8rem;
@@ -97,6 +82,45 @@
 
 			@include mq(992px) {
 				margin: 0 4rem 5rem 0;
+			}
+
+			@include mq(1200px) {
+				font-size: 2.6rem;
+				margin: 0 0 5rem 0;
+				padding: 0.9rem 3.5rem;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&:nth-child(2) {
+				margin-right: 0;
+				@include mq(576px) {
+					margin-right: 3rem;
+				}
+
+				@include mq(768px) {
+					margin-right: 4rem;
+				}
+
+				@include mq(1200px) {
+					margin-right: 0;
+				}
+			}
+
+			&:nth-child(3) {
+				@include mq(576px) {
+					margin-right: 0;
+				}
+
+				@include mq(992px) {
+					margin-right: 4rem;
+				}
+
+				@include mq(1200px) {
+					margin-right: 0;
+				}
 			}
 
 			&--selected {
@@ -124,6 +148,12 @@
 				@include mq(992px) {
 					margin: 0 4rem 5rem 0;
 				}
+
+				@include mq(1200px) {
+					font-size: 2.6rem;
+					margin: 0 0 5rem 0;
+					padding: 0.9rem 3.5rem;
+				}
 			}
 		}
 	}
@@ -141,12 +171,20 @@
 			max-width: 60rem;
 		}
 
+		@include mq(1200px) {
+			max-width: 70rem;
+		}
+
 		.material-icons {
 			color: var(--main-color);
 			font-size: 3rem;
 			left: 1rem;
 			position: absolute;
-			top: 0.5rem;
+
+			@include mq(1200px) {
+				left: 1.5rem;
+				top: 1.2rem;
+			}
 		}
 	}
 
@@ -157,6 +195,11 @@
 		outline: none;
 		padding: 1rem 1rem 1rem 4.5rem;
 		width: 100%;
+
+		@include mq(1200px) {
+			font-size: 1.8rem;
+			padding: 1.5rem 1rem 1.5rem 5.5rem;
+		}
 	}
 
 	&__products {
@@ -180,8 +223,15 @@
 
 		@include mq(992px) {
 			justify-content: space-around;
+			justify-content: space-around;
 			margin: 6rem auto 0;
 			max-width: 100%;
+		}
+
+		@include mq(1200px) {
+			justify-content: space-between;
+			grid-row-gap: 7rem;
+			grid-template-columns: repeat(3, auto);
 		}
 	}
 
@@ -209,6 +259,11 @@
 		@include mq(992px) {
 			height: 30rem;
 			width: 40rem;
+		}
+
+		@include mq(1200px) {
+			height: 24rem;
+			width: 32rem;
 		}
 
 		&:last-child {
@@ -247,6 +302,10 @@
 				padding: 0.85rem;
 			}
 
+			@include mq(1200px) {
+				padding: 0.7rem;
+			}
+
 			.material-icons {
 				font-size: 1.8rem;
 
@@ -260,6 +319,10 @@
 
 				@include mq(992px) {
 					font-size: 2.6rem;
+				}
+
+				@include mq(1200px) {
+					font-size: 2.057rem;
 				}
 			}
 		}
@@ -289,6 +352,11 @@
 				height: 7.2rem;
 				padding: 2.3rem;
 			}
+
+			@include mq(1200px) {
+				height: 5.7rem;
+				padding: 1.9rem;
+			}
 		}
 
 		&__name {
@@ -307,6 +375,10 @@
 			@include mq(992px) {
 				font-size: 2.1rem;
 			}
+
+			@include mq(1200px) {
+				font-size: 1.7rem;
+			}
 		}
 
 		&__price {
@@ -324,6 +396,10 @@
 
 			@include mq(992px) {
 				font-size: 2.1rem;
+			}
+
+			@include mq(1200px) {
+				font-size: 1.7rem;
 			}
 		}
 	}
