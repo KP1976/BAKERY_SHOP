@@ -422,11 +422,11 @@ body {
 
 @media only screen and (min-width: 1600px) {
   .nav-menu {
-    -ms-grid-columns: auto 90rem;
-        grid-template-columns: auto 90rem;
-    grid-column-gap: auto;
+    -ms-grid-columns: auto 85rem;
+        grid-template-columns: auto 85rem;
+    grid-column-gap: unset;
     margin: 5rem auto 7.5rem;
-    width: 160rem;
+    width: 150rem;
   }
 }
 
@@ -538,6 +538,7 @@ body {
 
 @media only screen and (min-width: 768px) and (min-width: 1600px) {
   .nav-menu .menu-list__item {
+    font-size: 2rem;
     margin-right: 3rem;
   }
 }
@@ -673,9 +674,18 @@ body {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   .header {
     grid-column-gap: 6.545%;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .header {
+    grid-column-gap: unset;
+    margin: 0 auto;
+    padding: 0;
+    width: 150rem;
   }
 }
 
@@ -699,6 +709,13 @@ body {
     -ms-grid-row: 1;
     -ms-grid-row-span: 5;
     grid-row: 1 / 6;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .header__image {
+    margin-left: auto;
+    width: 85rem;
   }
 }
 
@@ -754,6 +771,13 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .header__title {
+    font-size: 7.2rem;
+    line-height: 8rem;
+  }
+}
+
 .header__text {
   color: var(--dark-color);
   font-size: 1.6rem;
@@ -806,6 +830,15 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .header__text {
+    font-size: 2.6rem;
+    line-height: 4rem;
+    margin: 2rem 0 8rem;
+    width: 37rem;
+  }
+}
+
 .header__cta-btn {
   background-color: var(--main-color);
   border: none;
@@ -820,7 +853,7 @@ body {
   text-transform: uppercase;
   width: 20rem;
   margin: 0 auto;
-  padding: 1.8rem 1.7rem;
+  padding: 1.8rem 0;
 }
 
 @media only screen and (min-width: 576px) {
@@ -855,7 +888,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     width: 33rem;
-    padding: 1.9rem 3rem;
+    padding: 1.9rem 0;
   }
 }
 
@@ -880,7 +913,25 @@ body {
     -ms-grid-row-span: 1;
     grid-row: 4 / 5;
     margin: 0;
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 0;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .header__cta-btn {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: var(--radius);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 39.2rem;
+    padding: 2.1rem 0;
   }
 }
 

@@ -44,10 +44,10 @@
 	}
 
 	@include mq(1600px) {
-		grid-template-columns: auto 90rem;
-		grid-column-gap: auto;
+		grid-template-columns: auto 85rem;
+		grid-column-gap: unset;
 		margin: 5rem auto 7.5rem;
-		width: 160rem;
+		width: 150rem;
 	}
 
 	.main-title {
@@ -131,6 +131,7 @@
 				}
 
 				@include mq(1600px) {
+					font-size: 2rem;
 					margin-right: 3rem;
 				}
 

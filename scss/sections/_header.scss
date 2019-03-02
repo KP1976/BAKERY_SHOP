@@ -19,8 +19,15 @@
 		padding: 0 5rem;
 	}
 
-	@include mq(992px) {
+	@include mq(1200px) {
 		grid-column-gap: 6.545%;
+	}
+
+	@include mq(1600px) {
+		grid-column-gap: unset;
+		margin: 0 auto;
+		padding: 0;
+		width: 150rem;
 	}
 
 	&__image {
@@ -34,6 +41,11 @@
 		@include mq(992px) {
 			grid-column: 2 / 3;
 			grid-row: 1 / 6;
+		}
+
+		@include mq(1600px) {
+			margin-left: auto;
+			width: 85rem;
 		}
 	}
 
@@ -72,6 +84,11 @@
 			font-size: 5rem;
 			line-height: 5.5rem;
 			width: 100%;
+		}
+
+		@include mq(1600px) {
+			font-size: 7.2rem;
+			line-height: 8rem;
 		}
 	}
 
@@ -113,12 +130,19 @@
 			margin: 2rem 0 6rem;
 			width: 78%;
 		}
+
+		@include mq(1600px) {
+			font-size: 2.6rem;
+			line-height: 4rem;
+			margin: 2rem 0 8rem;
+			width: 37rem;
+		}
 	}
 
 	&__cta-btn {
 		@include button(20rem, 1.6rem);
 		margin: 0 auto;
-		padding: 1.8rem 1.7rem;
+		padding: 1.8rem 0;
 
 		@include mq(576px) {
 			@include button(28rem, 2.2rem);
@@ -127,7 +151,7 @@
 
 		@include mq(768px) {
 			@include button(33rem, 2.6rem);
-			padding: 1.9rem 3rem;
+			padding: 1.9rem 0;
 		}
 
 		@include mq(992px) {
@@ -135,7 +159,12 @@
 			grid-column: 1 / 2;
 			grid-row: 4 / 5;
 			margin: 0;
-			padding: 1.5rem 3rem;
+			padding: 1.5rem 0;
+		}
+
+		@include mq(1600px) {
+			@include button(39.2rem, 3rem);
+			padding: 2.1rem 0;
 		}
 	}
 
