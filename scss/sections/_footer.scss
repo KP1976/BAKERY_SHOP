@@ -8,4 +8,8 @@
 	@include mq(576px) {
 		padding: 5rem 0;
 	}
+
+	@include mq(1200px) {
+		padding: 7.5rem 0;
+	}
 }
