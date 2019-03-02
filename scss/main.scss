@@ -53,4 +53,8 @@ h6 {
 		margin-bottom: 6rem;
 		grid-column: 1 / -1;
 	}
+
+	@include mq(1200px) {
+		display: none;
+	}
 }

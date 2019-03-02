@@ -20,6 +20,10 @@
 		padding: 10rem 5rem 0;
 	}
 
+	@include mq(992px) {
+		grid-column-gap: 7.65%;
+	}
+
 	&__title {
 		@include titles(2.3rem);
 		margin-bottom: 4rem;
@@ -35,6 +39,11 @@
 
 		@include mq(992px) {
 			grid-column: 1 / -1;
+		}
+
+		@include mq(1200px) {
+			@include titles(5rem);
+			margin-bottom: 5rem;
 		}
 	}
 
@@ -64,6 +73,12 @@
 			grid-row: 4 / 5;
 			line-height: 2.6rem;
 			text-align: left;
+		}
+
+		@include mq(1200px) {
+			font-size: 2rem;
+			line-height: 3rem;
+			margin: 0 0 6rem 0;
 		}
 	}
 
