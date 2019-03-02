@@ -622,6 +622,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 992px) {
+  .header {
+    grid-column-gap: 6.545%;
+  }
+}
+
 .header__image {
   -o-object-fit: cover;
      object-fit: cover;
@@ -689,6 +695,14 @@ body {
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .header__title {
+    font-size: 5rem;
+    line-height: 5.5rem;
+    width: 100%;
+  }
+}
+
 .header__text {
   color: var(--dark-color);
   font-size: 1.6rem;
@@ -729,6 +743,15 @@ body {
     margin: 2rem 0 5rem;
     padding: 0;
     text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header__text {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin: 2rem 0 6rem;
+    width: 78%;
   }
 }
 
