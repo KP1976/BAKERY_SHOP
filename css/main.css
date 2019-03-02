@@ -404,19 +404,29 @@ body {
 
 @media only screen and (min-width: 992px) {
   .nav-menu {
-    margin: 5rem 5rem 10rem;
     display: -ms-grid;
     display: grid;
     grid-column-gap: 6.615%;
     -ms-grid-columns: auto 2fr;
         grid-template-columns: auto 2fr;
+    margin: 5rem 5rem 10rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .nav-menu {
-    margin: 5rem 5rem 7.5rem;
     grid-column-gap: 6.815%;
+    margin: 5rem 5rem 7.5rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .nav-menu {
+    -ms-grid-columns: auto 90rem;
+        grid-template-columns: auto 90rem;
+    grid-column-gap: auto;
+    margin: 5rem auto 7.5rem;
+    width: 160rem;
   }
 }
 
@@ -450,6 +460,14 @@ body {
     font-size: 3rem;
     margin: 0;
     width: 30.5rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .nav-menu .main-title {
+    font-size: 4rem;
+    margin: 0;
+    width: auto;
   }
 }
 
@@ -491,6 +509,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) and (min-width: 1600px) {
+  .nav-menu .menu-list__phone-number {
+    font-size: 2rem;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .nav-menu .menu-list__phone-number .material-icons {
     color: var(--main-color);
@@ -509,6 +533,12 @@ body {
 @media only screen and (min-width: 768px) and (min-width: 1200px) {
   .nav-menu .menu-list__item {
     font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-width: 1600px) {
+  .nav-menu .menu-list__item {
+    margin-right: 3rem;
   }
 }
 
@@ -565,6 +595,13 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) and (min-width: 1600px) {
+  .nav-menu .menu-list__item:last-child {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .nav-menu .menu-list__link {
     color: var(--dark-color);
@@ -579,6 +616,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) and (min-width: 1600px) {
+  .nav-menu .menu-list__link {
+    font-size: 2rem;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .nav-menu .menu-list {
     margin: 0;
@@ -588,6 +631,14 @@ body {
 @media only screen and (min-width: 1200px) {
   .nav-menu .menu-list {
     height: 8rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .nav-menu .menu-list {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 
@@ -947,10 +998,6 @@ body {
 
 @media only screen and (min-width: 1200px) {
   .about-us__title {
-    color: var(--dark-color);
-    font-size: 5rem;
-    text-align: center;
-    text-transform: uppercase;
     margin-bottom: 5rem;
   }
 }
@@ -1164,10 +1211,6 @@ body {
 
 @media only screen and (min-width: 1200px) {
   .shop__title {
-    color: var(--dark-color);
-    font-size: 5rem;
-    text-align: center;
-    text-transform: uppercase;
     margin-bottom: 5rem;
   }
 }

@@ -27,7 +27,6 @@
 		}
 
 		@include mq(1200px) {
-			@include titles(5rem);
 			margin-bottom: 5rem;
 		}
 	}
