@@ -52,6 +52,7 @@ h6 {
 	@include mq(992px) {
 		margin-bottom: 6rem;
 		grid-column: 1 / -1;
+		grid-row: 2 / 3;
 	}
 
 	@include mq(1200px) {

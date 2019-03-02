@@ -22,6 +22,7 @@
 @mixin titles($font-size) {
 	color: var(--dark-color);
 	font-size: $font-size;
+	line-height: $font-size;
 	text-align: center;
 	text-transform: uppercase;
 }

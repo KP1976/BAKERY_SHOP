@@ -13,6 +13,10 @@
 		padding: 10rem 5rem 0;
 	}
 
+	@include mq(1200px) {
+		padding: 5rem 5rem 0;
+	}
+
 	&__title {
 		@include titles(2.3rem);
 		margin-bottom: 4rem;
