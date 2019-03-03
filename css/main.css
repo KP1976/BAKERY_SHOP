@@ -1588,6 +1588,7 @@ body {
   font-size: 3rem;
   left: 1rem;
   position: absolute;
+  top: 0.5rem;
 }
 
 @media only screen and (min-width: 1200px) {
