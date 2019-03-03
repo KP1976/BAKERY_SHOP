@@ -1458,6 +1458,14 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .shop .search-tabs__item {
+    font-size: 3rem;
+    margin: 0 0 5rem 0;
+    padding: 1.3rem 3rem;
+  }
+}
+
 .shop .search-tabs__item:last-child {
   margin-right: 0;
 }
@@ -1540,6 +1548,14 @@ body {
     font-size: 2.6rem;
     margin: 0 0 5rem 0;
     padding: 0.9rem 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .shop .search-tabs__item--selected {
+    font-size: 3rem;
+    margin: 0 0 5rem 0;
+    padding: 1.3rem 3rem;
   }
 }
 
@@ -1647,9 +1663,14 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    grid-row-gap: 7rem;
     -ms-grid-columns: (auto)[3];
         grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .shop__products {
+    width: 150rem;
   }
 }
 
@@ -1691,6 +1712,13 @@ body {
   .shop .product {
     height: 24rem;
     width: 32rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .shop .product {
+    height: 33.7rem;
+    width: 45rem;
   }
 }
 
@@ -1743,6 +1771,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .shop .product__shop-cart-box {
+    padding: 1.1rem;
+  }
+}
+
 .shop .product__shop-cart-box .material-icons {
   font-size: 1.8rem;
 }
@@ -1768,6 +1802,12 @@ body {
 @media only screen and (min-width: 1200px) {
   .shop .product__shop-cart-box .material-icons {
     font-size: 2.057rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .shop .product__shop-cart-box .material-icons {
+    font-size: 3.2rem;
   }
 }
 
@@ -1817,6 +1857,13 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .shop .product__description-box {
+    height: 8rem;
+    padding: 2.5rem;
+  }
+}
+
 .shop .product__name {
   color: var(--main-color);
   font-size: 1.6rem;
@@ -1847,6 +1894,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 1600px) {
+  .shop .product__name {
+    font-size: 2.5rem;
+  }
+}
+
 .shop .product__price {
   color: var(--dark-color);
   font-size: 1.6rem;
@@ -1874,6 +1927,12 @@ body {
 @media only screen and (min-width: 1200px) {
   .shop .product__price {
     font-size: 1.7rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .shop .product__price {
+    font-size: 2.5rem;
   }
 }
 
