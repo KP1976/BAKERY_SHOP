@@ -363,7 +363,7 @@ body {
 .hamburger-menu {
   display: inline-block;
   height: 2.5rem;
-  margin: 2rem 0 0 2rem;
+  margin: 0;
   width: 3rem;
 }
 
@@ -388,6 +388,15 @@ body {
 
 .hamburger-menu__bar:nth-child(even) {
   margin: 0.5rem 0;
+}
+
+.nav-menu {
+  background-color: #fff;
+  padding: 2rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 @media only screen and (min-width: 768px) {
@@ -434,7 +443,7 @@ body {
   color: var(--secondary-color);
   font-size: 2.3rem;
   font-weight: bold;
-  margin: 2rem 2rem 0 0;
+  margin: 0;
   text-transform: uppercase;
   float: right;
 }
@@ -644,7 +653,7 @@ body {
 }
 
 .header {
-  margin-top: 3rem;
+  margin-top: 7.7rem;
   overflow: hidden;
 }
 

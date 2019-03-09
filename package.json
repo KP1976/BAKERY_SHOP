@@ -1,0 +1,23 @@
+{
+	"name": "bakery_shop",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KP1976/BAKERY_SHOP.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/KP1976/BAKERY_SHOP/issues"
+	},
+	"homepage": "https://github.com/KP1976/BAKERY_SHOP#readme",
+	"devDependencies": {
+		"eslint": "^5.15.1"
+	}
+}
