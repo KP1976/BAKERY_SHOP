@@ -28,6 +28,7 @@ const showMenu = () => {
 const showProducts = () => {
 	productsList.classList.toggle('is-visible');
 	products.forEach(item => item.classList.toggle('show'));
+	productsListButton.classList.toggle('open');
 };
 
 hamburgerMenu.addEventListener('click', showMenu);

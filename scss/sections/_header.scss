@@ -1,8 +1,9 @@
 .header {
-	margin-top: 7.7rem;
+	margin-top: 6.7rem;
 	overflow: hidden;
 
 	@include mq(576px) {
+		margin-top: 11rem;
 		padding: 0 5rem;
 	}
 

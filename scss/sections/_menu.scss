@@ -5,10 +5,6 @@
 	position: relative;
 	width: 3rem;
 
-	@include mq(576px) {
-		margin: 4rem 0 0 5rem;
-	}
-
 	@include mq(768px) {
 		display: none;
 	}
@@ -56,6 +52,10 @@
 	width: 100%;
 	z-index: 2;
 
+	@include mq(576px) {
+		padding: 4em 5rem;
+	}
+
 	@include mq(768px) {
 		align-items: center;
 		display: flex;
@@ -91,7 +91,7 @@
 
 		@include mq(576px) {
 			font-size: 3rem;
-			margin: 3.5rem 5rem 0 0;
+			line-height: 3rem;
 		}
 
 		@include mq(768px) {
@@ -133,6 +133,12 @@
 	width: calc(100% - 4rem);
 	z-index: 2;
 
+	@include mq(576px) {
+		margin: 0 5rem;
+		top: 11rem;
+		width: calc(100% - 10rem);
+	}
+
 	&.is-visible {
 		height: auto;
 		max-height: 2000px;
@@ -143,7 +149,7 @@
 		color: #fff;
 		font-size: 1.6rem;
 		font-weight: bold;
-		padding: 1rem 0;
+		padding: 1.8rem 0;
 		text-align: center;
 		visibility: hidden;
 
@@ -185,10 +191,11 @@
 		color: var(--dark-color);
 		display: flex;
 		font-size: 1.6rem;
-		height: 3.8rem;
-		margin: 1rem 2rem;
+		height: 5.4rem;
+		justify-content: center;
+		margin: 0 2rem;
 		outline: none;
-		padding: 1rem 2rem;
+		padding: 1.8rem 2rem;
 		width: calc(100% - 4rem);
 
 		.material-icons {
@@ -207,6 +214,12 @@
 			font-weight: bold;
 			margin: 0 0.5rem;
 			font-size: 1.6rem;
+		}
+
+		&.open {
+			border: none;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
 		}
 	}
 
@@ -229,10 +242,21 @@
 		&__product {
 			border-bottom: 1px solid rgba(52, 30, 25, 0.2);
 			color: var(--dark-color);
+			display: grid;
 			font-size: 1.6rem;
 			font-weight: normal;
+			grid-template-columns: 8fr 1fr;
+			grid-row-gap: 0.5rem;
 			visibility: hidden;
-			padding: 1rem 0;
+			padding: 1.8rem 0;
+
+			@include mq(576px) {
+				align-items: center;
+
+				grid-template-columns: 5fr 2fr 0.5fr;
+				text-align: left;
+				width: 100%;
+			}
 
 			&.show {
 				visibility: visible;
@@ -243,12 +267,26 @@
 			display: block;
 			font-size: 1.6rem;
 			font-weight: bold;
-			margin-top: 0.5rem;
+			grid-row: 2 / 3;
+
+			@include mq(576px) {
+				grid-column: 2 / 3;
+				grid-row: 1 / 2;
+				justify-self: end;
+			}
 		}
 
 		&__trash-can {
+			grid-row: 2 / 3;
+
+			@include mq(576px) {
+				grid-column: 3 / 4;
+				grid-row: 1 / 2;
+				justify-self: end;
+			}
+
 			.material-icons {
-				font-size: 1.6rem;
+				font-size: 1.8rem;
 			}
 		}
 	}
