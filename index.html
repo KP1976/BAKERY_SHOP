@@ -23,43 +23,71 @@
 			</div>
 
 			<h1 class="main-title">domowe wypieki</h1>
-
-			<ul class="menu-list">
-				<li class="menu-list__item"><a href="#home" class="menu-list__link">Strona główna</a></li>
-				<li class="menu-list__item"><a href="#aboutus" class="menu-list__link">O nas</a></li>
-				<li class="menu-list__item"><a href="#shop" class="menu-list__link">Sklep</a></li>
-				<li class="menu-list__item">
-					Kontakt
-					<p class="menu-list__phone-number"><i class="material-icons"> call </i> 999-999-999</p>
-				</li>
-				<li class="menu-list__item">
-					<button class="products-btn">
-						<i class="material-icons">shopping_cart</i>
-						<span class="products-btn__quantity">5</span>
-					</button>
-					<ul class="products-list">
-						<li class="products-list__product">
-							Malinowy cukierek <span class="products-list__price">1</span> zł <span class="product-list__trash-can"><i class="material-icons">delete</i>
-						</li>
-						<li class="products-list__product">
-							Babeczka cytrynowa <span class="products-list__price">5</span> zł
-							<span class="product-list__trash-can"><i class="material-icons">delete</i></span>
-						</li>
-						<li class="products-list__product">Makowiec <span class="products-list__price">6</span> zł <span class="product-list__trash-can"><i class="material-icons">delete</i></li>
-						<li class="products-list__product">
-							Cukierek cytrynowy <span class="products-list__price">2</span> zł <span class="product-list__trash-can"><i class="material-icons">delete</i>
-						</li>
-						<li class="products-list__product">Tort <span class="products-list__price">35</span> zł <span class="product-list__trash-can"><i class="material-icons">delete</i></li>
-					</ul>
-				</li>
-			</ul>
 		</nav>
+
+		<ul class="menu-list">
+			<li class="menu-list__item"><a href="#" class="menu-list__link">Strona główna</a></li>
+			<li class="menu-list__item"><a href="#aboutus" class="menu-list__link">O nas</a></li>
+			<li class="menu-list__item"><a href="#shop" class="menu-list__link">Sklep</a></li>
+			<li class="menu-list__item">
+				Kontakt
+				<p class="menu-list__phone-number"><i class="material-icons"> call </i> 999-999-999</p>
+			</li>
+			<li class="menu-list__item">
+				<button class="products-btn">
+					<i class="material-icons">shopping_cart</i>
+					<span class="products-btn__quantity">9 </span> produktów –
+					<span class="products-btn__total-price"> 72 zł</span>
+				</button>
+
+				<ul class="products-list">
+					<li class="products-list__product">
+						Babeczka cytrynowa
+						<span class="products-list__price">5 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Malinowy cukierek <span class="products-list__price">1 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Sernik <span class="products-list__price">10 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Beza <span class="products-list__price">3,5 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Makowiec <span class="products-list__price">6 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Donut z polewą <span class="products-list__price">4,5 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Cukierek cytrynowy <span class="products-list__price">2 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Tort <span class="products-list__price">35 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+					<li class="products-list__product">
+						Babeczka z owocami <span class="products-list__price">5 zł</span>
+						<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+					</li>
+				</ul>
+			</li>
+		</ul>
 
 		<!-- HEADER -->
 		<header class="header">
 			<img
 				class="header__image"
 				srcset="./img/header-photo_small.jpg 500w, ./img/header-photo.jpg 1000w"
+				sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 				src="./img/header-photo_small.jpg"
 				alt="cakes"
 			/>
@@ -70,7 +98,7 @@
 		</header>
 
 		<!-- SEKCJA O NAS -->
-		<section class="about-us">
+		<section class="about-us" id="aboutus">
 			<h2 class="about-us__title">o nas</h2>
 			<hr class="title-underline" />
 
@@ -82,6 +110,7 @@
 			<img
 				class="about-us__image"
 				srcset="./img/about_us_picture_small.jpg 500w, ./img/about_us_picture.jpg 1000w"
+				sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 				src="./img/about_us_picture_small.jpg"
 				alt="some cakes"
 			/>
@@ -89,7 +118,7 @@
 		</section>
 
 		<!-- SEKCJA SKLEP -->
-		<section class="shop">
+		<section class="shop" id="shop">
 			<h2 class="shop__title">sklep</h2>
 			<hr class="title-underline" />
 
@@ -111,6 +140,7 @@
 					<img
 						class="product__image"
 						srcset="./img/citrus_cupcake_small.jpg 500w, ./img/citrus_cupcake.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/citrus_cupcake_small.jpg"
 						alt="citric cupcake"
 					/>
@@ -127,6 +157,7 @@
 					<img
 						class="product__image"
 						srcset="./img/raspberry_candy_small.jpg 500w, ./img/raspberry_candy.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/raspberry_candy_small.jpg"
 						alt="raspberry candy"
 					/>
@@ -143,6 +174,7 @@
 					<img
 						class="product__image"
 						srcset="./img/cheese_cake_small.jpg 500w, ./img/cheese_cake.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/cheese_cake_small.jpg"
 						alt="cheese cake"
 					/>
@@ -159,6 +191,7 @@
 					<img
 						class="product__image"
 						srcset="./img/meringue_small.jpg 500w, ./img/meringue.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/meringue_small.jpg"
 						alt="meringue"
 					/>
@@ -175,6 +208,7 @@
 					<img
 						class="product__image"
 						srcset="./img/opium_cake_small.jpg 500w, ./img/opium_cake.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/opium_cake_small.jpg"
 						alt="opium cake"
 					/>
@@ -191,6 +225,7 @@
 					<img
 						class="product__image"
 						srcset="./img/donut1_small.jpg 500w, ./img/donut1.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/donut1_small.jpg"
 						alt="donut with chocolate"
 					/>
@@ -207,6 +242,7 @@
 					<img
 						class="product__image"
 						srcset="./img/citric_candy_small.jpg 500w, ./img/citric_candy.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/citric_candy_small.jpg"
 						alt="citric candy"
 					/>
@@ -223,6 +259,7 @@
 					<img
 						class="product__image"
 						srcset="./img/cake_small.jpg 500w, ./img/cake.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/cake_small.jpg"
 						alt="cake"
 					/>
@@ -239,6 +276,7 @@
 					<img
 						class="product__image"
 						srcset="./img/fruit_cupcake_small.jpg 500w, ./img/fruit_cupcake.jpg 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
 						src="./img/fruit_cupcake_small.jpg"
 						alt="fruit cupcake"
 					/>
