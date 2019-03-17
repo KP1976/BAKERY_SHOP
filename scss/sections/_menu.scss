@@ -53,13 +53,12 @@
 	z-index: 2;
 
 	@include mq(576px) {
-		padding: 4em 5rem;
+		padding: 4rem 5rem;
 	}
 
 	@include mq(768px) {
 		align-items: center;
 		display: flex;
-		margin: 4rem;
 	}
 
 	@include mq(992px) {
@@ -124,7 +123,7 @@
 	flex-direction: column;
 	height: 0;
 	list-style-type: none;
-	margin: 0 2rem;
+	margin: 0;
 	max-height: 0px;
 	padding: 0;
 	position: fixed;
@@ -134,7 +133,6 @@
 	z-index: 2;
 
 	@include mq(576px) {
-		margin: 0 5rem;
 		top: 11rem;
 		width: calc(100% - 10rem);
 	}
@@ -236,7 +234,11 @@
 
 		&.is-visible {
 			display: block;
-			max-height: 24.4rem;
+			max-height: 24rem;
+
+			@include mq(576px) {
+				max-height: 22.7rem;
+			}
 		}
 
 		&__product {
@@ -252,7 +254,6 @@
 
 			@include mq(576px) {
 				align-items: center;
-
 				grid-template-columns: 5fr 2fr 0.5fr;
 				text-align: left;
 				width: 100%;
