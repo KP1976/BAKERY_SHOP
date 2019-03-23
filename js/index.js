@@ -26,9 +26,16 @@ const showMenu = () => {
 };
 
 const showProducts = () => {
-	productsList.classList.toggle('is-visible');
-	products.forEach(item => item.classList.toggle('show'));
-	productsListButton.classList.toggle('open');
+	if (window.innerWidth < 768) {
+		productsList.classList.toggle('is-visible');
+		products.forEach(item => item.classList.toggle('show'));
+		productsListButton.classList.toggle('open');
+	} else {
+		productsList.style.position = 'absolute';
+		productsList.style.right = '4rem';
+		productsList.style.display = 'block';
+		products.forEach(item => item.classList.toggle('show'));
+	}
 };
 
 hamburgerMenu.addEventListener('click', showMenu);
