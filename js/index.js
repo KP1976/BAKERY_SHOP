@@ -31,9 +31,7 @@ const showProducts = () => {
 		products.forEach(item => item.classList.toggle('show'));
 		productsListButton.classList.toggle('open');
 	} else {
-		productsList.style.position = 'absolute';
-		productsList.style.right = '4rem';
-		productsList.style.display = 'block';
+		productsList.classList.toggle('is-visible');
 		products.forEach(item => item.classList.toggle('show'));
 	}
 };

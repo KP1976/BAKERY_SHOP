@@ -590,12 +590,6 @@ body {
   padding-bottom: 2rem;
 }
 
-@media only screen and (min-width: 768px) {
-  .menu-list__item:last-child {
-    cursor: pointer;
-  }
-}
-
 .menu-list__item.show {
   visibility: visible;
 }
@@ -759,6 +753,7 @@ body {
   background-color: #fff;
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
+  color: var(--dark-color);
   display: none;
   list-style-type: none;
   margin-left: 2rem;
@@ -769,7 +764,9 @@ body {
 
 @media only screen and (min-width: 768px) {
   .menu-list .products-list {
-    width: auto;
+    width: 35rem;
+    -webkit-box-shadow: 0 0 0 0.5rem #fff;
+            box-shadow: 0 0 0 0.5rem #fff;
   }
 }
 
@@ -784,13 +781,22 @@ body {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .menu-list .products-list.is-visible {
+    border: dashed 2px var(--secondary-color);
+    border-radius: var(--radius);
+    margin: 0;
+    max-height: 40rem;
+    position: absolute;
+    right: 7rem;
+    top: 12.4rem;
+  }
+}
+
 .menu-list .products-list__product {
   border-bottom: 1px solid rgba(52, 30, 25, 0.2);
-  color: var(--dark-color);
   display: -ms-grid;
   display: grid;
-  font-size: 1.6rem;
-  font-weight: normal;
   -ms-grid-columns: 8fr 1fr;
       grid-template-columns: 8fr 1fr;
   grid-row-gap: 0.5rem;
@@ -812,6 +818,12 @@ body {
 
 .menu-list .products-list__product.show {
   visibility: visible;
+}
+
+.menu-list .products-list__name {
+  color: var(--dark-color);
+  font-size: 1.6rem;
+  font-weight: normal;
 }
 
 .menu-list .products-list__price {
@@ -860,6 +872,32 @@ body {
   font-size: 1.8rem;
 }
 
+.menu-list .products-list__sum {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu-list .products-list__sum {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: bold;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1.8rem 1.8rem 0 0;
+    text-transform: uppercase;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .menu-list .products-list__sum .products-btn__total-price {
+    display: inline;
+    text-transform: none;
+  }
+}
+
 .menu-list .products-list__clear-button {
   margin: 1.8rem 0;
   background-color: var(--main-color);
@@ -874,6 +912,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+  outline: none;
   padding: 1.8rem;
 }
 
