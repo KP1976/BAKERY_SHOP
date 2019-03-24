@@ -2,6 +2,7 @@
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const menu = document.querySelector('.menu-list');
 const menuListItems = document.querySelectorAll('.menu-list__item');
+const phoneNumber = document.querySelector('.menu-list__phone-number');
 const productsListButton = document.querySelector('.products-btn');
 const productsList = document.querySelector('.products-list');
 const products = document.querySelectorAll('.products-list__product');
@@ -36,5 +37,8 @@ const showProducts = () => {
 	}
 };
 
+const showContact = () => phoneNumber.classList.toggle('show');
+
 hamburgerMenu.addEventListener('click', showMenu);
 productsListButton.addEventListener('click', showProducts);
+menuListItems[3].addEventListener('click', showContact);

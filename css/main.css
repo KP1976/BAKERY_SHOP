@@ -580,8 +580,12 @@ body {
 @media only screen and (min-width: 768px) {
   .menu-list__item {
     color: var(--dark-color);
+    cursor: pointer;
     font-weight: normal;
     visibility: visible;
+  }
+  .menu-list__item:nth-child(4) {
+    position: relative;
   }
 }
 
@@ -621,6 +625,14 @@ body {
     display: none;
     font-weight: normal;
   }
+}
+
+.menu-list__phone-number.show {
+  display: block;
+  bottom: 0;
+  left: -3rem;
+  position: absolute;
+  width: 12rem;
 }
 
 .menu-list__phone-number .material-icons {

@@ -164,8 +164,13 @@
 
 		@include mq(768px) {
 			color: var(--dark-color);
+			cursor: pointer;
 			font-weight: normal;
 			visibility: visible;
+
+			&:nth-child(4) {
+				position: relative;
+			}
 		}
 
 		&:last-child {
@@ -200,6 +205,14 @@
 		@include mq(768px) {
 			display: none;
 			font-weight: normal;
+		}
+
+		&.show {
+			display: block;
+			bottom: 0;
+			left: -3rem;
+			position: absolute;
+			width: 12rem;
 		}
 
 		.material-icons {
