@@ -66,7 +66,8 @@
 		display: grid;
 		grid-column-gap: 6.615%;
 		grid-template-columns: auto 2fr;
-		margin: 5rem 5rem 10rem;
+		// margin: 5rem 5rem 10rem;
+		padding: 5rem;
 	}
 
 	@include mq(1200px) {
@@ -164,11 +165,11 @@
 
 		@include mq(768px) {
 			color: var(--dark-color);
-			cursor: pointer;
 			font-weight: normal;
 			visibility: visible;
 
 			&:nth-child(4) {
+				cursor: pointer;
 				position: relative;
 			}
 		}
@@ -453,6 +454,10 @@
 			box-shadow: 0 0 0 0.5rem #fff;
 		}
 
+		@include mq(992px) {
+			width: 36rem;
+		}
+
 		&.is-visible {
 			display: block;
 			max-height: 24rem;
@@ -470,6 +475,10 @@
 				right: 7rem;
 				top: 12.4rem;
 			}
+
+			@include mq(992px) {
+				right: 8rem;
+			}
 		}
 
 		&__product {
@@ -482,9 +491,13 @@
 
 			@include mq(576px) {
 				align-items: center;
-				grid-template-columns: 5fr 2fr 0.5fr;
+				grid-template-columns: 5fr 2fr 0.75fr;
 				text-align: left;
 				width: 100%;
+			}
+
+			@include mq(992px) {
+				grid-template-columns: 4rem 5fr 1.75fr 0.75fr;
 			}
 
 			&.show {
@@ -492,10 +505,27 @@
 			}
 		}
 
+		&__picture {
+			display: none;
+
+			@include mq(992px) {
+				border-radius: var(--radius);
+				display: block;
+				grid-column: 1 / 2;
+				height: 3rem;
+				object-fit: cover;
+				width: 3rem;
+			}
+		}
+
 		&__name {
 			color: var(--dark-color);
 			font-size: 1.6rem;
 			font-weight: normal;
+
+			@include mq(992px) {
+				grid-column: 2 / 3;
+			}
 		}
 
 		&__price {
@@ -509,6 +539,10 @@
 				grid-row: 1 / 2;
 				justify-self: end;
 			}
+
+			@include mq(992px) {
+				grid-column: 3 / 4;
+			}
 		}
 
 		&__trash-can {
@@ -519,6 +553,10 @@
 				grid-column: 3 / 4;
 				grid-row: 1 / 2;
 				justify-self: end;
+			}
+
+			@include mq(992px) {
+				grid-column: 4 / 5;
 			}
 
 			.material-icons {
@@ -536,6 +574,10 @@
 				justify-content: space-between;
 				padding: 1.8rem 1.8rem 0 0;
 				text-transform: uppercase;
+
+				@include mq(992px) {
+					margin-left: 4rem;
+				}
 			}
 
 			.products-btn__total-price {
