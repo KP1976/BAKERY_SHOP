@@ -75,11 +75,11 @@
 
 	@include mq(1600px) {
 		grid-template-columns: auto 85rem;
-		grid-column-gap: unset;
+		grid-column-gap: 24.4rem;
 		margin: 0 auto;
-		padding: 5rem;
+		padding: 5rem 0;
 		position: sticky;
-		max-width: 160rem;
+		max-width: 150rem;
 	}
 
 	.main-title {
@@ -457,7 +457,7 @@
 
 			@include mq(1600px) {
 				max-height: 58rem;
-				right: 5rem;
+				right: 0;
 				top: 16.5rem;
 			}
 		}

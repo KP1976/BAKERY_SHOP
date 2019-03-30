@@ -462,12 +462,12 @@ body {
   .nav-menu {
     -ms-grid-columns: auto 85rem;
         grid-template-columns: auto 85rem;
-    grid-column-gap: unset;
+    grid-column-gap: 24.4rem;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 5rem 0;
     position: -webkit-sticky;
     position: sticky;
-    max-width: 160rem;
+    max-width: 150rem;
   }
 }
 
@@ -946,7 +946,7 @@ body {
 @media only screen and (min-width: 1600px) {
   .menu-list .products-list.is-visible {
     max-height: 58rem;
-    right: 5rem;
+    right: 0;
     top: 16.5rem;
   }
 }
