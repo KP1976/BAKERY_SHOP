@@ -37,7 +37,11 @@ const showProducts = () => {
 	}
 };
 
-const showContact = () => phoneNumber.classList.toggle('show');
+const showContact = () => {
+	if (window.innerWidth > 768) {
+		phoneNumber.classList.toggle('show');
+	}
+};
 
 hamburgerMenu.addEventListener('click', showMenu);
 productsListButton.addEventListener('click', showProducts);
