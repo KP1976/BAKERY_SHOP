@@ -360,6 +360,45 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.title-underline {
+  display: none;
+}
+
+@media only screen and (min-width: 576px) {
+  .title-underline {
+    border: 0 none;
+    border-top: 2px dashed var(--dark-color);
+    background: none;
+    display: block;
+    height: 0;
+    margin-bottom: 4rem;
+    width: 38rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .title-underline {
+    margin-bottom: 5rem;
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .title-underline {
+    margin-bottom: 6rem;
+    grid-column: 1 / -1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .title-underline {
+    display: none;
+  }
+}
+
 .hamburger-menu {
   display: inline-block;
   height: 2.5rem;
@@ -2560,45 +2599,6 @@ body {
 @media only screen and (min-width: 1200px) {
   .footer {
     padding: 7.5rem 0;
-  }
-}
-
-.title-underline {
-  display: none;
-}
-
-@media only screen and (min-width: 576px) {
-  .title-underline {
-    border: 0 none;
-    border-top: 2px dashed var(--dark-color);
-    background: none;
-    display: block;
-    height: 0;
-    margin-bottom: 4rem;
-    width: 38rem;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .title-underline {
-    margin-bottom: 5rem;
-    width: 45rem;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .title-underline {
-    margin-bottom: 6rem;
-    grid-column: 1 / -1;
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2 / 3;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .title-underline {
-    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

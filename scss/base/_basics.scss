@@ -1,0 +1,21 @@
+:root {
+	--main-color: #d04928;
+	--secondary-color: #865241;
+	--dark-color: #341e19;
+
+	--radius: 5px;
+}
+
+* {
+	box-sizing: border-box;
+	font-size: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}

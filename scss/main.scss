@@ -1,61 +1,13 @@
-:root {
-	--main-color: #d04928;
-	--secondary-color: #865241;
-	--dark-color: #341e19;
-
-	--radius: 5px;
-}
-
-* {
-	box-sizing: border-box;
-	font-size: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-}
-
 @import 'abstracts/mixins';
 
+@import 'base/basics';
 @import 'base/normalize';
 @import 'base/body';
+
+@import 'pages/page';
 
 @import 'sections/menu';
 @import 'sections/header';
 @import 'sections/aboutme';
 @import 'sections/shop';
 @import 'sections/footer';
-
-.title-underline {
-	display: none;
-
-	@include mq(576px) {
-		border: 0 none;
-		border-top: 2px dashed var(--dark-color);
-		background: none;
-		display: block;
-		height: 0;
-		margin-bottom: 4rem;
-		width: 38rem;
-	}
-
-	@include mq(768px) {
-		margin-bottom: 5rem;
-		width: 45rem;
-	}
-
-	@include mq(992px) {
-		margin-bottom: 6rem;
-		grid-column: 1 / -1;
-		grid-row: 2 / 3;
-	}
-
-	@include mq(1200px) {
-		display: none;
-	}
-}
