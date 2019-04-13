@@ -602,8 +602,11 @@ body {
             justify-content: space-between;
     margin: 0 0 0 4rem;
     max-height: inherit;
+    opacity: 1;
     padding: 0 3rem;
     position: static;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     width: 100%;
   }
 }
@@ -966,20 +969,20 @@ body {
     margin: 0;
     max-height: 40rem;
     position: absolute;
-    right: 7rem;
-    top: 12.4rem;
+    right: 3rem;
+    top: 8.5rem;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .menu-list .products-list.is-visible {
-    right: 8rem;
+    right: 3rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .menu-list .products-list.is-visible {
-    top: 16rem;
+    top: 11rem;
   }
 }
 
@@ -987,7 +990,7 @@ body {
   .menu-list .products-list.is-visible {
     max-height: 58rem;
     right: 0;
-    top: 16.5rem;
+    top: 11.5rem;
   }
 }
 

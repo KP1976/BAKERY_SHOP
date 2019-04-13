@@ -151,8 +151,10 @@
 		justify-content: space-between;
 		margin: 0 0 0 4rem;
 		max-height: inherit;
+		opacity: 1;
 		padding: 0 3rem;
 		position: static;
+		transform: translateX(0);
 		width: 100%;
 	}
 
@@ -445,22 +447,22 @@
 				margin: 0;
 				max-height: 40rem;
 				position: absolute;
-				right: 7rem;
-				top: 12.4rem;
+				right: 3rem;
+				top: 8.5rem;
 			}
 
 			@include mq(992px) {
-				right: 8rem;
+				right: 3rem;
 			}
 
 			@include mq(1200px) {
-				top: 16rem;
+				top: 11rem;
 			}
 
 			@include mq(1600px) {
 				max-height: 58rem;
 				right: 0;
-				top: 16.5rem;
+				top: 11.5rem;
 			}
 		}
 
