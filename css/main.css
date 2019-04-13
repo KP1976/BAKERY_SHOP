@@ -563,15 +563,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 0;
   list-style-type: none;
   margin: 0;
-  max-height: 0px;
+  opacity: 0;
   padding: 0;
   position: fixed;
   top: 6.7rem;
-  -webkit-transition: all 1.5s ease-in-out;
-  transition: all 1.5s ease-in-out;
+  -webkit-transform: translateX(-100rem);
+          transform: translateX(-100rem);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   width: calc(100% - 4rem);
   z-index: 2;
 }
@@ -782,8 +783,9 @@ body {
 }
 
 .menu-list.is-visible {
-  height: auto;
-  max-height: 2000px;
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .menu-list .products-btn {
@@ -2601,4 +2603,3 @@ body {
     padding: 7.5rem 0;
   }
 }
-/*# sourceMappingURL=main.css.map */

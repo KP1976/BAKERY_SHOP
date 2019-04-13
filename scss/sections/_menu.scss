@@ -125,14 +125,14 @@
 	border-bottom-right-radius: var(--radius);
 	display: flex;
 	flex-direction: column;
-	height: 0;
 	list-style-type: none;
 	margin: 0;
-	max-height: 0px;
+	opacity: 0;
 	padding: 0;
 	position: fixed;
 	top: 6.7rem;
-	transition: all 1.5s ease-in-out;
+	transform: translateX(-100rem);
+	transition: all 0.5s ease-in-out;
 	width: calc(100% - 4rem);
 	z-index: 2;
 
@@ -301,8 +301,8 @@
 	}
 
 	&.is-visible {
-		height: auto;
-		max-height: 2000px;
+		opacity: 1;
+		transform: translateX(0);
 	}
 
 	.products-btn {
