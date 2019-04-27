@@ -19,11 +19,9 @@ const changeHamburgerMenu = () => {
 const showMenu = () => {
 	changeHamburgerMenu();
 	menu.classList.toggle('is-visible');
-	menuListItems.forEach(item => item.classList.toggle('show'));
-	if (productsList.classList.contains('is-visible')) {
-		showProducts();
-	}
 	productsList.classList.remove('is-visible');
+	products.forEach(item => item.classList.remove('show'));
+	productsListButton.classList.remove('open');
 };
 
 const showProducts = () => {
@@ -38,7 +36,7 @@ const showProducts = () => {
 };
 
 const showContact = () => {
-	if (window.innerWidth > 768) {
+	if (window.innerWidth >= 768) {
 		phoneNumber.classList.toggle('show');
 	}
 };

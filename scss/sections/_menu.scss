@@ -127,7 +127,7 @@
 	flex-direction: column;
 	list-style-type: none;
 	margin: 0;
-	opacity: 0;
+	// opacity: 0;
 	padding: 0;
 	position: fixed;
 	top: 6.7rem;
@@ -177,7 +177,6 @@
 		font-weight: bold;
 		padding: 1.8rem 0;
 		text-align: center;
-		visibility: hidden;
 
 		@include mq(768px) {
 			color: var(--dark-color);
@@ -217,10 +216,6 @@
 			@include mq(1200px) {
 				padding-bottom: 0;
 			}
-		}
-
-		&.show {
-			visibility: visible;
 		}
 	}
 
@@ -358,7 +353,8 @@
 				left: 0.8rem;
 				margin-right: 0;
 				position: absolute;
-				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+					-1px 1px 0 #fff, 1px 1px 0 #fff;
 				top: 1.1rem;
 			}
 
@@ -408,11 +404,12 @@
 		border-bottom-left-radius: var(--radius);
 		border-bottom-right-radius: var(--radius);
 		color: var(--dark-color);
-		display: none;
+		height: 0;
 		list-style-type: none;
 		margin-left: 2rem;
 		overflow-y: auto;
-		padding: 0 2rem 2rem;
+		transition: all 0.3s;
+		visibility: hidden;
 		width: calc(100% - 4rem);
 
 		@include mq(768px) {
@@ -435,9 +432,13 @@
 
 		&.is-visible {
 			display: block;
+			height: 24rem;
 			max-height: 24rem;
+			padding: 0 2rem 2rem;
+			visibility: visible;
 
 			@include mq(576px) {
+				height: 22.7rem;
 				max-height: 22.7rem;
 			}
 
