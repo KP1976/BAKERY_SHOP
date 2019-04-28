@@ -413,8 +413,9 @@
 		width: calc(100% - 4rem);
 
 		@include mq(768px) {
-			width: 35rem;
+			display: none;
 			box-shadow: 0 0 0 0.5rem #fff;
+			width: 35rem;
 		}
 
 		@include mq(992px) {
@@ -445,6 +446,7 @@
 			@include mq(768px) {
 				border: dashed 2px var(--secondary-color);
 				border-radius: var(--radius);
+				height: auto;
 				margin: 0;
 				max-height: 40rem;
 				position: absolute;
