@@ -2046,7 +2046,9 @@ body {
 
 @media only screen and (min-width: 768px) {
   .shop .search-tabs {
-    max-width: 66rem;
+    grid-gap: 3rem 5rem;
+    margin: 0 auto;
+    max-width: 70rem;
   }
 }
 
@@ -2094,9 +2096,7 @@ body {
 
 @media only screen and (min-width: 768px) {
   .shop .search-tabs__item {
-    font-size: 2.2rem;
-    margin: 0 4rem 4rem 0;
-    padding: 0.9rem 2rem;
+    font-size: 2.6rem;
   }
 }
 
@@ -2152,9 +2152,7 @@ body {
 
 @media only screen and (min-width: 768px) {
   .shop .search-tabs__item--selected {
-    font-size: 2.2rem;
-    margin: 0 4rem 4rem 0;
-    padding: 0.9rem 2rem;
+    font-size: 2.6rem;
   }
 }
 
