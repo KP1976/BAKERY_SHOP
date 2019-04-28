@@ -2030,9 +2030,9 @@ body {
 .shop .search-tabs {
   display: -ms-grid;
   display: grid;
+  grid-gap: 2rem;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -2054,6 +2054,9 @@ body {
 
 @media only screen and (min-width: 992px) {
   .shop .search-tabs {
+    grid-gap: 3rem;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
     max-width: 100%;
   }
 }
@@ -2102,7 +2105,8 @@ body {
 
 @media only screen and (min-width: 992px) {
   .shop .search-tabs__item {
-    margin: 0 4rem 5rem 0;
+    font-size: 2rem;
+    height: 5.5rem;
   }
 }
 
@@ -2158,7 +2162,8 @@ body {
 
 @media only screen and (min-width: 992px) {
   .shop .search-tabs__item--selected {
-    margin: 0 4rem 5rem 0;
+    font-size: 2rem;
+    height: 5.5rem;
   }
 }
 

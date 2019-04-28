@@ -37,8 +37,8 @@
 
 	.search-tabs {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
 		grid-gap: 2rem;
+		grid-template-columns: 1fr 1fr;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -54,6 +54,8 @@
 		}
 
 		@include mq(992px) {
+			grid-gap: 3rem;
+			grid-template-columns: repeat(4, 1fr);
 			max-width: 100%;
 		}
 
@@ -85,7 +87,8 @@
 			}
 
 			@include mq(992px) {
-				margin: 0 4rem 5rem 0;
+				font-size: 2rem;
+				height: 5.5rem;
 			}
 
 			@include mq(1200px) {
@@ -124,7 +127,8 @@
 				}
 
 				@include mq(992px) {
-					margin: 0 4rem 5rem 0;
+					font-size: 2rem;
+					height: 5.5rem;
 				}
 
 				@include mq(1200px) {
