@@ -44,7 +44,7 @@
 		padding: 0;
 
 		@include mq(576px) {
-			max-width: 56rem;
+			grid-gap: 3rem;
 		}
 
 		@include mq(768px) {
@@ -74,9 +74,8 @@
 			text-transform: uppercase;
 
 			@include mq(576px) {
-				font-size: 1.8rem;
-				margin: 0 3rem 3rem 0;
-				padding: 1rem 2rem;
+				font-size: 2.2rem;
+				height: 7rem;
 			}
 
 			@include mq(768px) {
@@ -101,39 +100,6 @@
 				padding: 1.3rem 3rem;
 			}
 
-			&:last-child {
-				margin-right: 0;
-			}
-
-			&:nth-child(2) {
-				margin-right: 0;
-				@include mq(576px) {
-					margin-right: 3rem;
-				}
-
-				@include mq(768px) {
-					margin-right: 4rem;
-				}
-
-				@include mq(1200px) {
-					margin-right: 0;
-				}
-			}
-
-			&:nth-child(3) {
-				@include mq(576px) {
-					margin-right: 0;
-				}
-
-				@include mq(992px) {
-					margin-right: 4rem;
-				}
-
-				@include mq(1200px) {
-					margin-right: 0;
-				}
-			}
-
 			&--selected {
 				align-items: center;
 				background-color: var(--main-color);
@@ -149,9 +115,8 @@
 				text-transform: uppercase;
 
 				@include mq(576px) {
-					font-size: 1.8rem;
-					margin: 0 3rem 3rem 0;
-					padding: 1rem 2rem;
+					font-size: 2.2rem;
+					height: 7rem;
 				}
 
 				@include mq(768px) {
@@ -179,51 +144,51 @@
 		}
 	}
 
-	&__search-container {
-		display: none;
-		margin-top: 1rem;
-		position: relative;
+	// &__search-container {
+	// 	display: none;
+	// 	margin-top: 1rem;
+	// 	position: relative;
 
-		@include mq(768px) {
-			margin: 1rem auto 0;
-			max-width: 70rem;
-		}
+	// 	@include mq(768px) {
+	// 		margin: 1rem auto 0;
+	// 		max-width: 70rem;
+	// 	}
 
-		@include mq(992px) {
-			max-width: 60rem;
-		}
+	// 	@include mq(992px) {
+	// 		max-width: 60rem;
+	// 	}
 
-		@include mq(1200px) {
-			max-width: 70rem;
-		}
+	// 	@include mq(1200px) {
+	// 		max-width: 70rem;
+	// 	}
 
-		.material-icons {
-			color: var(--main-color);
-			font-size: 3rem;
-			left: 1rem;
-			position: absolute;
-			top: 0.5rem;
+	// 	.material-icons {
+	// 		color: var(--main-color);
+	// 		font-size: 3rem;
+	// 		left: 1rem;
+	// 		position: absolute;
+	// 		top: 0.5rem;
 
-			@include mq(1200px) {
-				left: 1.5rem;
-				top: 1.2rem;
-			}
-		}
-	}
+	// 		@include mq(1200px) {
+	// 			left: 1.5rem;
+	// 			top: 1.2rem;
+	// 		}
+	// 	}
+	// }
 
-	&__search-input {
-		border: solid 0.1rem var(--main-color);
-		border-radius: var(--radius);
-		font-size: 1.6rem;
-		outline: none;
-		padding: 1rem 1rem 1rem 4.5rem;
-		width: 100%;
+	// &__search-input {
+	// 	border: solid 0.1rem var(--main-color);
+	// 	border-radius: var(--radius);
+	// 	font-size: 1.6rem;
+	// 	outline: none;
+	// 	padding: 1rem 1rem 1rem 4.5rem;
+	// 	width: 100%;
 
-		@include mq(1200px) {
-			font-size: 1.8rem;
-			padding: 1.5rem 1rem 1.5rem 5.5rem;
-		}
-	}
+	// 	@include mq(1200px) {
+	// 		font-size: 1.8rem;
+	// 		padding: 1.5rem 1rem 1.5rem 5.5rem;
+	// 	}
+	// }
 
 	&__products {
 		align-items: center;
