@@ -65,6 +65,12 @@
 			max-width: 120rem;
 		}
 
+		@include mq(1600px) {
+			grid-gap: 5rem;
+			justify-content: space-between;
+			max-width: 150rem;
+		}
+
 		&__item {
 			align-items: center;
 			border: solid 0.1rem var(--dark-color);
@@ -90,6 +96,11 @@
 			@include mq(992px) {
 				font-size: 2rem;
 				height: 5.5rem;
+			}
+
+			@include mq(1600px) {
+				font-size: 3rem;
+				height: 8rem;
 			}
 
 			&--selected {
@@ -122,6 +133,11 @@
 
 				@include mq(1200px) {
 					grid-column: 1;
+				}
+
+				@include mq(1600px) {
+					font-size: 3rem;
+					height: 8rem;
 				}
 			}
 		}
