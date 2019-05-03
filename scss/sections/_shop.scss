@@ -60,7 +60,8 @@
 		}
 
 		@include mq(1200px) {
-			justify-content: space-between;
+			grid-template-columns: repeat(5, 1fr);
+			justify-content: space-evenly;
 			max-width: 120rem;
 		}
 
@@ -89,18 +90,6 @@
 			@include mq(992px) {
 				font-size: 2rem;
 				height: 5.5rem;
-			}
-
-			@include mq(1200px) {
-				font-size: 2.6rem;
-				margin: 0 0 5rem 0;
-				padding: 0.9rem 3.5rem;
-			}
-
-			@include mq(1600px) {
-				font-size: 3rem;
-				margin: 0 0 5rem 0;
-				padding: 1.3rem 3rem;
 			}
 
 			&--selected {
@@ -132,15 +121,7 @@
 				}
 
 				@include mq(1200px) {
-					font-size: 2.6rem;
-					margin: 0 0 5rem 0;
-					padding: 0.9rem 3.5rem;
-				}
-
-				@include mq(1600px) {
-					font-size: 3rem;
-					margin: 0 0 5rem 0;
-					padding: 1.3rem 3rem;
+					grid-column: 1;
 				}
 			}
 		}
