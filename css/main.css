@@ -2030,6 +2030,7 @@ body {
 .shop .search-tabs {
   display: -ms-grid;
   display: grid;
+  grid-auto-flow: dense;
   grid-gap: 2rem;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
@@ -2137,6 +2138,8 @@ body {
   border-radius: var(--radius);
   color: #fff;
   grid-column: 1 / -1;
+  -ms-grid-row: 1;
+  grid-row: 1;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2221,9 +2224,6 @@ body {
 
 @media only screen and (min-width: 992px) {
   .shop__products {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    justify-content: space-around;
     margin: 6rem auto 0;
     max-width: 100%;
   }
