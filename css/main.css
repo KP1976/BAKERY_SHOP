@@ -452,13 +452,26 @@ body {
   width: 0;
 }
 
-.nav-menu {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem 2rem;
+nav {
+  background-color: #fff;
   position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  top: 0;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 1600px) {
+  nav {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.nav-menu {
+  padding: 2rem 2rem;
   top: 0;
   width: 100%;
-  z-index: 2;
 }
 
 @media only screen and (min-width: 576px) {
@@ -503,8 +516,6 @@ body {
     grid-column-gap: 24.4rem;
     margin: 0 auto;
     padding: 5rem 0;
-    position: -webkit-sticky;
-    position: sticky;
     max-width: 150rem;
   }
 }
@@ -578,7 +589,7 @@ body {
 
 @media only screen and (min-width: 576px) {
   .menu-list {
-    top: 11rem;
+    top: 10.7rem;
     width: calc(100% - 10rem);
   }
 }
