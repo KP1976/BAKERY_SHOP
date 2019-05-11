@@ -85,6 +85,16 @@
 			justify-content: center;
 			text-transform: uppercase;
 
+			&:first-child {
+				grid-column: 1 / -1;
+				grid-row: 1;
+
+				@include mq(1200px) {
+					grid-column: unset;
+					grid-row: unset;
+				}
+			}
+
 			@include mq(576px) {
 				font-size: 2.2rem;
 				height: 7rem;
@@ -104,13 +114,12 @@
 				height: 8rem;
 			}
 
-			&--selected {
+			&.selected {
 				align-items: center;
 				background-color: var(--main-color);
+				border: none;
 				border-radius: var(--radius);
 				color: #fff;
-				grid-column: 1 / -1;
-				grid-row: 1;
 				cursor: pointer;
 				display: flex;
 				font-size: 1.6rem;
@@ -131,10 +140,6 @@
 				@include mq(992px) {
 					font-size: 2rem;
 					height: 5.5rem;
-				}
-
-				@include mq(1200px) {
-					grid-column: 1;
 				}
 
 				@include mq(1600px) {
@@ -308,18 +313,6 @@
 			.material-icons {
 				display: none;
 				font-size: 1.8rem;
-
-				// @include mq(576px) {
-				// 	font-size: 2.5rem;
-				// }
-
-				// @include mq(768px) {
-				// 	font-size: 2.065rem;
-				// }
-
-				// @include mq(992px) {
-				// 	font-size: 2.6rem;
-				// }
 
 				@include mq(1200px) {
 					display: block;

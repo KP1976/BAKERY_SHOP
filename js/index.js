@@ -46,14 +46,13 @@ menuProductsListButton.addEventListener('click', showProducts);
 menuListItems[3].addEventListener('click', showContact);
 
 // SORTOWANIE PRODUKTÓW
-
 const productsTabs = [...document.querySelector('.search-tabs').children];
 const products = document.querySelectorAll('.product');
 
 const clearAllProducts = () => {
-	for (let i = 0; i < products.length; i++) {
-		products[i].style.display = 'none';
-	}
+	products.forEach(product => {
+		product.style.display = 'none';
+	});
 };
 
 function showSelectedProducts() {
@@ -61,36 +60,19 @@ function showSelectedProducts() {
 		productTab.className = 'search-tabs__item';
 	});
 
-	switch (this.textContent) {
-		case 'Babeczki':
-			clearAllProducts();
-			products[0].style.display = 'block';
-			products[8].style.display = 'block';
-			break;
-		case 'Ciasta':
-			clearAllProducts();
-			products[2].style.display = 'block';
-			products[4].style.display = 'block';
-			products[7].style.display = 'block';
-			break;
-		case 'Słodycze':
-			clearAllProducts();
-			products[1].style.display = 'block';
-			products[3].style.display = 'block';
-			products[6].style.display = 'block';
-			break;
-		case 'Donaty':
-			clearAllProducts();
-			products[5].style.display = 'block';
-			break;
-		case 'Wszystko':
-			for (let i = 0; i < products.length; i++) {
-				products[i].style.display = 'block';
-			}
-			break;
-	}
+	clearAllProducts();
 
-	this.className = 'search-tabs__item--selected';
+	products.forEach((product, index) => {
+		if (product.getAttribute('data-category') === this.textContent) {
+			products[index].style.display = 'block';
+		}
+
+		if (this.textContent === 'Wszystko') {
+			products[index].style.display = 'block';
+		}
+	});
+
+	this.className = 'search-tabs__item selected';
 }
 
 productsTabs.forEach(productTab => {
