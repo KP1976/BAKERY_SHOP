@@ -97,7 +97,7 @@ function addProduct(e) {
 	let productPrice = parseFloat(
 		e.target.nextElementSibling.lastElementChild.textContent
 			.split(' ')[0]
-			.replace(/,/g, '.'),
+			.replace(',', '.'),
 	);
 	amountOfProducts++;
 	sumOfAllProducts += productPrice;
@@ -110,8 +110,16 @@ function addProduct(e) {
 		buttonName.textContent = 'produkty – ';
 	}
 
+	if (sumOfAllProducts.toString().includes('.')) {
+		sumOfAllProducts = sumOfAllProducts.toString().replace('.', ',');
+		DOMTotalPriceOfProducts.textContent = sumOfAllProducts + ' zł';
+		sumOfAllProducts = sumOfAllProducts.toString().replace(',', '.');
+		sumOfAllProducts = parseFloat(sumOfAllProducts);
+	} else {
+		DOMTotalPriceOfProducts.textContent = sumOfAllProducts.toString() + ' zł';
+	}
+
 	DOMAmountOfProducts.textContent = amountOfProducts;
-	DOMTotalPriceOfProducts.textContent = sumOfAllProducts.toString() + ' zł';
 }
 
 DOMAddProductButtons.forEach(productButton => {
