@@ -78,3 +78,42 @@ function showSelectedProducts() {
 productsTabs.forEach(productTab => {
 	productTab.addEventListener('click', showSelectedProducts);
 });
+
+// OBSŁUGA DODAWANIA I DEJMOWANIA PRODUKTÓW
+const DOMAmountOfProducts = document.querySelector('.products-btn__quantity');
+const DOMTotalPriceOfProducts = document.querySelector(
+	'.products-btn__total-price',
+);
+const DOMAddProductButtons = document.querySelectorAll(
+	'.product__shop-cart-box',
+);
+
+let buttonName = document.querySelector('.products-btn__name');
+
+let amountOfProducts = parseInt(DOMAmountOfProducts.textContent);
+let sumOfAllProducts = 0;
+
+function addProduct(e) {
+	let productPrice = parseFloat(
+		e.target.nextElementSibling.lastElementChild.textContent
+			.split(' ')[0]
+			.replace(/,/g, '.'),
+	);
+	amountOfProducts++;
+	sumOfAllProducts += productPrice;
+
+	if (amountOfProducts === 0 || amountOfProducts === 5) {
+		buttonName.textContent = 'produktów – ';
+	} else if (amountOfProducts === 1) {
+		buttonName.textContent = 'produkt – ';
+	} else if (amountOfProducts === 2) {
+		buttonName.textContent = 'produkty – ';
+	}
+
+	DOMAmountOfProducts.textContent = amountOfProducts;
+	DOMTotalPriceOfProducts.textContent = sumOfAllProducts.toString() + ' zł';
+}
+
+DOMAddProductButtons.forEach(productButton => {
+	productButton.addEventListener('click', addProduct);
+});

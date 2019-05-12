@@ -2399,6 +2399,7 @@ nav {
 .shop .product__shop-cart-box .plus-sign {
   color: var(--main-color);
   display: block;
+  pointer-events: none;
   font-size: 2rem;
   font-weight: bold;
 }
