@@ -441,13 +441,15 @@ nav {
 
 		&.is-visible {
 			display: block;
-			height: 24rem;
+			// height: 24rem;
+			height: auto;
 			max-height: 24rem;
 			padding: 0 2rem 2rem;
 			visibility: visible;
 
 			@include mq(576px) {
-				height: 22.7rem;
+				// height: 22.7rem;
+				height: auto;
 				max-height: 22.7rem;
 			}
 

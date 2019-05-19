@@ -961,7 +961,7 @@ nav {
 
 .menu-list .products-list.is-visible {
   display: block;
-  height: 24rem;
+  height: auto;
   max-height: 24rem;
   padding: 0 2rem 2rem;
   visibility: visible;
@@ -969,7 +969,7 @@ nav {
 
 @media only screen and (min-width: 576px) {
   .menu-list .products-list.is-visible {
-    height: 22.7rem;
+    height: auto;
     max-height: 22.7rem;
   }
 }

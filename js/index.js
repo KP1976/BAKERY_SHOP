@@ -42,7 +42,6 @@ const showContact = () => {
 };
 
 hamburgerMenu.addEventListener('click', showMenu);
-menuProductsListButton.addEventListener('click', showProducts);
 menuListItems[3].addEventListener('click', showContact);
 
 // SORTOWANIE PRODUKTÓW
@@ -79,7 +78,7 @@ productsTabs.forEach(productTab => {
 	productTab.addEventListener('click', showSelectedProducts);
 });
 
-// OBSŁUGA DODAWANIA I DEJMOWANIA PRODUKTÓW
+// OBSŁUGA DODAWANIA I ODEJMOWANIA PRODUKTÓW
 const DOMAmountOfProducts = document.querySelector('.products-btn__quantity');
 const DOMTotalPriceOfProducts = document.querySelector(
 	'.products-btn__total-price',
@@ -99,6 +98,14 @@ function addProduct(e) {
 			.split(' ')[0]
 			.replace(',', '.'),
 	);
+	let productPictureSource = e.target.previousElementSibling.getAttribute(
+		'src',
+	);
+	let productPictureAlt = e.target.previousElementSibling.getAttribute('alt');
+	let productName = e.target.nextElementSibling.firstElementChild.textContent;
+
+	menuProductsListButton.addEventListener('click', showProducts);
+
 	amountOfProducts++;
 	sumOfAllProducts += productPrice;
 
@@ -120,6 +127,28 @@ function addProduct(e) {
 	}
 
 	DOMAmountOfProducts.textContent = amountOfProducts;
+
+	const li = document.createElement('li');
+
+	li.className = 'products-list__product show';
+	li.innerHTML = `
+	<img
+			src="${productPictureSource}"
+			alt="${productPictureAlt}"
+			class="products-list__picture"
+		/>
+		<span class="products-list__name">${productName}</span>
+		<span class="products-list__price">${productPrice
+			.toString()
+			.replace('.', ',')} zł</span>
+		<span class="products-list__trash-can"
+			><i class="material-icons">delete</i></span
+		>
+	`;
+
+	document
+		.querySelector('.products-list__clear-button')
+		.insertAdjacentElement('beforebegin', li);
 }
 
 DOMAddProductButtons.forEach(productButton => {
