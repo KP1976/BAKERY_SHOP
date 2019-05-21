@@ -238,7 +238,25 @@
 		&__image {
 			display: block;
 			object-fit: cover;
+			position: relative;
 			width: 100%;
+		}
+
+		&__amount {
+			background-color: #fff;
+			border-radius: var(--radius);
+			color: var(--main-color);
+			display: none;
+			font-size: 3rem;
+			font-weight: bold;
+			left: 2rem;
+			padding: 0.5rem;
+			position: absolute;
+			top: 1rem;
+
+			&.visible {
+				display: block;
+			}
 		}
 
 		&__shop-cart-box {

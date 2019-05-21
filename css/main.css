@@ -963,7 +963,7 @@ nav {
   display: block;
   height: auto;
   max-height: 24rem;
-  padding: 0 2rem 2rem;
+  padding: 0 2rem;
   visibility: visible;
 }
 
@@ -1248,7 +1248,7 @@ nav {
 
 .menu-list .products-list__clear-button {
   height: 5rem;
-  margin: 1.8rem 0 0;
+  margin: 1.8rem 0;
   background-color: var(--main-color);
   border: none;
   border-radius: var(--radius);
@@ -2326,7 +2326,25 @@ nav {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  position: relative;
   width: 100%;
+}
+
+.shop .product__amount {
+  background-color: #fff;
+  border-radius: var(--radius);
+  color: var(--main-color);
+  display: none;
+  font-size: 3rem;
+  font-weight: bold;
+  left: 2rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 1rem;
+}
+
+.shop .product__amount.visible {
+  display: block;
 }
 
 .shop .product__shop-cart-box {

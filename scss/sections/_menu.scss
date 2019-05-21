@@ -441,14 +441,12 @@ nav {
 
 		&.is-visible {
 			display: block;
-			// height: 24rem;
 			height: auto;
 			max-height: 24rem;
-			padding: 0 2rem 2rem;
+			padding: 0 2rem;
 			visibility: visible;
 
 			@include mq(576px) {
-				// height: 22.7rem;
 				height: auto;
 				max-height: 22.7rem;
 			}
@@ -641,7 +639,7 @@ nav {
 
 		&__clear-button {
 			height: 5rem;
-			margin: 1.8rem 0 0;
+			margin: 1.8rem 0;
 			@include button(100%, 1.6rem);
 			outline: none;
 			padding: 1.8rem;

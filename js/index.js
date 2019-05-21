@@ -78,7 +78,7 @@ productsTabs.forEach(productTab => {
 	productTab.addEventListener('click', showSelectedProducts);
 });
 
-// OBSŁUGA DODAWANIA I ODEJMOWANIA PRODUKTÓW
+// OBSŁUGA DODAWANIA I KASOWANIA PRODUKTÓW
 const DOMAmountOfProducts = document.querySelector('.products-btn__quantity');
 const DOMTotalPriceOfProducts = document.querySelector(
 	'.products-btn__total-price',
@@ -91,6 +91,15 @@ let buttonName = document.querySelector('.products-btn__name');
 
 let amountOfProducts = parseInt(DOMAmountOfProducts.textContent);
 let sumOfAllProducts = 0;
+let counter1 = 0,
+	counter2 = 0,
+	counter3 = 0,
+	counter4 = 0,
+	counter5 = 0,
+	counter6 = 0,
+	counter7 = 0,
+	counter8 = 0,
+	counter9 = 0;
 
 function addProduct(e) {
 	let productPrice = parseFloat(
@@ -98,17 +107,69 @@ function addProduct(e) {
 			.split(' ')[0]
 			.replace(',', '.'),
 	);
-	let productPictureSource = e.target.previousElementSibling.getAttribute(
+	let productPictureSource = e.target.parentElement.firstElementChild.getAttribute(
 		'src',
 	);
-	let productPictureAlt = e.target.previousElementSibling.getAttribute('alt');
+	let productPictureAlt = e.target.parentElement.firstElementChild.getAttribute(
+		'alt',
+	);
 	let productName = e.target.nextElementSibling.firstElementChild.textContent;
+	let DOMAmountOfProduct = e.target.previousElementSibling;
+
+	switch (productName) {
+		case 'Babeczka cytrynowa':
+			counter1++;
+			DOMAmountOfProduct.textContent = counter1;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Malinowy cukierek':
+			counter2++;
+			DOMAmountOfProduct.textContent = counter2;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Sernik':
+			counter3++;
+			DOMAmountOfProduct.textContent = counter3;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Beza':
+			counter4++;
+			DOMAmountOfProduct.textContent = counter4;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Makowiec':
+			counter5++;
+			DOMAmountOfProduct.textContent = counter5;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Donut z polewą':
+			counter6++;
+			DOMAmountOfProduct.textContent = counter6;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Cukierek cytrynowy':
+			counter7++;
+			DOMAmountOfProduct.textContent = counter7;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Tort':
+			counter8++;
+			DOMAmountOfProduct.textContent = counter8;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+		case 'Babeczka z owocami':
+			counter9++;
+			DOMAmountOfProduct.textContent = counter9;
+			DOMAmountOfProduct.classList.add('visible');
+			break;
+	}
 
 	menuProductsListButton.addEventListener('click', showProducts);
 
 	amountOfProducts++;
 	sumOfAllProducts += productPrice;
 
+	// Zamiana odpowiedniego słowa w zależności od ilości produktów
 	if (amountOfProducts === 0 || amountOfProducts === 5) {
 		buttonName.textContent = 'produktów – ';
 	} else if (amountOfProducts === 1) {
@@ -117,6 +178,7 @@ function addProduct(e) {
 		buttonName.textContent = 'produkty – ';
 	}
 
+	// Zamiana . na , i na odwrót w cenie produktu
 	if (sumOfAllProducts.toString().includes('.')) {
 		sumOfAllProducts = sumOfAllProducts.toString().replace('.', ',');
 		DOMTotalPriceOfProducts.textContent = sumOfAllProducts + ' zł';
