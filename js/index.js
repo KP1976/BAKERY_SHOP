@@ -91,15 +91,6 @@ let buttonName = document.querySelector('.products-btn__name');
 
 let amountOfProducts = parseInt(DOMAmountOfProducts.textContent);
 let sumOfAllProducts = 0;
-let counter1 = 0,
-	counter2 = 0,
-	counter3 = 0,
-	counter4 = 0,
-	counter5 = 0,
-	counter6 = 0,
-	counter7 = 0,
-	counter8 = 0,
-	counter9 = 0;
 
 function addProduct(e) {
 	let productPrice = parseFloat(
@@ -114,54 +105,13 @@ function addProduct(e) {
 		'alt',
 	);
 	let productName = e.target.nextElementSibling.firstElementChild.textContent;
-	let DOMAmountOfProduct = e.target.previousElementSibling;
+	let amountOfProduct = e.target.previousElementSibling.textContent;
 
-	switch (productName) {
-		case 'Babeczka cytrynowa':
-			counter1++;
-			DOMAmountOfProduct.textContent = counter1;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Malinowy cukierek':
-			counter2++;
-			DOMAmountOfProduct.textContent = counter2;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Sernik':
-			counter3++;
-			DOMAmountOfProduct.textContent = counter3;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Beza':
-			counter4++;
-			DOMAmountOfProduct.textContent = counter4;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Makowiec':
-			counter5++;
-			DOMAmountOfProduct.textContent = counter5;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Donut z polewą':
-			counter6++;
-			DOMAmountOfProduct.textContent = counter6;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Cukierek cytrynowy':
-			counter7++;
-			DOMAmountOfProduct.textContent = counter7;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Tort':
-			counter8++;
-			DOMAmountOfProduct.textContent = counter8;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
-		case 'Babeczka z owocami':
-			counter9++;
-			DOMAmountOfProduct.textContent = counter9;
-			DOMAmountOfProduct.classList.add('visible');
-			break;
+	amountOfProduct++;
+	e.target.previousElementSibling.textContent = amountOfProduct;
+
+	if (amountOfProduct === 1) {
+		e.target.previousElementSibling.classList.add('visible');
 	}
 
 	menuProductsListButton.addEventListener('click', showProducts);
