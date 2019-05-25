@@ -1,0 +1,92 @@
+[
+	{
+		"id": 1,
+		"name": "Babeczka cytrynowa",
+		"price": "5 zł",
+		"category": "Babeczki",
+		"image": {
+			"small": "./img/citrus_cupcake_small.jpg",
+			"normal": "./img/citrus_cupcake.jpg"
+		}
+	},
+	{
+		"id": 2,
+		"name": "Malinowy cukierek",
+		"price": "1 zł",
+		"category": "Słodycze",
+		"image": {
+			"small": "./img/raspberry_candy_small.jpg",
+			"normal": "./img/raspberry_candy.jpg"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Sernik",
+		"price": "10 zł",
+		"category": "Ciasta",
+		"image": {
+			"small": "./img/cheese_cake_small.jpg",
+			"normal": "./img/cheese_cake.jpg"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Beza",
+		"price": "3,5 zł",
+		"category": "Słodycze",
+		"image": {
+			"small": "./img/meringue_small.jpg",
+			"normal": "./img/meringue.jpg"
+		}
+	},
+	{
+		"id": 5,
+		"name": "Makowiec",
+		"price": "6 zł",
+		"category": "Ciasta",
+		"image": {
+			"small": "./img/opium_cake_small.jpg",
+			"normal": "./img/opium_cake.jpg"
+		}
+	},
+	{
+		"id": 6,
+		"name": "Donut z polewą",
+		"price": "4,5 zł",
+		"category": "Donaty",
+		"image": {
+			"small": "./img/donut1_small.jpg",
+			"normal": "./img/donut1.jpg"
+		}
+	},
+	{
+		"id": 7,
+		"name": "Cukierek cytrynowy",
+		"price": "2 zł",
+		"category": "Słodycze",
+		"image": {
+			"small": "./img/citric_candy_small.jpg",
+			"normal": "./img/citric_candy.jpg"
+		}
+	},
+	{
+		"id": 8,
+		"name": "Tort",
+		"price": "35 zł",
+		"category": "Ciasta",
+		"image": {
+			"small": "./img/cake_small.jpg",
+			"normal": "./img/cake.jpg"
+		}
+	},
+	{
+		"id": 9,
+		"name": "Babeczka z owocami",
+		"price": "5 zł",
+		"category": "Babeczki",
+		"image": {
+			"small": "./img/fruit_cupcake_small.jpg",
+			"normal": "./img/fruit_cupcake.jpg"
+		}
+	}
+]
