@@ -3,6 +3,59 @@ const Main = (_ => {
 	let amountOfProducts = parseInt(DOMAmountOfProducts.textContent);
 	let sumOfAllProducts = 0;
 
+	// Fetch JSON data
+	const getProductsFromJSON = async () => {
+		try {
+			const result = await fetch('../products.json');
+			let data = await result.json();
+
+			data = data.map(product => {
+				const { id, name, price, category, image } = product;
+				return { id, name, price, category, image };
+			});
+			return data;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const addAllProductsToDOM = () => {
+		let allProductsInDOM = '';
+
+		getProductsFromJSON()
+			.then(products => {
+				products.forEach(product => {
+					let productSchema = `
+					<figure class="product" data-category="${product.category}">
+						<img
+							class="product__image"
+							srcset="${product.image.small} 500w, ${product.image.normal} 1000w"
+							sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
+							src="${product.image.small}"
+							alt="${product.image.alt}"
+						/>
+						<span class="product__amount">0</span>
+						<div class="product__shop-cart-box">
+							<i class="material-icons">shopping_cart</i>
+							<span class="plus-sign">+</span>
+						</div>
+						<div class="product__description-box">
+							<span class="product__name">${product.name}</span>
+							<span class="product__price">${product.price}</span>
+						</div>
+					</figure>
+				`;
+					allProductsInDOM += productSchema;
+				});
+				DOMShopProducts.innerHTML = allProductsInDOM;
+			})
+			.then(() => executeEventListeners());
+	};
+
+	const removeAllProductsFromShoppingCart = () => {
+		console.log("Kliknąłeś na przycisk 'WYCZYŚĆ KOSZYK'");
+	};
+
 	const changeHamburgerMenu = () => {
 		const hamburgerMenuBars = document.querySelectorAll('.hamburger-menu__bar');
 		const [barTop, barMiddle, barBottom] = hamburgerMenuBars;
@@ -37,22 +90,19 @@ const Main = (_ => {
 		}
 	};
 
-	// SORTOWANIE PRODUKTÓW
-	const productsTabs = [...document.querySelector('.search-tabs').children];
-	const products = document.querySelectorAll('.product');
-
-	const clearAllProducts = () => {
+	const clearAllProducts = products => {
 		products.forEach(product => {
 			product.style.display = 'none';
 		});
 	};
 
 	function showSelectedProducts() {
+		const products = document.querySelectorAll('.product');
 		productsTabs.forEach(productTab => {
 			productTab.className = 'search-tabs__item';
 		});
 
-		clearAllProducts();
+		clearAllProducts(products);
 
 		products.forEach((product, index) => {
 			if (product.getAttribute('data-category') === this.textContent) {
@@ -73,16 +123,10 @@ const Main = (_ => {
 
 	function addProduct(e) {
 		let productPrice = parseFloat(
-			e.target.nextElementSibling.lastElementChild.textContent
-				.split(' ')[0]
-				.replace(',', '.'),
+			e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.'),
 		);
-		let productPictureSource = e.target.parentElement.firstElementChild.getAttribute(
-			'src',
-		);
-		let productPictureAlt = e.target.parentElement.firstElementChild.getAttribute(
-			'alt',
-		);
+		let productPictureSource = e.target.parentElement.firstElementChild.getAttribute('src');
+		let productPictureAlt = e.target.parentElement.firstElementChild.getAttribute('alt');
 		let productName = e.target.nextElementSibling.firstElementChild.textContent;
 		let amountOfProduct = e.target.previousElementSibling.textContent;
 
@@ -129,51 +173,29 @@ const Main = (_ => {
 			class="products-list__picture"
 		/>
 		<span class="products-list__name">${productName}</span>
-		<span class="products-list__price">${productPrice
-			.toString()
-			.replace('.', ',')} zł</span>
+		<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
 		<span class="products-list__trash-can"
 			><i class="material-icons">delete</i></span
 		>
 	`;
 
-		document
-			.querySelector('.products-list__clear-button')
-			.insertAdjacentElement('beforebegin', li);
+		document.querySelector('.products-list__clear-button').insertAdjacentElement('beforebegin', li);
 	}
 
-	// Fetch JSON data
-	const getProductsFromJSON = async () => {
-		try {
-			const result = await fetch('../products.json');
-			let data = await result.json();
-
-			data = data.map(product => {
-				const { id, name, category } = product;
-				return { id, name, category };
-			});
-			return data;
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	const executeEventListeners = () => {
+		const DOMAddProductButtons = document.querySelectorAll('.product__shop-cart-box');
+		const clearShoppingCartButton = document.querySelector('.products-list__clear-button');
 		hamburgerMenu.addEventListener('click', showMenu);
 		menuListItems[3].addEventListener('click', showContact);
 		DOMAddProductButtons.forEach(productButton => {
 			productButton.addEventListener('click', addProduct);
 		});
+		clearShoppingCartButton.addEventListener('click', removeAllProductsFromShoppingCart);
 	};
 
 	return {
 		init: () => {
-			executeEventListeners();
-			getProductsFromJSON().then(products =>
-				products.forEach(product => {
-					console.log(product.id, product.name, product.category);
-				}),
-			);
+			addAllProductsToDOM();
 		},
 	};
 })();

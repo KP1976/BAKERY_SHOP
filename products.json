@@ -6,7 +6,8 @@
 		"category": "Babeczki",
 		"image": {
 			"small": "./img/citrus_cupcake_small.jpg",
-			"normal": "./img/citrus_cupcake.jpg"
+			"normal": "./img/citrus_cupcake.jpg",
+			"alt": "citric cupcake"
 		}
 	},
 	{
@@ -16,7 +17,8 @@
 		"category": "Słodycze",
 		"image": {
 			"small": "./img/raspberry_candy_small.jpg",
-			"normal": "./img/raspberry_candy.jpg"
+			"normal": "./img/raspberry_candy.jpg",
+			"alt": "raspberry candy"
 		}
 	},
 	{
@@ -26,7 +28,8 @@
 		"category": "Ciasta",
 		"image": {
 			"small": "./img/cheese_cake_small.jpg",
-			"normal": "./img/cheese_cake.jpg"
+			"normal": "./img/cheese_cake.jpg",
+			"alt": "cheese cake"
 		}
 	},
 	{
@@ -36,7 +39,8 @@
 		"category": "Słodycze",
 		"image": {
 			"small": "./img/meringue_small.jpg",
-			"normal": "./img/meringue.jpg"
+			"normal": "./img/meringue.jpg",
+			"alt": "meringue"
 		}
 	},
 	{
@@ -46,7 +50,8 @@
 		"category": "Ciasta",
 		"image": {
 			"small": "./img/opium_cake_small.jpg",
-			"normal": "./img/opium_cake.jpg"
+			"normal": "./img/opium_cake.jpg",
+			"alt": "opium cake"
 		}
 	},
 	{
@@ -56,7 +61,8 @@
 		"category": "Donaty",
 		"image": {
 			"small": "./img/donut1_small.jpg",
-			"normal": "./img/donut1.jpg"
+			"normal": "./img/donut1.jpg",
+			"alt": "donut with chocolate"
 		}
 	},
 	{
@@ -66,7 +72,8 @@
 		"category": "Słodycze",
 		"image": {
 			"small": "./img/citric_candy_small.jpg",
-			"normal": "./img/citric_candy.jpg"
+			"normal": "./img/citric_candy.jpg",
+			"alt": "citric candy"
 		}
 	},
 	{
@@ -76,7 +83,8 @@
 		"category": "Ciasta",
 		"image": {
 			"small": "./img/cake_small.jpg",
-			"normal": "./img/cake.jpg"
+			"normal": "./img/cake.jpg",
+			"alt": "cake"
 		}
 	},
 	{
@@ -86,7 +94,8 @@
 		"category": "Babeczki",
 		"image": {
 			"small": "./img/fruit_cupcake_small.jpg",
-			"normal": "./img/fruit_cupcake.jpg"
+			"normal": "./img/fruit_cupcake.jpg",
+			"alt": "fruit cupcake"
 		}
 	}
 ]
