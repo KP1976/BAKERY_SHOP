@@ -20,12 +20,11 @@ const Main = (_ => {
 	};
 
 	const addAllProductsToDOM = () => {
-		let allProductsInDOM = '';
+		let allProductsAsString = '';
 
-		getProductsFromJSON()
-			.then(products => {
-				products.forEach(product => {
-					let productSchema = `
+		const allProductsInDOM = getProductsFromJSON().then(products => {
+			products.forEach(product => {
+				let productSchema = `
 					<figure class="product" data-category="${product.category}">
 						<img
 							class="product__image"
@@ -45,19 +44,41 @@ const Main = (_ => {
 						</div>
 					</figure>
 				`;
-					allProductsInDOM += productSchema;
-				});
-				DOMShopProducts.innerHTML = allProductsInDOM;
-			})
-			.then(() => executeEventListeners());
+				allProductsAsString += productSchema;
+			});
+			DOMShopProducts.innerHTML = allProductsAsString;
+		});
+
+		return allProductsInDOM;
 	};
 
 	const removeAllProductsFromShoppingCart = () => {
-		console.log("Kliknąłeś na przycisk 'WYCZYŚĆ KOSZYK'");
+		const howManyNodeChildren = menuProductsList.childElementCount;
+		let child = menuProductsList.firstElementChild;
+		let counter = 0;
+
+		while (counter < howManyNodeChildren - 1) {
+			menuProductsList.removeChild(child);
+			child = menuProductsList.firstElementChild;
+			counter++;
+		}
+
+		menuProductsListButton.classList.remove('open');
+		menuProductsListButton.removeEventListener('click', showProductsInMenu);
+		sumOfAllProducts = 0;
+		amountOfProducts = 0;
+		DOMAmountOfProducts.textContent = amountOfProducts;
+		DOMTotalPriceOfProducts.textContent = '0 zł';
+		buttonName.textContent = 'produktów – ';
+		menuProductsListButton.classList.remove('open');
+		menuProductsList.classList.remove('is-visible');
+		document.querySelectorAll('.product__amount').forEach(product__amount => {
+			product__amount.classList.remove('visible');
+			product__amount.textContent = '0';
+		});
 	};
 
 	const changeHamburgerMenu = () => {
-		const hamburgerMenuBars = document.querySelectorAll('.hamburger-menu__bar');
 		const [barTop, barMiddle, barBottom] = hamburgerMenuBars;
 
 		barTop.classList.toggle('rotate-right');
@@ -69,18 +90,16 @@ const Main = (_ => {
 		changeHamburgerMenu();
 		menu.classList.toggle('is-visible');
 		menuProductsList.classList.remove('is-visible');
-		menuProducts.forEach(item => item.classList.remove('show'));
 		menuProductsListButton.classList.remove('open');
 	};
 
 	const showProductsInMenu = () => {
 		if (window.innerWidth < 768) {
 			menuProductsList.classList.toggle('is-visible');
-			menuProducts.forEach(item => item.classList.toggle('show'));
 			menuProductsListButton.classList.toggle('open');
 		} else {
 			menuProductsList.classList.toggle('is-visible');
-			menuProducts.forEach(item => item.classList.toggle('show'));
+			// menuProducts.forEach(item => item.classList.toggle('show'));
 		}
 	};
 
@@ -121,7 +140,7 @@ const Main = (_ => {
 		productTab.addEventListener('click', showSelectedProducts);
 	});
 
-	function addProduct(e) {
+	function addProductToCart(e) {
 		let productPrice = parseFloat(
 			e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.'),
 		);
@@ -165,37 +184,31 @@ const Main = (_ => {
 
 		const li = document.createElement('li');
 
-		li.className = 'products-list__product show';
+		li.className = 'products-list__product';
 		li.innerHTML = `
-	<img
-			src="${productPictureSource}"
-			alt="${productPictureAlt}"
-			class="products-list__picture"
-		/>
-		<span class="products-list__name">${productName}</span>
-		<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
-		<span class="products-list__trash-can"
-			><i class="material-icons">delete</i></span
-		>
-	`;
+			<img src="${productPictureSource}"	alt="${productPictureAlt}" class="products-list__picture"/>
+				<span class="products-list__name">${productName}</span>
+				<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
+				<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+			`;
 
-		document.querySelector('.products-list__clear-button').insertAdjacentElement('beforebegin', li);
+		clearShoppingCartButton.insertAdjacentElement('beforebegin', li);
 	}
 
 	const executeEventListeners = () => {
 		const DOMAddProductButtons = document.querySelectorAll('.product__shop-cart-box');
-		const clearShoppingCartButton = document.querySelector('.products-list__clear-button');
+
 		hamburgerMenu.addEventListener('click', showMenu);
 		menuListItems[3].addEventListener('click', showContact);
 		DOMAddProductButtons.forEach(productButton => {
-			productButton.addEventListener('click', addProduct);
+			productButton.addEventListener('click', addProductToCart);
 		});
 		clearShoppingCartButton.addEventListener('click', removeAllProductsFromShoppingCart);
 	};
 
 	return {
 		init: () => {
-			addAllProductsToDOM();
+			addAllProductsToDOM().then(() => executeEventListeners());
 		},
 	};
 })();

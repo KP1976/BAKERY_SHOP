@@ -361,8 +361,7 @@ nav {
 				left: 0.8rem;
 				margin-right: 0;
 				position: absolute;
-				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
-					-1px 1px 0 #fff, 1px 1px 0 #fff;
+				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 				top: 1.1rem;
 			}
 
@@ -482,7 +481,6 @@ nav {
 			display: grid;
 			grid-template-columns: 8fr 1fr;
 			grid-row-gap: 0.5rem;
-			visibility: hidden;
 			padding: 1.8rem 0;
 
 			@include mq(576px) {
@@ -502,10 +500,6 @@ nav {
 
 			@include mq(1600px) {
 				grid-template-columns: 6rem 5fr 1.75fr 0.75fr;
-			}
-
-			&.show {
-				visibility: visible;
 			}
 		}
 
