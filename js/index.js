@@ -6,7 +6,7 @@ const Main = (_ => {
 	// Fetch JSON data
 	const getProductsFromJSON = async () => {
 		try {
-			const result = await fetch('../products.json');
+			const result = await fetch('js/products.json');
 			let data = await result.json();
 
 			data = data.map(product => {
