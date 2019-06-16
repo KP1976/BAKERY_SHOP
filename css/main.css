@@ -1200,16 +1200,33 @@ nav {
 
 @media only screen and (min-width: 768px) {
   .menu-list .products-list__sum {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5fr 2fr;
+        grid-template-columns: 5fr 2fr;
     font-size: 1.6rem;
     font-weight: bold;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     padding: 1.8rem 2.8rem 0 0;
-    text-transform: uppercase;
+    text-align: left;
+  }
+  .menu-list .products-list__sum span {
+    font-size: 1.6rem;
+    text-align: right;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-width: 1200px) {
+  .menu-list .products-list__sum span {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-width: 1600px) {
+  .menu-list .products-list__sum span {
+    font-size: 2rem;
   }
 }
 

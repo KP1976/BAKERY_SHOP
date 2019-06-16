@@ -600,12 +600,26 @@ nav {
 			display: none;
 
 			@include mq(768px) {
-				display: flex;
+				align-items: center;
+				display: grid;
+				grid-template-columns: 5fr 2fr;
 				font-size: 1.6rem;
 				font-weight: bold;
-				justify-content: space-between;
 				padding: 1.8rem 2.8rem 0 0;
-				text-transform: uppercase;
+				text-align: left;
+
+				span {
+					font-size: 1.6rem;
+					text-align: right;
+
+					@include mq(1200px) {
+						font-size: 1.8rem;
+					}
+
+					@include mq(1600px) {
+						font-size: 2rem;
+					}
+				}
 			}
 
 			@include mq(992px) {

@@ -57,7 +57,8 @@ const Main = (_ => {
 		let child = menuProductsList.firstElementChild;
 		let counter = 0;
 
-		while (counter < howManyNodeChildren - 1) {
+		// odejmujemy node'a z ceną wszystkich produktów dla desktopa i buttona czyszczącego
+		while (counter < howManyNodeChildren - 2) {
 			menuProductsList.removeChild(child);
 			child = menuProductsList.firstElementChild;
 			counter++;
@@ -69,6 +70,7 @@ const Main = (_ => {
 		amountOfProducts = 0;
 		DOMAmountOfProducts.textContent = amountOfProducts;
 		DOMTotalPriceOfProducts.textContent = '0 zł';
+		DOMTotalPriceOfProductsDesktopVersion.textContent = '0 zł';
 		buttonName.textContent = 'produktów – ';
 		menuProductsListButton.classList.remove('open');
 		menuProductsList.classList.remove('is-visible');
@@ -174,10 +176,12 @@ const Main = (_ => {
 		if (sumOfAllProducts.toString().includes('.')) {
 			sumOfAllProducts = sumOfAllProducts.toString().replace('.', ',');
 			DOMTotalPriceOfProducts.textContent = sumOfAllProducts + ' zł';
+			DOMTotalPriceOfProductsDesktopVersion.textContent = sumOfAllProducts + ' zł';
 			sumOfAllProducts = sumOfAllProducts.toString().replace(',', '.');
 			sumOfAllProducts = parseFloat(sumOfAllProducts);
 		} else {
 			DOMTotalPriceOfProducts.textContent = sumOfAllProducts.toString() + ' zł';
+			DOMTotalPriceOfProductsDesktopVersion.textContent = sumOfAllProducts.toString() + ' zł';
 		}
 
 		DOMAmountOfProducts.textContent = amountOfProducts;
@@ -192,7 +196,7 @@ const Main = (_ => {
 				<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
 			`;
 
-		clearShoppingCartButton.insertAdjacentElement('beforebegin', li);
+		DOMTotalPriceOfProductsContainerDesktopVersion.insertAdjacentElement('beforebegin', li);
 	}
 
 	const executeEventListeners = () => {
