@@ -9,9 +9,6 @@ const DOMAmountOfProducts = document.querySelector('.products-btn__quantity');
 const DOMTotalPriceOfProducts = document.querySelector('.products-btn__total-price');
 const DOMTotalPriceOfProductsContainerDesktopVersion = document.querySelector('.products-list__sum');
 const DOMTotalPriceOfProductsDesktopVersion = document.querySelector('.products-list__sum span');
-const DOMShopPRoducts = document.querySelector('.shop__products');
-const productsTabs = [...document.querySelector('.search-tabs').children];
 const DOMShopProducts = document.querySelector('.shop__products');
+const productsTabs = document.querySelectorAll('.search-tabs__item');
 const clearShoppingCartButton = document.querySelector('.products-list__clear-button');
-
-// const menuProducts = document.querySelectorAll('.products-list__product');

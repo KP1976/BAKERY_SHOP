@@ -1,7 +1,8 @@
-const Main = (_ => {
+const Main = (() => {
 	let buttonName = document.querySelector('.products-btn__name');
 	let amountOfProducts = parseInt(DOMAmountOfProducts.textContent);
 	let sumOfAllProducts = 0;
+	let amountOfSingleProducts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 	// Fetch JSON data
 	const getProductsFromJSON = async () => {
@@ -57,7 +58,7 @@ const Main = (_ => {
 		let child = menuProductsList.firstElementChild;
 		let counter = 0;
 
-		// odejmujemy node'a z ceną wszystkich produktów dla desktopa i buttona czyszczącego
+		// -2, bo odejmujemy node'a z ceną wszystkich produktów dla desktopa i buttona czyszczącego
 		while (counter < howManyNodeChildren - 2) {
 			menuProductsList.removeChild(child);
 			child = menuProductsList.firstElementChild;
@@ -78,6 +79,8 @@ const Main = (_ => {
 			product__amount.classList.remove('visible');
 			product__amount.textContent = '0';
 		});
+
+		amountOfSingleProducts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 	};
 
 	const changeHamburgerMenu = () => {
@@ -101,7 +104,6 @@ const Main = (_ => {
 			menuProductsListButton.classList.toggle('open');
 		} else {
 			menuProductsList.classList.toggle('is-visible');
-			// menuProducts.forEach(item => item.classList.toggle('show'));
 		}
 	};
 
@@ -142,33 +144,12 @@ const Main = (_ => {
 		productTab.addEventListener('click', showSelectedProducts);
 	});
 
-	function addProductToCart(e) {
-		let productPrice = parseFloat(
-			e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.'),
-		);
-		let productPictureSource = e.target.parentElement.firstElementChild.getAttribute('src');
-		let productPictureAlt = e.target.parentElement.firstElementChild.getAttribute('alt');
-		let productName = e.target.nextElementSibling.firstElementChild.textContent;
-		let amountOfProduct = e.target.previousElementSibling.textContent;
-
-		amountOfProduct++;
-		e.target.previousElementSibling.textContent = amountOfProduct;
-
-		if (amountOfProduct === 1) {
-			e.target.previousElementSibling.classList.add('visible');
-		}
-
-		menuProductsListButton.addEventListener('click', showProductsInMenu);
-
-		amountOfProducts++;
-		sumOfAllProducts += productPrice;
-
-		// Zamiana odpowiedniego słowa w zależności od ilości produktów
+	const displayCorrectSumOfProducts = () => {
 		if (amountOfProducts === 0 || amountOfProducts === 5) {
 			buttonName.textContent = 'produktów – ';
 		} else if (amountOfProducts === 1) {
 			buttonName.textContent = 'produkt – ';
-		} else if (amountOfProducts === 2) {
+		} else if (amountOfProducts > 1 && amountOfProducts < 5) {
 			buttonName.textContent = 'produkty – ';
 		}
 
@@ -183,6 +164,67 @@ const Main = (_ => {
 			DOMTotalPriceOfProducts.textContent = sumOfAllProducts.toString() + ' zł';
 			DOMTotalPriceOfProductsDesktopVersion.textContent = sumOfAllProducts.toString() + ' zł';
 		}
+	};
+
+	function addProductToCart(e) {
+		let productPrice = parseFloat(
+			e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.'),
+		);
+		let productPictureSource = e.target.parentElement.firstElementChild.getAttribute('src');
+		let productPictureAlt = e.target.parentElement.firstElementChild.getAttribute('alt');
+		let productName = e.target.nextElementSibling.firstElementChild.textContent;
+
+		switch (productName) {
+			case 'Babeczka cytrynowa':
+				amountOfSingleProducts[0]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[0];
+				break;
+			case 'Malinowy cukierek':
+				amountOfSingleProducts[1]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[1];
+				break;
+			case 'Sernik':
+				amountOfSingleProducts[2]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[2];
+				break;
+			case 'Beza':
+				amountOfSingleProducts[3]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[3];
+				break;
+			case 'Makowiec':
+				amountOfSingleProducts[4]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[4];
+				break;
+			case 'Donut z polewą':
+				amountOfSingleProducts[5]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[5];
+				break;
+			case 'Cukierek cytrynowy':
+				amountOfSingleProducts[6]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[6];
+				break;
+			case 'Tort':
+				amountOfSingleProducts[7]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[7];
+				break;
+			case 'Babeczka z owocami':
+				amountOfSingleProducts[8]++;
+				e.target.previousElementSibling.textContent = amountOfSingleProducts[8];
+				break;
+		}
+
+		amountOfSingleProducts.forEach(amountOfSingleProduct => {
+			if (amountOfSingleProduct === 1) {
+				e.target.previousElementSibling.classList.add('visible');
+			}
+		});
+
+		menuProductsListButton.addEventListener('click', showProductsInMenu);
+
+		amountOfProducts++;
+		sumOfAllProducts += productPrice;
+
+		displayCorrectSumOfProducts();
 
 		DOMAmountOfProducts.textContent = amountOfProducts;
 
@@ -190,13 +232,81 @@ const Main = (_ => {
 
 		li.className = 'products-list__product';
 		li.innerHTML = `
-			<img src="${productPictureSource}"	alt="${productPictureAlt}" class="products-list__picture"/>
-				<span class="products-list__name">${productName}</span>
-				<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
-				<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
-			`;
+		<img src="${productPictureSource}"	alt="${productPictureAlt}" class="products-list__picture"/>
+		<span class="products-list__name">${productName}</span>
+		<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
+		<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
+		`;
 
 		DOMTotalPriceOfProductsContainerDesktopVersion.insertAdjacentElement('beforebegin', li);
+
+		document
+			.querySelectorAll('.products-list__trash-can i')
+			[amountOfProducts - 1].addEventListener('click', function(e) {
+				const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+
+				amountOfProducts--;
+				sumOfAllProducts -= productPrice;
+				e.target.parentElement.parentElement.remove();
+				DOMAmountOfProducts.textContent = amountOfProducts;
+				displayCorrectSumOfProducts();
+
+				switch (nameOfProductInCart) {
+					case 'Babeczka cytrynowa':
+						amountOfSingleProducts[0]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[0];
+						break;
+					case 'Malinowy cukierek':
+						amountOfSingleProducts[1]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[1];
+						break;
+					case 'Sernik':
+						amountOfSingleProducts[2]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[2];
+						break;
+					case 'Beza':
+						amountOfSingleProducts[3]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[3];
+						break;
+					case 'Makowiec':
+						amountOfSingleProducts[4]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[4];
+						break;
+					case 'Donut z polewą':
+						amountOfSingleProducts[5]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[5];
+						break;
+					case 'Cukierek cytrynowy':
+						amountOfSingleProducts[6]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[6];
+						break;
+					case 'Tort':
+						amountOfSingleProducts[7]--;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[7];
+						break;
+					case 'Babeczka z owocami':
+						amountOfSingleProducts[8]++;
+						// e.target.previousElementSibling.textContent = amountOfSingleProducts[8];
+						break;
+				}
+
+				console.log(amountOfSingleProducts);
+
+				// [...DOMShopProducts.children].forEach(DOMProduct => {
+				// 	if (DOMProduct.lastElementChild.firstElementChild.textContent === nameOfProductInCart) {
+				// 		amountOfSingleProducts[4]--;
+				// 		DOMProduct.firstElementChild.nextElementSibling.textContent = amountOfSingleProduct;
+
+				// 		console.log(DOMProduct.firstElementChild.nextElementSibling.textContent);
+
+				// 		if (amountOfSingleProduct === 0) {
+				// 			DOMProduct.firstElementChild.nextElementSibling.classList.remove('visible');
+				// 		} else {
+				// 			DOMProduct.firstElementChild.nextElementSibling.classList.add('visible');
+				// 		}
+				// 	}
+				// });
+			});
 	}
 
 	const executeEventListeners = () => {
