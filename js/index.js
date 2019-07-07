@@ -75,6 +75,8 @@ const Main = (() => {
 		buttonName.textContent = 'produktów – ';
 		menuProductsListButton.classList.remove('open');
 		menuProductsList.classList.remove('is-visible');
+
+		// Czyszczenie wszystkich liczb pojedynczych produktów
 		document.querySelectorAll('.product__amount').forEach(product__amount => {
 			product__amount.classList.remove('visible');
 			product__amount.textContent = '0';
@@ -254,58 +256,76 @@ const Main = (() => {
 				switch (nameOfProductInCart) {
 					case 'Babeczka cytrynowa':
 						amountOfSingleProducts[0]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[0];
+						DOMShopProducts.children[0].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[0];
+						if (amountOfSingleProducts[0] === 0) {
+							DOMShopProducts.children[0].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Malinowy cukierek':
 						amountOfSingleProducts[1]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[1];
+						DOMShopProducts.children[1].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[1];
+						if (amountOfSingleProducts[1] === 0) {
+							DOMShopProducts.children[1].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Sernik':
 						amountOfSingleProducts[2]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[2];
+						DOMShopProducts.children[2].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[2];
+						if (amountOfSingleProducts[2] === 0) {
+							DOMShopProducts.children[2].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Beza':
 						amountOfSingleProducts[3]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[3];
+						DOMShopProducts.children[3].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[3];
+						if (amountOfSingleProducts[3] === 0) {
+							DOMShopProducts.children[3].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Makowiec':
 						amountOfSingleProducts[4]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[4];
+						DOMShopProducts.children[4].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[4];
+						if (amountOfSingleProducts[4] === 0) {
+							DOMShopProducts.children[4].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Donut z polewą':
 						amountOfSingleProducts[5]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[5];
+						DOMShopProducts.children[5].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[5];
+						if (amountOfSingleProducts[5] === 0) {
+							DOMShopProducts.children[5].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Cukierek cytrynowy':
 						amountOfSingleProducts[6]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[6];
+						DOMShopProducts.children[6].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[6];
+						if (amountOfSingleProducts[6] === 0) {
+							DOMShopProducts.children[6].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Tort':
 						amountOfSingleProducts[7]--;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[7];
+						DOMShopProducts.children[7].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[7];
+						if (amountOfSingleProducts[7] === 0) {
+							DOMShopProducts.children[7].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 					case 'Babeczka z owocami':
 						amountOfSingleProducts[8]++;
-						// e.target.previousElementSibling.textContent = amountOfSingleProducts[8];
+						DOMShopProducts.children[8].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[8];
+						if (amountOfSingleProducts[8] === 0) {
+							DOMShopProducts.children[8].firstElementChild.nextElementSibling.classList.remove('visible');
+						}
 						break;
 				}
 
-				console.log(amountOfSingleProducts);
+				if (amountOfProducts === 0) {
+					menuProductsListButton.classList.remove('open');
+					menuProductsListButton.removeEventListener('click', showProductsInMenu);
+					menuProductsList.classList.remove('is-visible');
+				}
 
-				// [...DOMShopProducts.children].forEach(DOMProduct => {
-				// 	if (DOMProduct.lastElementChild.firstElementChild.textContent === nameOfProductInCart) {
-				// 		amountOfSingleProducts[4]--;
-				// 		DOMProduct.firstElementChild.nextElementSibling.textContent = amountOfSingleProduct;
-
-				// 		console.log(DOMProduct.firstElementChild.nextElementSibling.textContent);
-
-				// 		if (amountOfSingleProduct === 0) {
-				// 			DOMProduct.firstElementChild.nextElementSibling.classList.remove('visible');
-				// 		} else {
-				// 			DOMProduct.firstElementChild.nextElementSibling.classList.add('visible');
-				// 		}
-				// 	}
-				// });
+				console.log(amountOfProducts);
 			});
 	}
 
