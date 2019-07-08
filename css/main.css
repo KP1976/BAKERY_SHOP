@@ -2304,16 +2304,16 @@ nav {
     height: 30rem;
     width: 40rem;
   }
+  .shop .product:hover .product__shop-cart-box {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .shop .product {
     height: 24rem;
     width: 32rem;
-  }
-  .shop .product:hover .product__shop-cart-box {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
   }
 }
 
@@ -2401,14 +2401,6 @@ nav {
 
 @media only screen and (min-width: 992px) {
   .shop .product__shop-cart-box {
-    height: 3.5rem;
-    margin: 1.5rem;
-    width: 3.5rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .shop .product__shop-cart-box {
     border-radius: 0;
     cursor: pointer;
     height: auto;
@@ -2448,7 +2440,7 @@ nav {
 
 @media only screen and (min-width: 992px) {
   .shop .product__shop-cart-box .plus-sign {
-    font-size: 2.5rem;
+    display: none;
   }
 }
 
@@ -2463,10 +2455,11 @@ nav {
   font-size: 1.8rem;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
   .shop .product__shop-cart-box .material-icons {
     display: block;
     font-size: 2.057rem;
+    pointer-events: none;
   }
 }
 

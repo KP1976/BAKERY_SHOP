@@ -244,89 +244,89 @@ const Main = (() => {
 
 		document
 			.querySelectorAll('.products-list__trash-can i')
-			[amountOfProducts - 1].addEventListener('click', function(e) {
-				const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+			[amountOfProducts - 1].addEventListener('click', removeProductFromCart.bind(e, productPrice));
+	}
 
-				amountOfProducts--;
-				sumOfAllProducts -= productPrice;
-				e.target.parentElement.parentElement.remove();
-				DOMAmountOfProducts.textContent = amountOfProducts;
-				displayCorrectSumOfProducts();
+	function removeProductFromCart(productPrice, e) {
+		const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
 
-				switch (nameOfProductInCart) {
-					case 'Babeczka cytrynowa':
-						amountOfSingleProducts[0]--;
-						DOMShopProducts.children[0].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[0];
-						if (amountOfSingleProducts[0] === 0) {
-							DOMShopProducts.children[0].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Malinowy cukierek':
-						amountOfSingleProducts[1]--;
-						DOMShopProducts.children[1].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[1];
-						if (amountOfSingleProducts[1] === 0) {
-							DOMShopProducts.children[1].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Sernik':
-						amountOfSingleProducts[2]--;
-						DOMShopProducts.children[2].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[2];
-						if (amountOfSingleProducts[2] === 0) {
-							DOMShopProducts.children[2].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Beza':
-						amountOfSingleProducts[3]--;
-						DOMShopProducts.children[3].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[3];
-						if (amountOfSingleProducts[3] === 0) {
-							DOMShopProducts.children[3].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Makowiec':
-						amountOfSingleProducts[4]--;
-						DOMShopProducts.children[4].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[4];
-						if (amountOfSingleProducts[4] === 0) {
-							DOMShopProducts.children[4].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Donut z polewą':
-						amountOfSingleProducts[5]--;
-						DOMShopProducts.children[5].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[5];
-						if (amountOfSingleProducts[5] === 0) {
-							DOMShopProducts.children[5].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Cukierek cytrynowy':
-						amountOfSingleProducts[6]--;
-						DOMShopProducts.children[6].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[6];
-						if (amountOfSingleProducts[6] === 0) {
-							DOMShopProducts.children[6].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Tort':
-						amountOfSingleProducts[7]--;
-						DOMShopProducts.children[7].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[7];
-						if (amountOfSingleProducts[7] === 0) {
-							DOMShopProducts.children[7].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
-					case 'Babeczka z owocami':
-						amountOfSingleProducts[8]++;
-						DOMShopProducts.children[8].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[8];
-						if (amountOfSingleProducts[8] === 0) {
-							DOMShopProducts.children[8].firstElementChild.nextElementSibling.classList.remove('visible');
-						}
-						break;
+		amountOfProducts--;
+		sumOfAllProducts -= productPrice;
+		e.target.parentElement.parentElement.remove();
+		DOMAmountOfProducts.textContent = amountOfProducts;
+		displayCorrectSumOfProducts();
+
+		switch (nameOfProductInCart) {
+			case 'Babeczka cytrynowa':
+				amountOfSingleProducts[0]--;
+				DOMShopProducts.children[0].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[0];
+				if (amountOfSingleProducts[0] === 0) {
+					DOMShopProducts.children[0].firstElementChild.nextElementSibling.classList.remove('visible');
 				}
-
-				if (amountOfProducts === 0) {
-					menuProductsListButton.classList.remove('open');
-					menuProductsListButton.removeEventListener('click', showProductsInMenu);
-					menuProductsList.classList.remove('is-visible');
+				break;
+			case 'Malinowy cukierek':
+				amountOfSingleProducts[1]--;
+				DOMShopProducts.children[1].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[1];
+				if (amountOfSingleProducts[1] === 0) {
+					DOMShopProducts.children[1].firstElementChild.nextElementSibling.classList.remove('visible');
 				}
+				break;
+			case 'Sernik':
+				amountOfSingleProducts[2]--;
+				DOMShopProducts.children[2].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[2];
+				if (amountOfSingleProducts[2] === 0) {
+					DOMShopProducts.children[2].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Beza':
+				amountOfSingleProducts[3]--;
+				DOMShopProducts.children[3].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[3];
+				if (amountOfSingleProducts[3] === 0) {
+					DOMShopProducts.children[3].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Makowiec':
+				amountOfSingleProducts[4]--;
+				DOMShopProducts.children[4].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[4];
+				if (amountOfSingleProducts[4] === 0) {
+					DOMShopProducts.children[4].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Donut z polewą':
+				amountOfSingleProducts[5]--;
+				DOMShopProducts.children[5].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[5];
+				if (amountOfSingleProducts[5] === 0) {
+					DOMShopProducts.children[5].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Cukierek cytrynowy':
+				amountOfSingleProducts[6]--;
+				DOMShopProducts.children[6].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[6];
+				if (amountOfSingleProducts[6] === 0) {
+					DOMShopProducts.children[6].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Tort':
+				amountOfSingleProducts[7]--;
+				DOMShopProducts.children[7].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[7];
+				if (amountOfSingleProducts[7] === 0) {
+					DOMShopProducts.children[7].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+			case 'Babeczka z owocami':
+				amountOfSingleProducts[8]--;
+				DOMShopProducts.children[8].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[8];
+				if (amountOfSingleProducts[8] === 0) {
+					DOMShopProducts.children[8].firstElementChild.nextElementSibling.classList.remove('visible');
+				}
+				break;
+		}
 
-				console.log(amountOfProducts);
-			});
+		if (amountOfProducts === 0) {
+			menuProductsListButton.classList.remove('open');
+			menuProductsListButton.removeEventListener('click', showProductsInMenu);
+			menuProductsList.classList.remove('is-visible');
+		}
 	}
 
 	const executeEventListeners = () => {
@@ -337,6 +337,7 @@ const Main = (() => {
 		DOMAddProductButtons.forEach(productButton => {
 			productButton.addEventListener('click', addProductToCart);
 		});
+
 		clearShoppingCartButton.addEventListener('click', removeAllProductsFromShoppingCart);
 	};
 
