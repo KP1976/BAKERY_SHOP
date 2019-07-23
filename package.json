@@ -1,17 +1,35 @@
 {
-	"name": "bakery_shop",
-	"version": "1.0.0",
-	"description": "Bakery Shop",
-	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/KP1976/BAKERY_SHOP.git"
-	},
-	"keywords": [],
-	"author": "Krzysztof Pawłowski",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/KP1976/BAKERY_SHOP/issues"
-	},
-	"homepage": "https://github.com/KP1976/BAKERY_SHOP#readme"
+  "name": "bakery_shop",
+  "version": "1.0.0",
+  "description": "Bakery Shop",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KP1976/BAKERY_SHOP.git"
+  },
+  "keywords": [],
+  "author": "Krzysztof Pawłowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KP1976/BAKERY_SHOP/issues"
+  },
+  "homepage": "https://github.com/KP1976/BAKERY_SHOP#readme",
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "firebase": "^6.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

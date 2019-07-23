@@ -109,7 +109,35 @@
 		<!-- STOPKA -->
 		<footer class="footer">&copy; Krzysztof Pawłowski</footer>
 
-		<script src="./js/DOM_variables.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+		<script>
+			firebase.initializeApp({
+				apiKey: 'AIzaSyDGAyftLCspEF-3gm0RJ1-3QlqIx6Dfg4o',
+				authDomain: 'bakery-shop-5457e.firebaseapp.com',
+				databaseURL: 'https://bakery-shop-5457e.firebaseio.com',
+				projectId: 'bakery-shop-5457e',
+				storageBucket: 'bakery-shop-5457e.appspot.com',
+				messagingSenderId: '1009026750919',
+				appId: '1:1009026750919:web:798e2def54d149d2',
+			});
+
+			const db = firebase.firestore();
+			let productsFromDataBase = [];
+			let i = 0;
+
+			db.collection('produkty')
+				.get()
+				.then(querySnapshot => {
+					querySnapshot.forEach(doc => {
+						productsFromDataBase[i] = doc.data();
+						i++;
+					});
+				});
+		</script>
+
+		<!-- <script src="./js/DOM_variables.js"></script> -->
 		<script src="./js/index.js"></script>
+		<script src="./js/test.js"></script>
 	</body>
 </html>
