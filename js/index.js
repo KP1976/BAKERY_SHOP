@@ -193,6 +193,17 @@ const Main = (() => {
 
 	function removeProductFromCart(productPrice, e) {
 		const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+		const {
+			0: product1,
+			1: product2,
+			2: product3,
+			3: product4,
+			4: product5,
+			5: product6,
+			6: product7,
+			7: product8,
+			8: product9
+		} = DOMShopProducts.children;
 
 		amountOfProducts--;
 		sumOfAllProducts -= productPrice;
@@ -203,108 +214,65 @@ const Main = (() => {
 		switch (nameOfProductInCart) {
 			case 'Babeczka cytrynowa':
 				amountOfSingleProducts[0]--;
-				// DOMShopProducts.children[0].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[0];
-				[DOMShopProducts.children[0].firstElementChild.nextElementSibling.textContent] = amountOfSingleProducts;
+				product1.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[0] === 0) {
-					DOMShopProducts.children[0].firstElementChild.nextElementSibling.classList.remove('visible');
+					product1.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Malinowy cukierek':
 				amountOfSingleProducts[1]--;
-				// DOMShopProducts.children[1].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[1];
-				[, DOMShopProducts.children[1].firstElementChild.nextElementSibling.textContent] = amountOfSingleProducts;
+				product2.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[1] === 0) {
-					DOMShopProducts.children[1].firstElementChild.nextElementSibling.classList.remove('visible');
+					product2.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Sernik':
 				amountOfSingleProducts[2]--;
-				// DOMShopProducts.children[2].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[2];
-				[, , DOMShopProducts.children[2].firstElementChild.nextElementSibling.textContent] = amountOfSingleProducts;
+				product3.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[2] === 0) {
-					DOMShopProducts.children[2].firstElementChild.nextElementSibling.classList.remove('visible');
+					product3.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Beza':
 				amountOfSingleProducts[3]--;
-				// DOMShopProducts.children[3].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[3];
-				[, , , DOMShopProducts.children[3].firstElementChild.nextElementSibling.textContent] = amountOfSingleProducts;
+				product4.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[3] === 0) {
-					DOMShopProducts.children[3].firstElementChild.nextElementSibling.classList.remove('visible');
+					product4.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Makowiec':
 				amountOfSingleProducts[4]--;
-				// DOMShopProducts.children[4].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[4];
-				[, , , , DOMShopProducts.children[4].firstElementChild.nextElementSibling.textContent] = amountOfSingleProducts;
+				product5.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[4] === 0) {
-					DOMShopProducts.children[4].firstElementChild.nextElementSibling.classList.remove('visible');
+					product5.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Donut z polewą':
 				amountOfSingleProducts[5]--;
-				// DOMShopProducts.children[5].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[5];
-				[
-					,
-					,
-					,
-					,
-					,
-					DOMShopProducts.children[5].firstElementChild.nextElementSibling.textContent
-				] = amountOfSingleProducts;
+				product6.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[5] === 0) {
-					DOMShopProducts.children[5].firstElementChild.nextElementSibling.classList.remove('visible');
+					product6.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Cukierek cytrynowy':
 				amountOfSingleProducts[6]--;
-				// DOMShopProducts.children[6].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[6];
-				[
-					,
-					,
-					,
-					,
-					,
-					,
-					DOMShopProducts.children[6].firstElementChild.nextElementSibling.textContent
-				] = amountOfSingleProducts;
+				product7.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[6] === 0) {
-					DOMShopProducts.children[6].firstElementChild.nextElementSibling.classList.remove('visible');
+					product7.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Tort':
 				amountOfSingleProducts[7]--;
-				// DOMShopProducts.children[7].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[7];
-				[
-					,
-					,
-					,
-					,
-					,
-					,
-					,
-					DOMShopProducts.children[7].firstElementChild.nextElementSibling.textContent
-				] = amountOfSingleProducts;
+				product8.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[7] === 0) {
-					DOMShopProducts.children[7].firstElementChild.nextElementSibling.classList.remove('visible');
+					product8.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			case 'Babeczka z owocami':
 				amountOfSingleProducts[8]--;
-				// DOMShopProducts.children[8].firstElementChild.nextElementSibling.textContent = amountOfSingleProducts[8];
-				[
-					,
-					,
-					,
-					,
-					,
-					,
-					,
-					,
-					DOMShopProducts.children[8].firstElementChild.nextElementSibling.textContent
-				] = amountOfSingleProducts;
+				product9.firstElementChild.nextElementSibling.textContent--;
 				if (amountOfSingleProducts[8] === 0) {
-					DOMShopProducts.children[8].firstElementChild.nextElementSibling.classList.remove('visible');
+					product9.firstElementChild.nextElementSibling.classList.remove('visible');
 				}
 				break;
 			default:
@@ -326,52 +294,63 @@ const Main = (() => {
 		const productPictureAlt = e.target.parentElement.firstElementChild.getAttribute('alt');
 		const productName = e.target.nextElementSibling.firstElementChild.textContent;
 
+		let {
+			0: product1,
+			1: product2,
+			2: product3,
+			3: product4,
+			4: product5,
+			5: product6,
+			6: product7,
+			7: product8,
+			8: product9
+		} = amountOfSingleProducts;
+
 		switch (productName) {
 			case 'Babeczka cytrynowa':
 				amountOfSingleProducts[0]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[0];
-				[e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product1++;
+				e.target.previousElementSibling.textContent = product1;
 				break;
 			case 'Malinowy cukierek':
 				amountOfSingleProducts[1]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[1];
-				[, e.target.previousElementSibling.textContent] = amountOfSingleProducts;
-				console.log(amountOfSingleProducts);
+				product2++;
+				e.target.previousElementSibling.textContent = product2;
 				break;
 			case 'Sernik':
 				amountOfSingleProducts[2]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[2];
-				[, , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product3++;
+				e.target.previousElementSibling.textContent = product3;
 				break;
 			case 'Beza':
 				amountOfSingleProducts[3]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[3];
-				[, , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product4++;
+				e.target.previousElementSibling.textContent = product4;
 				break;
 			case 'Makowiec':
 				amountOfSingleProducts[4]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[4];
-				[, , , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product5++;
+				e.target.previousElementSibling.textContent = product5;
 				break;
 			case 'Donut z polewą':
 				amountOfSingleProducts[5]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[5];
-				[, , , , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product6++;
+				e.target.previousElementSibling.textContent = product6;
 				break;
 			case 'Cukierek cytrynowy':
 				amountOfSingleProducts[6]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[6];
-				[, , , , , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product7++;
+				e.target.previousElementSibling.textContent = product7;
 				break;
 			case 'Tort':
 				amountOfSingleProducts[7]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[7];
-				[, , , , , , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product8++;
+				e.target.previousElementSibling.textContent = product8;
 				break;
 			case 'Babeczka z owocami':
 				amountOfSingleProducts[8]++;
-				// e.target.previousElementSibling.textContent = amountOfSingleProducts[8];
-				[, , , , , , , , e.target.previousElementSibling.textContent] = amountOfSingleProducts;
+				product9++;
+				e.target.previousElementSibling.textContent = product9;
 				break;
 			default:
 				break;

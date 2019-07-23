@@ -124,14 +124,14 @@
 
 			const db = firebase.firestore();
 			let productsFromDataBase = [];
-			let i = 0;
+			let j = 0;
 
 			db.collection('produkty')
 				.get()
 				.then(querySnapshot => {
 					querySnapshot.forEach(doc => {
-						productsFromDataBase[i] = doc.data();
-						i++;
+						productsFromDataBase[j] = doc.data();
+						j++;
 					});
 				});
 		</script>
