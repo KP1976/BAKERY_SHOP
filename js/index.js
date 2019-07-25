@@ -1,7 +1,3 @@
-// const firebase = require('firebase');
-// Required for side-effects
-// require('firebase/firestore');
-
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const hamburgerMenuBars = document.querySelectorAll('.hamburger-menu__bar');
 const menu = document.querySelector('.menu-list');
@@ -23,29 +19,34 @@ const Main = (() => {
 	let sumOfAllProducts = 0;
 	let amountOfSingleProducts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-	// Fetch JSON data
-	const getProductsFromJSON = async () => {
-		try {
-			const result = await fetch('js/products.json');
-			let data = await result.json();
+	firebase.initializeApp({
+		apiKey: 'AIzaSyDGAyftLCspEF-3gm0RJ1-3QlqIx6Dfg4o',
+		authDomain: 'bakery-shop-5457e.firebaseapp.com',
+		databaseURL: 'https://bakery-shop-5457e.firebaseio.com',
+		projectId: 'bakery-shop-5457e',
+		storageBucket: 'bakery-shop-5457e.appspot.com',
+		messagingSenderId: '1009026750919',
+		appId: '1:1009026750919:web:798e2def54d149d2'
+	});
 
-			data = data.map(product => {
-				const { id, name, price, category, image } = product;
-				return { id, name, price, category, image };
-			});
-			return data;
-		} catch (error) {
-			console.log(error);
-		}
-		return 1;
-	};
+	const db = firebase.firestore();
+	const productsFromDataBase = [];
+	let i = 0;
 
 	const addAllProductsToDOM = () => {
 		let allProductsAsString = '';
 
-		const allProductsInDOM = getProductsFromJSON().then(products => {
-			products.forEach(product => {
-				const productSchema = `
+		const allProductsInDOM = db
+			.collection('produkty')
+			.get()
+			.then(querySnapshot => {
+				querySnapshot.forEach(doc => {
+					productsFromDataBase[i] = doc.data();
+					i++;
+				});
+
+				productsFromDataBase.forEach(product => {
+					const productSchema = `
 					<figure class="product" data-category="${product.category}">
 						<img
 							class="product__image"
@@ -65,13 +66,63 @@ const Main = (() => {
 						</div>
 					</figure>
 				`;
-				allProductsAsString += productSchema;
-			});
-			DOMShopProducts.innerHTML = allProductsAsString;
-		});
-
+					allProductsAsString += productSchema;
+				});
+				DOMShopProducts.innerHTML = allProductsAsString;
+			})
+			.catch(err => console.log(err));
 		return allProductsInDOM;
 	};
+
+	// Fetch JSON data
+	// const getProductsFromJSON = async () => {
+	// 	try {
+	// 		const result = await fetch('js/products.json');
+	// 		let data = await result.json();
+
+	// 		data = data.map(product => {
+	// 			const { id, name, price, category, image } = product;
+	// 			return { id, name, price, category, image };
+	// 		});
+	// 		return data;
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// 	return true;
+	// };
+
+	// const addAllProductsToDOM = () => {
+	// 	let allProductsAsString = '';
+
+	// 	const allProductsInDOM = getProductsFromJSON().then(products => {
+	// 		products.forEach(product => {
+	// 			const productSchema = `
+	// 				<figure class="product" data-category="${product.category}">
+	// 					<img
+	// 						class="product__image"
+	// 						srcset="${product.image.small} 500w, ${product.image.normal} 1000w"
+	// 						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
+	// 						src="${product.image.small}"
+	// 						alt="${product.image.alt}"
+	// 					/>
+	// 					<span class="product__amount">0</span>
+	// 					<div class="product__shop-cart-box">
+	// 						<i class="material-icons">shopping_cart</i>
+	// 						<span class="plus-sign">+</span>
+	// 					</div>
+	// 					<div class="product__description-box">
+	// 						<span class="product__name">${product.name}</span>
+	// 						<span class="product__price">${product.price}</span>
+	// 					</div>
+	// 				</figure>
+	// 			`;
+	// 			allProductsAsString += productSchema;
+	// 		});
+	// 		DOMShopProducts.innerHTML = allProductsAsString;
+	// 	});
+
+	// 	return allProductsInDOM;
+	// };
 
 	const showProductsInMenu = () => {
 		if (window.innerWidth < 768) {
@@ -402,7 +453,6 @@ const Main = (() => {
 
 	return {
 		init: () => {
-			console.log(productsFromDataBase);
 			addAllProductsToDOM().then(() => executeEventListeners());
 		}
 	};
