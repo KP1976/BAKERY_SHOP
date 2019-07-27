@@ -1,3 +1,5 @@
+/* global firebase */
+
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const hamburgerMenuBars = document.querySelectorAll('.hamburger-menu__bar');
 const menu = document.querySelector('.menu-list');
@@ -5,7 +7,7 @@ const menuListItems = document.querySelectorAll('.menu-list__item');
 const phoneNumber = document.querySelector('.menu-list__phone-number');
 const menuProductsListButton = document.querySelector('.products-btn');
 const menuProductsList = document.querySelector('.products-list');
-const DOMAmountOfProducts = document.querySelector('.products-btn__quantity');
+const DOMAmountOfProductsInCart = document.querySelector('.products-btn__quantity');
 const DOMTotalPriceOfProducts = document.querySelector('.products-btn__total-price');
 const DOMTotalPriceOfProductsContainerDesktopVersion = document.querySelector('.products-list__sum');
 const DOMTotalPriceOfProductsDesktopVersion = document.querySelector('.products-list__sum span');
@@ -15,9 +17,8 @@ const clearShoppingCartButton = document.querySelector('.products-list__clear-bu
 
 const Main = (() => {
 	const buttonName = document.querySelector('.products-btn__name');
-	let amountOfProducts = parseInt(DOMAmountOfProducts.textContent, 10);
+	let amountOfProducts = parseInt(DOMAmountOfProductsInCart.textContent, 10);
 	let sumOfAllProducts = 0;
-	let amountOfSingleProducts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 	firebase.initializeApp({
 		apiKey: 'AIzaSyDGAyftLCspEF-3gm0RJ1-3QlqIx6Dfg4o',
@@ -31,47 +32,45 @@ const Main = (() => {
 
 	const db = firebase.firestore();
 	const productsFromDataBase = [];
-	let i = 0;
 
-	const addAllProductsToDOM = () => {
+	const addAllProductsToDOM = async () => {
 		let allProductsAsString = '';
+		let i = 0;
 
-		const allProductsInDOM = db
-			.collection('produkty')
-			.get()
-			.then(querySnapshot => {
-				querySnapshot.forEach(doc => {
-					productsFromDataBase[i] = doc.data();
-					i++;
-				});
+		try {
+			const products = await db.collection('produkty').get();
+			products.forEach(product => {
+				productsFromDataBase[i] = product.data();
+				i++;
+			});
 
-				productsFromDataBase.forEach(product => {
-					const productSchema = `
-					<figure class="product" data-category="${product.category}">
-						<img
-							class="product__image"
-							srcset="${product.image.small} 500w, ${product.image.normal} 1000w"
-							sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
-							src="${product.image.small}"
-							alt="${product.image.alt}"
-						/>
-						<span class="product__amount">0</span>
-						<div class="product__shop-cart-box">
-							<i class="material-icons">shopping_cart</i>
-							<span class="plus-sign">+</span>
-						</div>
-						<div class="product__description-box">
-							<span class="product__name">${product.name}</span>
-							<span class="product__price">${product.price}</span>
-						</div>
-					</figure>
-				`;
-					allProductsAsString += productSchema;
-				});
-				DOMShopProducts.innerHTML = allProductsAsString;
-			})
-			.catch(err => console.log(err));
-		return allProductsInDOM;
+			productsFromDataBase.forEach(product => {
+				const productSchema = `
+				<figure class="product" data-category="${product.category}">
+					<img
+						class="product__image"
+						srcset="${product.image.small} 500w, ${product.image.normal} 1000w"
+						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
+						src="${product.image.small}"
+						alt="${product.image.alt}"
+					/>
+					<span class="product__amount">0</span>
+					<div class="product__shop-cart-box">
+						<i class="material-icons">shopping_cart</i>
+						<span class="plus-sign">+</span>
+					</div>
+					<div class="product__description-box">
+						<span class="product__name">${product.name}</span>
+						<span class="product__price">${product.price}</span>
+					</div>
+				</figure>
+			`;
+				allProductsAsString += productSchema;
+			});
+			DOMShopProducts.innerHTML = allProductsAsString;
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	// Fetch JSON data
@@ -89,39 +88,6 @@ const Main = (() => {
 	// 		console.log(error);
 	// 	}
 	// 	return true;
-	// };
-
-	// const addAllProductsToDOM = () => {
-	// 	let allProductsAsString = '';
-
-	// 	const allProductsInDOM = getProductsFromJSON().then(products => {
-	// 		products.forEach(product => {
-	// 			const productSchema = `
-	// 				<figure class="product" data-category="${product.category}">
-	// 					<img
-	// 						class="product__image"
-	// 						srcset="${product.image.small} 500w, ${product.image.normal} 1000w"
-	// 						sizes="(max-width: 576px) 500px, (max-width: 992px) 1000px"
-	// 						src="${product.image.small}"
-	// 						alt="${product.image.alt}"
-	// 					/>
-	// 					<span class="product__amount">0</span>
-	// 					<div class="product__shop-cart-box">
-	// 						<i class="material-icons">shopping_cart</i>
-	// 						<span class="plus-sign">+</span>
-	// 					</div>
-	// 					<div class="product__description-box">
-	// 						<span class="product__name">${product.name}</span>
-	// 						<span class="product__price">${product.price}</span>
-	// 					</div>
-	// 				</figure>
-	// 			`;
-	// 			allProductsAsString += productSchema;
-	// 		});
-	// 		DOMShopProducts.innerHTML = allProductsAsString;
-	// 	});
-
-	// 	return allProductsInDOM;
 	// };
 
 	const showProductsInMenu = () => {
@@ -149,7 +115,7 @@ const Main = (() => {
 		menuProductsListButton.removeEventListener('click', showProductsInMenu);
 		sumOfAllProducts = 0;
 		amountOfProducts = 0;
-		DOMAmountOfProducts.textContent = amountOfProducts;
+		DOMAmountOfProductsInCart.textContent = amountOfProducts;
 		DOMTotalPriceOfProducts.textContent = '0 zł';
 		DOMTotalPriceOfProductsDesktopVersion.textContent = '0 zł';
 		buttonName.textContent = 'produktów – ';
@@ -162,8 +128,6 @@ const Main = (() => {
 			const newProductAmount = productAmount;
 			newProductAmount.textContent = '0';
 		});
-
-		amountOfSingleProducts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 	};
 
 	const changeHamburgerMenu = () => {
@@ -244,91 +208,25 @@ const Main = (() => {
 
 	function removeProductFromCart(productPrice, e) {
 		const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
-		const {
-			0: product1,
-			1: product2,
-			2: product3,
-			3: product4,
-			4: product5,
-			5: product6,
-			6: product7,
-			7: product8,
-			8: product9
-		} = DOMShopProducts.children;
 
 		amountOfProducts--;
 		sumOfAllProducts -= productPrice;
 		e.target.parentElement.parentElement.remove();
-		DOMAmountOfProducts.textContent = amountOfProducts;
+		DOMAmountOfProductsInCart.textContent = amountOfProducts;
 		displayCorrectSumOfProducts();
 
-		switch (nameOfProductInCart) {
-			case 'Babeczka cytrynowa':
-				amountOfSingleProducts[0]--;
-				product1.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[0] === 0) {
-					product1.firstElementChild.nextElementSibling.classList.remove('visible');
+		[...DOMShopProducts.children].forEach(product => {
+			const nameOfProduct = product.children[3].firstElementChild.textContent;
+			const _product = product;
+
+			if (nameOfProductInCart === nameOfProduct) {
+				_product.children[1].textContent--;
+				if (_product.children[1].textContent === '0') {
+					console.log('WYZEROWANY!!!');
+					_product.children[1].classList.remove('visible');
 				}
-				break;
-			case 'Malinowy cukierek':
-				amountOfSingleProducts[1]--;
-				product2.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[1] === 0) {
-					product2.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Sernik':
-				amountOfSingleProducts[2]--;
-				product3.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[2] === 0) {
-					product3.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Beza':
-				amountOfSingleProducts[3]--;
-				product4.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[3] === 0) {
-					product4.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Makowiec':
-				amountOfSingleProducts[4]--;
-				product5.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[4] === 0) {
-					product5.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Donut z polewą':
-				amountOfSingleProducts[5]--;
-				product6.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[5] === 0) {
-					product6.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Cukierek cytrynowy':
-				amountOfSingleProducts[6]--;
-				product7.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[6] === 0) {
-					product7.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Tort':
-				amountOfSingleProducts[7]--;
-				product8.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[7] === 0) {
-					product8.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			case 'Babeczka z owocami':
-				amountOfSingleProducts[8]--;
-				product9.firstElementChild.nextElementSibling.textContent--;
-				if (amountOfSingleProducts[8] === 0) {
-					product9.firstElementChild.nextElementSibling.classList.remove('visible');
-				}
-				break;
-			default:
-				break;
-		}
+			}
+		});
 
 		if (amountOfProducts === 0) {
 			menuProductsListButton.classList.remove('open');
@@ -338,97 +236,35 @@ const Main = (() => {
 	}
 
 	function addProductToCart(e) {
-		const productPrice = parseFloat(
-			e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.')
-		);
-		const productPictureSource = e.target.parentElement.firstElementChild.getAttribute('src');
-		const productPictureAlt = e.target.parentElement.firstElementChild.getAttribute('alt');
-		const productName = e.target.nextElementSibling.firstElementChild.textContent;
+		const productInDOM = {
+			productPrice: parseFloat(
+				e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.')
+			),
+			productPictureSource: e.target.parentElement.firstElementChild.getAttribute('src'),
+			productPictureAlt: e.target.parentElement.firstElementChild.getAttribute('alt'),
+			productName: e.target.nextElementSibling.firstElementChild.textContent
+		};
 
-		let {
-			0: product1,
-			1: product2,
-			2: product3,
-			3: product4,
-			4: product5,
-			5: product6,
-			6: product7,
-			7: product8,
-			8: product9
-		} = amountOfSingleProducts;
-
-		switch (productName) {
-			case 'Babeczka cytrynowa':
-				amountOfSingleProducts[0]++;
-				product1++;
-				e.target.previousElementSibling.textContent = product1;
-				break;
-			case 'Malinowy cukierek':
-				amountOfSingleProducts[1]++;
-				product2++;
-				e.target.previousElementSibling.textContent = product2;
-				break;
-			case 'Sernik':
-				amountOfSingleProducts[2]++;
-				product3++;
-				e.target.previousElementSibling.textContent = product3;
-				break;
-			case 'Beza':
-				amountOfSingleProducts[3]++;
-				product4++;
-				e.target.previousElementSibling.textContent = product4;
-				break;
-			case 'Makowiec':
-				amountOfSingleProducts[4]++;
-				product5++;
-				e.target.previousElementSibling.textContent = product5;
-				break;
-			case 'Donut z polewą':
-				amountOfSingleProducts[5]++;
-				product6++;
-				e.target.previousElementSibling.textContent = product6;
-				break;
-			case 'Cukierek cytrynowy':
-				amountOfSingleProducts[6]++;
-				product7++;
-				e.target.previousElementSibling.textContent = product7;
-				break;
-			case 'Tort':
-				amountOfSingleProducts[7]++;
-				product8++;
-				e.target.previousElementSibling.textContent = product8;
-				break;
-			case 'Babeczka z owocami':
-				amountOfSingleProducts[8]++;
-				product9++;
-				e.target.previousElementSibling.textContent = product9;
-				break;
-			default:
-				break;
-		}
-
-		amountOfSingleProducts.forEach(amountOfSingleProduct => {
-			if (amountOfSingleProduct === 1) {
-				e.target.previousElementSibling.classList.add('visible');
-			}
-		});
+		e.target.previousElementSibling.textContent++;
+		e.target.previousElementSibling.classList.add('visible');
 
 		menuProductsListButton.addEventListener('click', showProductsInMenu);
 
 		amountOfProducts++;
-		sumOfAllProducts += productPrice;
+		sumOfAllProducts += productInDOM.productPrice;
 
 		displayCorrectSumOfProducts();
 
-		DOMAmountOfProducts.textContent = amountOfProducts;
+		DOMAmountOfProductsInCart.textContent = amountOfProducts;
 
+		// Tworzenie HTML dla nowego produktu
 		const li = document.createElement('li');
 
 		li.className = 'products-list__product';
 		li.innerHTML = `
-		<img src="${productPictureSource}"	alt="${productPictureAlt}" class="products-list__picture"/>
-		<span class="products-list__name">${productName}</span>
-		<span class="products-list__price">${productPrice.toString().replace('.', ',')} zł</span>
+		<img src="${productInDOM.productPictureSource}"	alt="${productInDOM.productPictureAlt}" class="products-list__picture"/>
+		<span class="products-list__name">${productInDOM.productName}</span>
+		<span class="products-list__price">${productInDOM.productPrice.toString().replace('.', ',')} zł</span>
 		<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
 		`;
 
@@ -436,7 +272,7 @@ const Main = (() => {
 
 		document
 			.querySelectorAll('.products-list__trash-can i')
-			[amountOfProducts - 1].addEventListener('click', removeProductFromCart.bind(e, productPrice));
+			[amountOfProducts - 1].addEventListener('click', removeProductFromCart.bind(e, productInDOM.productPrice));
 	}
 
 	const executeEventListeners = () => {
@@ -453,7 +289,9 @@ const Main = (() => {
 
 	return {
 		init: () => {
-			addAllProductsToDOM().then(() => executeEventListeners());
+			addAllProductsToDOM().then(() => {
+				executeEventListeners();
+			});
 		}
 	};
 })();

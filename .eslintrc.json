@@ -1,15 +1,24 @@
 {
 	"extends": ["airbnb", "prettier", "plugin:node/recommended"],
 	"plugins": ["prettier"],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
 	"rules": {
 		"no-unused-vars": "warn",
 		"no-console": "off",
 		"func-names": "off",
 		"no-process-exit": "off",
 		"class-methods-use-this": "off",
-		"no-plusplus": "off"
+		"no-plusplus": "off",
+		"no-underscore-dangle": "off"
 	},
 	"env": {
-		"browser": true
+		"browser": true,
+		"es6": true
 	}
 }
