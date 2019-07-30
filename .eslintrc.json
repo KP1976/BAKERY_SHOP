@@ -1,6 +1,6 @@
 {
-	"extends": ["airbnb", "prettier", "plugin:node/recommended"],
-	"plugins": ["prettier"],
+	"extends": ["airbnb", "prettier", "prettier/react", "plugin:react/recommended"],
+	"plugins": ["prettier", "react"],
 	"parserOptions": {
 		"ecmaVersion": 2018,
 		"sourceType": "module",
@@ -15,7 +15,8 @@
 		"no-process-exit": "off",
 		"class-methods-use-this": "off",
 		"no-plusplus": "off",
-		"no-underscore-dangle": "off"
+		"no-underscore-dangle": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 	},
 	"env": {
 		"browser": true,
