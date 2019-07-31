@@ -1,7 +1,13 @@
 import React from 'react';
+import NavBar from './components/Navigation/Navbar';
+import navStyles from './components/Navigation/nav.module.scss';
 
-function App() {
-	return <div className="App">Hello World</div>;
-}
+const App = () => {
+	return (
+		<nav className={navStyles.nav}>
+			<NavBar />
+		</nav>
+	);
+};
 
 export default App;
