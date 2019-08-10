@@ -16,7 +16,8 @@
 		"class-methods-use-this": "off",
 		"no-plusplus": "off",
 		"no-underscore-dangle": "off",
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/forbid-prop-types": "off"
 	},
 	"env": {
 		"browser": true,

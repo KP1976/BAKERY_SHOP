@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const MenuList = () => {
+const MenuList = ({ isVisible }) => {
 	return (
-		<ul className="menu-list">
+		<ul className={isVisible ? 'menu-list is-visible' : 'menu-list'}>
 			<li className="menu-list__item">
 				<a href="#root" className="menu-list__link">
 					Strona główna
@@ -44,6 +45,10 @@ const MenuList = () => {
 			</li>
 		</ul>
 	);
+};
+
+MenuList.propTypes = {
+	isVisible: PropTypes.bool.isRequired
 };
 
 export default MenuList;
