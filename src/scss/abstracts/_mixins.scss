@@ -1,0 +1,28 @@
+@mixin mq($width) {
+	@media only screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin button($width, $font-size) {
+	background-color: var(--main-color);
+	border: none;
+	border-radius: var(--radius);
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	font-size: $font-size;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: $width;
+}
+
+@mixin titles($font-size) {
+	color: var(--dark-color);
+	font-size: $font-size;
+	line-height: $font-size;
+	text-align: center;
+	text-transform: uppercase;
+}

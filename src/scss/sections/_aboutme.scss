@@ -1,0 +1,163 @@
+.about-us {
+	background-color: transparent;
+	padding: 5rem 2rem 0;
+	position: relative;
+	z-index: 1;
+
+	@include mq(576px) {
+		padding: 8rem 5rem 0;
+	}
+
+	@include mq(768px) {
+		padding: 10rem 10.4rem 0;
+	}
+
+	@include mq(992px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(4, min-content);
+		grid-column-gap: 10.3%;
+		padding: 10rem 5rem 0;
+	}
+
+	@include mq(1200px) {
+		background-color: rgba(220, 94, 74, 0.1);
+		grid-template-rows: repeat(3, min-content);
+		grid-column-gap: 7.65%;
+		padding: 5rem 5rem;
+	}
+
+	@include mq(1600px) {
+		grid-template-columns: 70rem 1fr;
+		grid-column-gap: 15rem;
+		margin: 0 auto;
+		padding: 5rem 20.15rem;
+	}
+
+	&__title {
+		@include titles(2.3rem);
+		margin-bottom: 4rem;
+
+		@include mq(576px) {
+			@include titles(3rem);
+			margin-bottom: 0;
+		}
+
+		@include mq(768px) {
+			@include titles(4rem);
+		}
+
+		@include mq(992px) {
+			grid-column: 1 / -1;
+			grid-row: 1 / 2;
+		}
+
+		@include mq(1200px) {
+			margin-bottom: 5rem;
+		}
+	}
+
+	&__text {
+		color: var(--dark-color);
+		font-size: 1.6rem;
+		line-height: 2.5rem;
+		margin: 0 0 4rem 0;
+		text-align: center;
+
+		@include mq(576px) {
+			font-size: 1.8rem;
+			line-height: 2.8rem;
+			margin: 0 0 5rem 0;
+			padding: 0 4.8rem;
+		}
+
+		@include mq(768px) {
+			font-size: 2.2rem;
+			line-height: 3.3rem;
+			padding: 0;
+		}
+
+		@include mq(992px) {
+			align-self: end;
+			font-size: 1.8rem;
+			grid-column: 2 / 3;
+			grid-row: 3 / 4;
+			line-height: 2.6rem;
+			margin: 0 0 12.5%;
+			text-align: left;
+		}
+
+		@include mq(1200px) {
+			font-size: 2rem;
+			grid-row: 2 / 3;
+			line-height: 3rem;
+			margin: 0 0 6rem;
+		}
+
+		@include mq(1600px) {
+			font-size: 2.6rem;
+			line-height: 4rem;
+			margin: 0 0 8rem;
+		}
+	}
+
+	&__image {
+		border-radius: var(--radius);
+		display: block;
+		margin-bottom: 4rem;
+		object-fit: cover;
+		width: 100%;
+
+		@include mq(576px) {
+			margin-bottom: 4rem;
+		}
+
+		@include mq(765px) {
+			margin-bottom: 5rem;
+		}
+
+		@include mq(992px) {
+			grid-column: 1 / 2;
+			grid-row: 3 / 5;
+			margin-bottom: 0;
+		}
+
+		@include mq(1200px) {
+			grid-row: 2 / 4;
+		}
+	}
+
+	&__button {
+		@include button(10.4rem, 1.6rem);
+		padding: 1.8rem 1.7rem;
+		margin: 0 auto;
+
+		@include mq(576px) {
+			@include button(14.8rem, 2.2rem);
+			padding: 2.1rem 2.6rem;
+		}
+
+		@include mq(768px) {
+			@include button(17.2rem, 2.6rem);
+			padding: 1.9rem 3rem;
+		}
+
+		@include mq(992px) {
+			@include button(14.6rem, 2rem);
+			grid-column: 2 / 3;
+			grid-row: 4 / 5;
+			height: 5.5rem;
+			margin: 0;
+			padding: 1.5rem 3rem;
+		}
+
+		@include mq(1200px) {
+			grid-row: 3 / 4;
+		}
+
+		@include mq(1600px) {
+			@include button(23rem, 3rem);
+			height: 8rem;
+		}
+	}
+}

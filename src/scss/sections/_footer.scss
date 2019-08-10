@@ -1,0 +1,15 @@
+.footer {
+	color: var(--dark-color);
+	font-size: 1.6rem;
+	font-weight: bold;
+	padding: 4rem 0;
+	text-align: center;
+
+	@include mq(576px) {
+		padding: 5rem 0;
+	}
+
+	@include mq(1200px) {
+		padding: 7.5rem 0;
+	}
+}

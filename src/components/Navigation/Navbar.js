@@ -1,11 +1,15 @@
 import React from 'react';
 import HamburgerMenu from './Hamburger-menu';
-import NavBarStyles from './nav-menu.module.scss';
+import MenuList from './Menu-list';
+
+import '../../scss/sections/_menu.scss';
 
 const NavBar = () => {
 	return (
-		<div className={NavBarStyles['nav-menu']}>
+		<div className="nav-menu">
 			<HamburgerMenu />
+			<h1 className="main-title">domowe wypieki</h1>
+			<MenuList />
 		</div>
 	);
 };
