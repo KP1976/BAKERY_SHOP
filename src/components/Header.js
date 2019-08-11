@@ -1,5 +1,4 @@
 import React from 'react';
-import '../scss/sections/_header.scss';
 import headerImgSmall from '../img/header-photo_small.jpg';
 import headerImgLarge from '../img/header-photo.jpg';
 

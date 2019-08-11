@@ -1,5 +1,4 @@
 import React from 'react';
-import '../scss/sections/_aboutus.scss';
 import aboutUsImgSmall from '../img/about_us_picture_small.jpg';
 import aboutUsImgLarge from '../img/about_us_picture.jpg';
 
