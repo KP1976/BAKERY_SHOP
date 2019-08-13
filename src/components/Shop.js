@@ -1,6 +1,5 @@
 import React from 'react';
 import '../scss/abstracts/_mixins.scss';
-// import '../scss/sections/_shop.scss';
 
 const Shop = () => {
 	return (
