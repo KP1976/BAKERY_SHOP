@@ -12,9 +12,21 @@ import cakeSmall from '../img/cake_small.jpg';
 import opiumCakeSmall from '../img/opium_cake_small.jpg';
 import donutSmall from '../img/donut1_small.jpg';
 
+import citrusCupcake from '../img/citrus_cupcake.jpg';
+import cheeseCake from '../img/cheese_cake.jpg';
+import fruitCupcake from '../img/fruit_cupcake.jpg';
+import citricCandy from '../img/citric_candy.jpg';
+import meringue from '../img/meringue.jpg';
+import raspberryCandy from '../img/raspberry_candy.jpg';
+import cake from '../img/cake.jpg';
+import opiumCake from '../img/opium_cake.jpg';
+import donut from '../img/donut1.jpg';
+
 import '../scss/abstracts/_mixins.scss';
 
-const useProducts = () => {
+const Shop = () => {
+	const searchTabs = ['Babeczki', 'Ciasta', 'Słodycze', 'Donaty'];
+
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
@@ -29,27 +41,21 @@ const useProducts = () => {
 				setProducts(newProduct);
 			});
 	}, []);
-	return products;
-};
 
-const Shop = () => {
-	const searchTabs = ['Babeczki', 'Ciasta', 'Słodycze', 'Donaty'];
-
-	const products = useProducts();
-
-	const images = [
-		citrusCupcakeSmall,
-		cheeseCakeSmall,
-		fruitCupcakeSmall,
-		citricCandySmall,
-		meringueSmall,
-		raspberryCandySmall,
-		cakeSmall,
-		opiumCakeSmall,
-		donutSmall,
-	];
-
-	console.log('public url: ', process.env.PUBLIC_URL);
+	const images = {
+		small: [
+			citrusCupcakeSmall,
+			cheeseCakeSmall,
+			fruitCupcakeSmall,
+			citricCandySmall,
+			meringueSmall,
+			raspberryCandySmall,
+			cakeSmall,
+			opiumCakeSmall,
+			donutSmall,
+		],
+		large: [citrusCupcake, cheeseCake, fruitCupcake, citricCandy, meringue, raspberryCandy, cake, opiumCake, donut],
+	};
 
 	return (
 		<section className='shop' id='shop'>
@@ -69,7 +75,13 @@ const Shop = () => {
 			<div className='shop__products'>
 				{products.map((product, index) => (
 					<figure className='product' data-category={product.category} key={product.name}>
-						<img className='product__image' src={images[index]} alt={product.image.alt} />
+						<img
+							className='product__image'
+							srcSet={`${images.small[index]} 500w, ${images.large[index]} 1000w`}
+							sizes='(max-width: 576px) 500px, (max-width: 992px) 1000px'
+							src={images.small[index]}
+							alt={product.image.alt}
+						/>
 						<span className='product__amount'>0</span>
 						<div className='product__shop-cart-box'>
 							<i className='material-icons'>shopping_cart</i>
