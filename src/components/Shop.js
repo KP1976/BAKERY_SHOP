@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-import firebase from './DataBase/firebase';
+import firebase from '../DataBase/firebase';
+import ShopTab from './ShopTab';
 
 import '../scss/abstracts/_mixins.scss';
 
 const Shop = () => {
-	const searchTabs = ['Babeczki', 'Ciasta', 'Słodycze', 'Donaty'];
-
 	const [products, setProducts] = useState([]);
+	const [tabs, setActiveTab] = useState([
+		{ name: 'Wszystko', active: true },
+		{ name: 'Babeczki', active: false },
+		{ name: 'Ciasta', active: false },
+		{ name: 'Słodycze', active: false },
+		{ name: 'Donaty', active: false },
+	]);
 
 	const importAll = r => r.keys().map(r);
 	const smallSizeImages = importAll(require.context('../img/products/small', false, /\.(png|jpe?g|svg)$/));
@@ -26,19 +32,28 @@ const Shop = () => {
 			});
 	}, []);
 
+	const onClickTabItem = index => () => {
+		const newArray = [...tabs];
+
+		newArray.map((tab, _index) => {
+			const newTab = tab;
+
+			newTab.active = index === _index ? (newTab.active = true) : (newTab.active = false);
+
+			return newTab;
+		});
+
+		setActiveTab(newArray);
+	};
+
 	return (
 		<section className='shop' id='shop'>
 			<h2 className='shop__title'>sklep</h2>
 			<hr className='title-underline' />
 			<ul className='search-tabs'>
-				<li className='search-tabs__item selected'>Wszystko</li>
-				{searchTabs.map(tab => {
-					return (
-						<li key={tab} className='search-tabs__item'>
-							{tab}
-						</li>
-					);
-				})}
+				{tabs.map((tab, index) => (
+					<ShopTab key={tab.name} tabName={tab.name} activeTab={tab.active} onClickTabItem={onClickTabItem(index)} />
+				))}
 			</ul>
 
 			<div className='shop__products'>
