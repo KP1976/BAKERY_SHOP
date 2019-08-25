@@ -126,6 +126,7 @@
 				font-weight: bold;
 				height: 5.5rem;
 				justify-content: center;
+				outline-color: var(--main-color);
 				text-transform: uppercase;
 
 				@include mq(576px) {
