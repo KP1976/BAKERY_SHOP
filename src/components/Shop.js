@@ -17,19 +17,19 @@ const Shop = () => {
 				const newProducts = snapshot.docs.map(doc => ({
 					...doc.data(),
 				}));
-
 				setProducts(newProducts);
+				localStorage.setItem('products', JSON.stringify(newProducts));
 			});
 	}, []);
 
 	const filteredProducts = (tabCategory, tabActive) => {
-		const newArray = [...products];
+		const newArray = JSON.parse(localStorage.getItem('products'));
 		let filteredArray = [];
 
 		if (!tabActive) {
 			switch (tabCategory) {
 				case 'Wszystko':
-					setProducts(products);
+					setProducts(newArray);
 					break;
 				case 'Babeczki':
 					filteredArray = newArray.filter(product => product.category === tabCategory);
