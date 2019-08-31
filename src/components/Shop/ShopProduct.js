@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const ShopProduct = ({ category, name, price, imageIndex, imageAlt }) => {
 	const importAll = r => r.keys().map(r);
-	const smallSizeImages = importAll(require.context('../img/products/small', false, /\.(png|jpe?g|svg)$/));
-	const normalSizeImages = importAll(require.context('../img/products/normal', false, /\.(png|jpe?g|svg)$/));
+	const smallSizeImages = importAll(require.context('../../img/products/small', false, /\.(png|jpe?g|svg)$/));
+	const normalSizeImages = importAll(require.context('../../img/products/normal', false, /\.(png|jpe?g|svg)$/));
 
 	return (
 		<figure className='product' data-category={category}>

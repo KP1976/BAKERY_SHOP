@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import firebase from '../DataBase/firebase';
+import firebase from '../../DataBase/firebase';
 import ShopTabs from './ShopTabs';
 import ShopProducts from './ShopProducts';
 
-import '../scss/abstracts/_mixins.scss';
+import '../../scss/abstracts/_mixins.scss';
 
 const Shop = () => {
 	const [products, setProducts] = useState([]);
