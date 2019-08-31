@@ -8,6 +8,7 @@ import '../scss/abstracts/_mixins.scss';
 
 const Shop = () => {
 	const [products, setProducts] = useState([]);
+	const [initialProducts, setInitialProducts] = useState(products);
 
 	useEffect(() => {
 		firebase
@@ -18,12 +19,12 @@ const Shop = () => {
 					...doc.data(),
 				}));
 				setProducts(newProducts);
-				localStorage.setItem('products', JSON.stringify(newProducts));
+				setInitialProducts(newProducts);
 			});
 	}, []);
 
 	const filteredProducts = (tabCategory, tabActive) => {
-		const newArray = JSON.parse(localStorage.getItem('products'));
+		const newArray = [...initialProducts];
 		let filteredArray = [];
 
 		if (!tabActive) {
@@ -31,19 +32,7 @@ const Shop = () => {
 				case 'Wszystko':
 					setProducts(newArray);
 					break;
-				case 'Babeczki':
-					filteredArray = newArray.filter(product => product.category === tabCategory);
-					setProducts(filteredArray);
-					break;
-				case 'Ciasta':
-					filteredArray = newArray.filter(product => product.category === tabCategory);
-					setProducts(filteredArray);
-					break;
-				case 'Słodycze':
-					filteredArray = newArray.filter(product => product.category === tabCategory);
-					setProducts(filteredArray);
-					break;
-				case 'Donaty':
+				case tabCategory:
 					filteredArray = newArray.filter(product => product.category === tabCategory);
 					setProducts(filteredArray);
 					break;
