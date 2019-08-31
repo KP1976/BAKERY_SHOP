@@ -72,8 +72,19 @@
 			max-width: 150rem;
 		}
 
+		li:first-child {
+			grid-column: 1 / -1;
+			grid-row: 1;
+
+			@include mq(1200px) {
+				grid-column: unset;
+				grid-row: unset;
+			}
+		}
+
 		&__item {
 			align-items: center;
+			background-color: white;
 			border: solid 0.1rem var(--dark-color);
 			border-radius: var(--radius);
 			color: var(--dark-color);
@@ -84,16 +95,7 @@
 			height: 5.5rem;
 			justify-content: center;
 			text-transform: uppercase;
-
-			&:first-child {
-				grid-column: 1 / -1;
-				grid-row: 1;
-
-				@include mq(1200px) {
-					grid-column: unset;
-					grid-row: unset;
-				}
-			}
+			width: 100%;
 
 			@include mq(576px) {
 				font-size: 2.2rem;
