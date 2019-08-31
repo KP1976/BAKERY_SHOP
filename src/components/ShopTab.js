@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ShopTab = ({ tabName, activeTab, onClickTabItem }) => {
+const ShopTab = ({ tabCategory, activeTab, onClickTabItem }) => {
 	return (
 		<li>
 			<div
@@ -10,14 +10,14 @@ const ShopTab = ({ tabName, activeTab, onClickTabItem }) => {
 				onKeyUp={onClickTabItem}
 				tabIndex='0'
 				role='button'>
-				{tabName}
+				{tabCategory}
 			</div>
 		</li>
 	);
 };
 
 ShopTab.propTypes = {
-	tabName: PropTypes.string.isRequired,
+	tabCategory: PropTypes.string.isRequired,
 	activeTab: PropTypes.bool.isRequired,
 	onClickTabItem: PropTypes.func.isRequired,
 };
