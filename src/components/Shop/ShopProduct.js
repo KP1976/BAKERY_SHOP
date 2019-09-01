@@ -6,6 +6,11 @@ const ShopProduct = ({ category, name, price, imageIndex, imageAlt }) => {
 	const smallSizeImages = importAll(require.context('../../img/products/small', false, /\.(png|jpe?g|svg)$/));
 	const normalSizeImages = importAll(require.context('../../img/products/normal', false, /\.(png|jpe?g|svg)$/));
 
+	const addProduct = e => {
+		e.target.previousElementSibling.textContent++;
+		e.target.previousElementSibling.classList.add('visible');
+	};
+
 	return (
 		<figure className='product' data-category={category}>
 			<img
@@ -16,7 +21,7 @@ const ShopProduct = ({ category, name, price, imageIndex, imageAlt }) => {
 				alt={imageAlt}
 			/>
 			<span className='product__amount'>0</span>
-			<div className='product__shop-cart-box'>
+			<div className='product__shop-cart-box' onClick={addProduct} onKeyUp={addProduct} role='button' tabIndex='0'>
 				<i className='material-icons'>shopping_cart</i>
 				<span className='plus-sign'>+</span>
 			</div>
