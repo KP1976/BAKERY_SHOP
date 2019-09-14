@@ -1,17 +1,15 @@
-// import React, { useState, createContext } from 'react';
-// import PropTypes from 'prop-types';
+import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-// export const SquaresContext = createContext();
+export const ProductsContext = createContext();
 
-// export const SquaresProvider = ({ children }) => {
-// 	const [squares, setSquares] = useState(initialSquares);
-// 	return (
-// 		<SquaresContext.Provider value={[squares, setSquares]}>
-// 			{children}
-// 		</SquaresContext.Provider>
-// 	);
-// };
+export const ProductsProvider = ({ children }) => {
+	const [products, setProducts] = useState(null);
+	return (
+		<ProductsContext.Provider value={[products, setProducts]}>{children}</ProductsContext.Provider>
+	);
+};
 
-// SquaresProvider.propTypes = {
-// 	children: PropTypes.array.isRequired,
-// };
+ProductsProvider.propTypes = {
+	children: PropTypes.array.isRequired,
+};

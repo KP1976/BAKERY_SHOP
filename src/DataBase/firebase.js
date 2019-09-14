@@ -12,14 +12,14 @@ const config = {
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-export const FireBaseContext = createContext(null);
+export const FirebaseContext = createContext(null);
 
 if (!firebase.apps.length) {
 	firebase.initializeApp(config);
 }
 
 export const FirebaseProvider = ({ children }) => {
-	return <FireBaseContext.Provider value={firebase}>{children}</FireBaseContext.Provider>;
+	return <FirebaseContext.Provider value={firebase}>{children}</FirebaseContext.Provider>;
 };
 
 FirebaseProvider.propTypes = {

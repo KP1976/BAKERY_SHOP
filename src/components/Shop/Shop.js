@@ -1,10 +1,11 @@
 import React from 'react';
 
 import ShopTabs from './ShopTabs';
-// import ShopProducts from './ShopProducts';
+import ShopProducts from './ShopProducts';
 
 import { FirebaseProvider } from '../../DataBase/firebase';
 import { TabsProvider } from './context/tabsContext';
+import { ProductsProvider } from './context/productsContext';
 
 import '../../scss/abstracts/_mixins.scss';
 
@@ -15,8 +16,10 @@ const Shop = () => {
 				<h2 className='shop__title'>sklep</h2>
 				<hr className='title-underline' />
 				<TabsProvider>
-					<ShopTabs />
-					{/* <ShopProducts /> */}
+					<ProductsProvider>
+						<ShopTabs />
+						<ShopProducts />
+					</ProductsProvider>
 				</TabsProvider>
 			</section>
 		</FirebaseProvider>
@@ -36,18 +39,18 @@ export default Shop;
 // 	const [productsFromDataBase, setProductsFromDataBase] = useState([]);
 // 	const [products, setProducts] = useState([]);
 
-// 	useEffect(() => {
-// 		firebase
-// 			.firestore()
-// 			.collection('produkty')
-// 			.onSnapshot(snapshot => {
-// 				const newProducts = snapshot.docs.map(doc => ({
-// 					...doc.data(),
-// 				}));
-// 				setProductsFromDataBase(newProducts);
-// 				setProducts(newProducts);
-// 			});
-// 	}, []);
+// useEffect(() => {
+// 	firebase
+// 		.firestore()
+// 		.collection('produkty')
+// 		.onSnapshot(snapshot => {
+// 			const newProducts = snapshot.docs.map(doc => ({
+// 				...doc.data(),
+// 			}));
+// 			setProductsFromDataBase(newProducts);
+// 			setProducts(newProducts);
+// 		});
+// }, []);
 
 // 	const showProductsDependsOnTabs = tabCategory => {
 // 		const newArray = [...productsFromDataBase];
