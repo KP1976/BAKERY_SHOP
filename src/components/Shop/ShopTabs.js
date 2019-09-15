@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { TabsContext } from './context/tabsContext';
+import { ProductsContext } from './context/productsContext';
+import { FirebaseContext } from '../../DataBase/firebase';
 
 import ShopTab from './ShopTab';
 
 const ShopTabs = () => {
+	const productsFromDataBase = useContext(FirebaseContext);
 	const [tabs, setActiveTab] = useContext(TabsContext);
+	const [products, setProducts] = useContext(ProductsContext);
 
 	const changeActiveTab = indexOfClickedTab => {
 		const copyOfinitialTabs = [...tabs];
@@ -22,7 +26,21 @@ const ShopTabs = () => {
 	};
 
 	const showProductsDependsOnTabs = productCategory => {
-		console.log(productCategory);
+		const newArray = [...productsFromDataBase];
+
+		switch (productCategory) {
+			case 'Wszystko': {
+				setProducts(newArray);
+				break;
+			}
+			case productCategory: {
+				const tab = newArray.filter(product => product.category === productCategory);
+				setProducts(tab);
+				break;
+			}
+			default:
+				break;
+		}
 	};
 
 	const onClickTabItem = index => () => {

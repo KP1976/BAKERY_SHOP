@@ -1,32 +1,22 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import ShopProduct from './ShopProduct';
 
-import { FirebaseContext } from '../../DataBase/firebase';
 import { ProductsContext } from './context/productsContext';
-import 'firebase/firestore';
+import { FirebaseContext } from '../../DataBase/firebase';
 
 const ShopProducts = () => {
-	const firebase = useContext(FirebaseContext);
+	const productsFromDataBase = useContext(FirebaseContext);
 	const [products, setProducts] = useContext(ProductsContext);
-
-	useEffect(() => {
-		firebase
-			.firestore()
-			.collection('produkty')
-			.onSnapshot(snapshot => {
-				const newProducts = snapshot.docs.map(doc => ({
-					...doc.data(),
-				}));
-				setProducts(newProducts);
-			});
-	}, [firebase, setProducts]);
 
 	let listOfProducts;
 
 	if (products === null) {
-		listOfProducts = <li>Ładuję produkty</li>;
-	} else if (products.length === 0) {
+		listOfProducts = <h2 className='loading-products'>Ładowanie produktów</h2>;
+		setTimeout(() => {
+			setProducts(productsFromDataBase);
+		}, 3000);
+	} else if (productsFromDataBase.length === 0) {
 		listOfProducts = <li>Brak produktów</li>;
 	} else {
 		listOfProducts = products.map(product => (
@@ -42,6 +32,25 @@ const ShopProducts = () => {
 		));
 	}
 
+	// if (products === null) {
+	// 	listOfProducts = <li>Ładuję produkty</li>;
+	// } else if (products.length === 0) {
+	// 	listOfProducts = <li>Brak produktów</li>;
+	// } else {
+	// 	listOfProducts = products.map(product => (
+	// 		<ShopProduct
+	// 			key={product.id}
+	// 			imageIndex={product.id - 1}
+	// 			productName={product.name}
+	// 			category={product.category}
+	// 			productPrice={product.price}
+	// 			imageAlt={product.image.alt}
+	// 			amount={product.amount}
+	// 		/>
+	// 	));
+	// }
+
+	// return <div className='shop__products'></div>;
 	return <div className='shop__products'>{listOfProducts}</div>;
 };
 
@@ -75,20 +84,20 @@ export default ShopProducts;
 // 	}, [products]);
 
 // 	return (
-// 		<div className='shop__products'>
-// 			{products.map(product => (
-// 				<ShopProduct
-// 					key={product.id}
-// 					imageIndex={product.id - 1}
-// 					name={product.name}
-// 					category={product.category}
-// 					price={product.price}
-// 					imageAlt={product.image.alt}
-// 					amount={product.amount}
-// 					addProduct={addProduct(product.id, product.amount)}
-// 				/>
-// 			))}
-// 		</div>
+// <div className='shop__products'>
+// 	{products.map(product => (
+// 		<ShopProduct
+// 			key={product.id}
+// 			imageIndex={product.id - 1}
+// 			name={product.name}
+// 			category={product.category}
+// 			price={product.price}
+// 			imageAlt={product.image.alt}
+// 			amount={product.amount}
+// 			addProduct={addProduct(product.id, product.amount)}
+// 		/>
+// 	))}
+// </div>
 // 	);
 // };
 
