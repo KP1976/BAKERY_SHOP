@@ -185,6 +185,30 @@
 		@include mq(1600px) {
 			width: 150rem;
 		}
+
+		.spinner-container {
+			grid-column: 1/ -1;
+			opacity: 0.5;
+			transform: scale(1);
+			z-index: 2;
+			width: 100%;
+
+			.spinner {
+				border: 5px solid rgba(200, 200, 200, 1);
+				border-radius: 50%;
+				animation: rotate 1s infinite linear;
+				border-left-color: rgba(200, 200, 200, 0.4);
+				margin: 0 auto;
+				width: 60px;
+				height: 60px;
+			}
+
+			@keyframes rotate {
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+		}
 	}
 
 	.product {
@@ -259,7 +283,6 @@
 			top: 1rem;
 
 			&.visible {
-				// display: block;
 				opacity: 1;
 			}
 		}
@@ -291,9 +314,6 @@
 			}
 
 			@include mq(992px) {
-				// height: 3.5rem;
-				// margin: 1.5rem;
-				// width: 3.5rem;
 				border-radius: 0;
 				cursor: pointer;
 				height: auto;
@@ -301,16 +321,6 @@
 				padding: 0.7rem;
 				transform: translateX(100px);
 				width: auto;
-			}
-
-			@include mq(1200px) {
-				// border-radius: 0;
-				// cursor: pointer;
-				// height: auto;
-				// margin: 0;
-				// padding: 0.7rem;
-				// transform: translateX(100px);
-				// width: auto;
 			}
 
 			@include mq(1600px) {
