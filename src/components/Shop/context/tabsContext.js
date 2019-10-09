@@ -17,5 +17,5 @@ export const TabsProvider = ({ children }) => {
 };
 
 TabsProvider.propTypes = {
-	children: PropTypes.object.isRequired,
+	children: PropTypes.array.isRequired,
 };

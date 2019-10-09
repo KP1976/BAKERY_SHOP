@@ -10,6 +10,10 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 		require.context('../../img/products/normal', false, /\.(png|jpe?g|svg)$/),
 	);
 
+	const addProduct = _productName => () => {
+		console.log(`Dodano produkt: ${_productName}`);
+	};
+
 	return (
 		<figure className='product' data-category={category}>
 			<img
@@ -20,7 +24,12 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 				alt={imageAlt}
 			/>
 			<span className='product__amount'>{amount}</span>
-			<div className='product__shop-cart-box' role='button' tabIndex='0'>
+			<div
+				className='product__shop-cart-box'
+				role='button'
+				tabIndex='0'
+				onClick={addProduct(productName)}
+				onKeyPress={addProduct(productName)}>
 				<i className='material-icons'>shopping_cart</i>
 				<span className='plus-sign'>+</span>
 			</div>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import ShopProduct from './ShopProduct';
 
@@ -9,15 +9,18 @@ const ShopProducts = () => {
 	const productsFromDataBase = useContext(FirebaseContext);
 	const [products, setProducts] = useContext(ProductsContext);
 
-	if (!products) {
-		setTimeout(() => {
-			setProducts(productsFromDataBase);
-		}, 2000);
-	}
+	useEffect(() => {
+		setProducts(productsFromDataBase);
+	}, [productsFromDataBase, setProducts]);
 
 	return (
 		<div className='shop__products'>
-			{products ? (
+			{!products && (
+				<div className='spinner-container'>
+					<div className='spinner' />
+				</div>
+			)}
+			{products &&
 				products.map(product => (
 					<ShopProduct
 						key={product.id}
@@ -28,12 +31,7 @@ const ShopProducts = () => {
 						imageAlt={product.image.alt}
 						amount={product.amount}
 					/>
-				))
-			) : (
-				<div className='spinner-container'>
-					<div className='spinner' />
-				</div>
-			)}
+				))}
 		</div>
 	);
 };
