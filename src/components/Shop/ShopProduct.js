@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ProductsContext } from './context/productsContext';
 
 const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, imageAlt }) => {
 	const importAll = r => r.keys().map(r);
@@ -10,8 +11,21 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 		require.context('../../img/products/normal', false, /\.(png|jpe?g|svg)$/),
 	);
 
+	const [products, setProducts] = useContext(ProductsContext);
+
 	const addProduct = _productName => () => {
-		console.log(`Dodano produkt: ${_productName}`);
+		const addedAmountOfProduct = amount + 1;
+		const newProducts = [...products];
+
+		newProducts.map(product => {
+			if (product.name === _productName) {
+				const _product = product;
+				_product.amount = addedAmountOfProduct;
+			}
+			return product;
+		});
+		setProducts(newProducts);
+		console.log(newProducts);
 	};
 
 	return (
@@ -23,7 +37,7 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 				src={smallSizeImages[imageIndex]}
 				alt={imageAlt}
 			/>
-			<span className='product__amount'>{amount}</span>
+			<span className={amount ? 'product__amount visible' : 'product__amount'}>{amount}</span>
 			<div
 				className='product__shop-cart-box'
 				role='button'
