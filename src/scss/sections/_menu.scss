@@ -2,6 +2,7 @@
 	display: inline-block;
 	height: 2.5rem;
 	margin: 0;
+	outline: none;
 	position: relative;
 	width: 3rem;
 
@@ -361,7 +362,8 @@ nav {
 				left: 0.8rem;
 				margin-right: 0;
 				position: absolute;
-				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+				text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+					1px 1px 0 #fff;
 				top: 1.1rem;
 			}
 

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ProductsContext } from './context/productsContext';
+import { CartContext } from '../Navigation/context/cartContext';
 
 const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, imageAlt }) => {
 	const importAll = r => r.keys().map(r);
@@ -12,6 +13,7 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 	);
 
 	const [products, setProducts] = useContext(ProductsContext);
+	const [amountOfAllProducts, setAmountOfAllProducts] = useContext(CartContext);
 
 	const addProduct = _productName => () => {
 		const addedAmountOfProduct = amount + 1;
@@ -24,8 +26,9 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 			}
 			return product;
 		});
+
 		setProducts(newProducts);
-		console.log(newProducts);
+		setAmountOfAllProducts(amountOfAllProducts + 1);
 	};
 
 	return (
