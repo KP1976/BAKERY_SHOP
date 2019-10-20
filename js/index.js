@@ -9,7 +9,9 @@ const menuProductsListButton = document.querySelector('.products-btn');
 const menuProductsList = document.querySelector('.products-list');
 const DOMAmountOfProductsInCart = document.querySelector('.products-btn__quantity');
 const DOMTotalPriceOfProducts = document.querySelector('.products-btn__total-price');
-const DOMTotalPriceOfProductsContainerDesktopVersion = document.querySelector('.products-list__sum');
+const DOMTotalPriceOfProductsContainerDesktopVersion = document.querySelector(
+	'.products-list__sum',
+);
 const DOMTotalPriceOfProductsDesktopVersion = document.querySelector('.products-list__sum span');
 const DOMShopProducts = document.querySelector('.shop__products');
 const productsTabs = document.querySelectorAll('.search-tabs__item');
@@ -27,7 +29,7 @@ const Main = (() => {
 		projectId: 'bakery-shop-5457e',
 		storageBucket: 'bakery-shop-5457e.appspot.com',
 		messagingSenderId: '1009026750919',
-		appId: '1:1009026750919:web:798e2def54d149d2'
+		appId: '1:1009026750919:web:798e2def54d149d2',
 	});
 
 	const db = firebase.firestore();
@@ -207,7 +209,8 @@ const Main = (() => {
 	};
 
 	function removeProductFromCart(productPrice, e) {
-		const nameOfProductInCart = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+		const nameOfProductInCart =
+			e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
 
 		amountOfProducts--;
 		sumOfAllProducts -= productPrice;
@@ -238,11 +241,11 @@ const Main = (() => {
 	function addProductToCart(e) {
 		const productInDOM = {
 			productPrice: parseFloat(
-				e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.')
+				e.target.nextElementSibling.lastElementChild.textContent.split(' ')[0].replace(',', '.'),
 			),
 			productPictureSource: e.target.parentElement.firstElementChild.getAttribute('src'),
 			productPictureAlt: e.target.parentElement.firstElementChild.getAttribute('alt'),
-			productName: e.target.nextElementSibling.firstElementChild.textContent
+			productName: e.target.nextElementSibling.firstElementChild.textContent,
 		};
 
 		e.target.previousElementSibling.textContent++;
@@ -262,17 +265,23 @@ const Main = (() => {
 
 		li.className = 'products-list__product';
 		li.innerHTML = `
-		<img src="${productInDOM.productPictureSource}"	alt="${productInDOM.productPictureAlt}" class="products-list__picture"/>
+		<img src="${productInDOM.productPictureSource}"	alt="${
+			productInDOM.productPictureAlt
+		}" class="products-list__picture"/>
 		<span class="products-list__name">${productInDOM.productName}</span>
-		<span class="products-list__price">${productInDOM.productPrice.toString().replace('.', ',')} zł</span>
+		<span class="products-list__price">${productInDOM.productPrice
+			.toString()
+			.replace('.', ',')} zł</span>
 		<span class="products-list__trash-can"><i class="material-icons">delete</i></span>
 		`;
 
 		DOMTotalPriceOfProductsContainerDesktopVersion.insertAdjacentElement('beforebegin', li);
 
-		document
-			.querySelectorAll('.products-list__trash-can i')
-			[amountOfProducts - 1].addEventListener('click', removeProductFromCart.bind(e, productInDOM.productPrice));
+		document.querySelectorAll('.products-list__trash-can i');
+		[amountOfProducts - 1].addEventListener(
+			'click',
+			removeProductFromCart.bind(e, productInDOM.productPrice),
+		);
 	}
 
 	const executeEventListeners = () => {
@@ -292,7 +301,7 @@ const Main = (() => {
 			addAllProductsToDOM().then(() => {
 				executeEventListeners();
 			});
-		}
+		},
 	};
 })();
 document.addEventListener('DOMContentLoaded', Main.init());
