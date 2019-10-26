@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ProductsContext } from './context/productsContext';
-import { CartContext } from '../Navigation/context/cartContext';
+import { useProductsValue } from './context/productsContext';
+import { useCartValue } from '../Navigation/context/cartContext';
 
 const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, imageAlt }) => {
 	const importAll = r => r.keys().map(r);
@@ -12,8 +12,31 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 		require.context('../../img/products/normal', false, /\.(png|jpe?g|svg)$/),
 	);
 
-	const [products, setProducts] = useContext(ProductsContext);
-	const [amountOfAllProducts, setAmountOfAllProducts] = useContext(CartContext);
+	const [products, setProducts] = useProductsValue();
+	const [amountOfAllProducts, setAmountOfAllProducts, , setTextProducts] = useCartValue();
+
+	const displayCorrectSumOfProducts = amountOfProducts => {
+		switch (amountOfProducts) {
+			case 1:
+				setTextProducts('produkt – ');
+				break;
+			case 2:
+			case 3:
+			case 4:
+				setTextProducts('produkty – ');
+				break;
+			default:
+				setTextProducts('produktów – ');
+				break;
+		}
+		// if (amountOfProducts === 1) {
+		// 	setTextProducts('produkt – ');
+		// } else if (amountOfProducts > 1 && amountOfProducts < 5) {
+		// 	setTextProducts('produkty – ');
+		// } else {
+		// 	setTextProducts('produktów – ');
+		// }
+	};
 
 	const addProduct = _productName => () => {
 		const addedAmountOfProduct = amount + 1;
@@ -26,6 +49,8 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 			}
 			return product;
 		});
+
+		displayCorrectSumOfProducts(addedAmountOfProduct);
 
 		setProducts(newProducts);
 		setAmountOfAllProducts(amountOfAllProducts + 1);

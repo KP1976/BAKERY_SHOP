@@ -314,7 +314,8 @@ nav {
 	.products-btn {
 		align-items: center;
 		background-color: #fff;
-		border: solid 1px var(--dark-color);
+		/* border: solid 1px var(--dark-color);*/
+		border: none;
 		border-radius: var(--radius);
 		color: var(--dark-color);
 		cursor: pointer;

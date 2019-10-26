@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 const initialTabs = [
@@ -19,3 +19,5 @@ export const TabsProvider = ({ children }) => {
 TabsProvider.propTypes = {
 	children: PropTypes.array.isRequired,
 };
+
+export const useTabsValue = () => useContext(TabsContext);

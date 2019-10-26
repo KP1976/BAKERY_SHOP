@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 export const ProductsContext = createContext();
@@ -13,3 +13,5 @@ export const ProductsProvider = ({ children }) => {
 ProductsProvider.propTypes = {
 	children: PropTypes.object.isRequired,
 };
+
+export const useProductsValue = () => useContext(ProductsContext);

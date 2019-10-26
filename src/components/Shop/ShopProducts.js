@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from 'react';
 
 import ShopProduct from './ShopProduct';
 
-import { ProductsContext } from './context/productsContext';
+import { useProductsValue } from './context/productsContext';
 import { FirebaseContext } from '../../DataBase/firebase';
 
 const ShopProducts = () => {
 	const productsFromDataBase = useContext(FirebaseContext);
-	const [products, setProducts] = useContext(ProductsContext);
+	const [products, setProducts] = useProductsValue();
 
 	useEffect(() => {
 		setProducts(productsFromDataBase);

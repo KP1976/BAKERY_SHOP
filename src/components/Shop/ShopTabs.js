@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import { TabsContext } from './context/tabsContext';
-import { ProductsContext } from './context/productsContext';
+import { useTabsValue } from './context/tabsContext';
+import { useProductsValue } from './context/productsContext';
 import { FirebaseContext } from '../../DataBase/firebase';
 
 import ShopTab from './ShopTab';
 
 const ShopTabs = () => {
 	const productsFromDataBase = useContext(FirebaseContext);
-	const [tabs, setActiveTab] = useContext(TabsContext);
-	const setProducts = useContext(ProductsContext);
+	const [tabs, setActiveTab] = useTabsValue();
+	const setProducts = useProductsValue();
 
 	const changeActiveTab = indexOfClickedTab => {
 		const copyOfinitialTabs = [...tabs];
