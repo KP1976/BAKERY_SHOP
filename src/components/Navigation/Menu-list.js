@@ -12,8 +12,6 @@ const MenuList = ({ isVisible }) => {
 		setProductsVisible(!productsVisible);
 	};
 
-	console.log(amountOfProducts, textProducts);
-
 	return (
 		<ul className={isVisible ? 'menu-list is-visible' : 'menu-list'}>
 			<li className='menu-list__item'>

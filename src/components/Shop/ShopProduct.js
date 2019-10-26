@@ -29,13 +29,6 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 				setTextProducts('produktów – ');
 				break;
 		}
-		// if (amountOfProducts === 1) {
-		// 	setTextProducts('produkt – ');
-		// } else if (amountOfProducts > 1 && amountOfProducts < 5) {
-		// 	setTextProducts('produkty – ');
-		// } else {
-		// 	setTextProducts('produktów – ');
-		// }
 	};
 
 	const addProduct = _productName => () => {
@@ -50,10 +43,10 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 			return product;
 		});
 
-		displayCorrectSumOfProducts(addedAmountOfProduct);
-
 		setProducts(newProducts);
 		setAmountOfAllProducts(amountOfAllProducts + 1);
+
+		displayCorrectSumOfProducts(amountOfAllProducts + 1);
 	};
 
 	return (
