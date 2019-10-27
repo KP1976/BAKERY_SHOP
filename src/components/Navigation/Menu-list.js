@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ProductsList from './Products-list';
+import ProductsList from './Cart/Products-list';
 
 import { useCartValue } from './context/cartContext';
 
@@ -8,8 +8,10 @@ const MenuList = ({ isVisible }) => {
 	const [amountOfProducts, , textProducts] = useCartValue();
 	const [productsVisible, setProductsVisible] = useState(false);
 
-	const showProductsInCart = () => {
-		setProductsVisible(!productsVisible);
+	const showProductsInCart = _amountOfProducts => () => {
+		if (_amountOfProducts > 0) {
+			setProductsVisible(!productsVisible);
+		}
 	};
 
 	return (
@@ -38,8 +40,8 @@ const MenuList = ({ isVisible }) => {
 			<li className='menu-list__item'>
 				<button
 					type='button'
-					className={productsVisible ? 'products-btn open' : 'products-btn'}
-					onClick={showProductsInCart}>
+					className={productsVisible && amountOfProducts ? 'products-btn open' : 'products-btn'}
+					onClick={showProductsInCart(amountOfProducts)}>
 					<i className='material-icons'>shopping_cart</i>
 					<span className='products-btn__quantity'>{amountOfProducts}</span>
 					<span className='products-btn__name'>{textProducts}</span>

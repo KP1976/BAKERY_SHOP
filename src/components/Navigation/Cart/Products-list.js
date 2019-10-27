@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProductInCart from './Product-in-cart';
 
 const ProductsList = ({ isVisible, amountOfProducts }) => {
 	return (
 		<ul
 			className={isVisible && amountOfProducts > 0 ? 'products-list is-visible' : 'products-list'}>
+			<ProductInCart />
 			<li className='products-list__sum'>
 				SUMA
-				<span />
+				<span>a</span>
 			</li>
 			<button type='button' className='products-list__clear-button'>
 				wyczyść koszyk
