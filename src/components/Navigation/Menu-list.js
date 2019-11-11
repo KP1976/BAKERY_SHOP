@@ -63,6 +63,7 @@ const MenuList = ({ isVisible }) => {
 				<ProductsList
 					isVisible={productsVisible}
 					amountOfProducts={amountOfProducts}
+					totalPriceOfAllProducts={totalPriceOfAllProducts}
 				/>
 			</li>
 		</ul>

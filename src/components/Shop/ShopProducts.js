@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import uuid from 'uuid';
 
 import ShopProduct from './ShopProduct';
 
@@ -30,6 +31,7 @@ const ShopProducts = () => {
 						productPrice={product.price}
 						imageAlt={product.image.alt}
 						amount={product.amount}
+						productId={uuid.v4()}
 					/>
 				))}
 		</div>

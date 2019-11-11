@@ -10,6 +10,7 @@ const ShopProduct = ({
 	productPrice,
 	imageIndex,
 	imageAlt,
+	productId,
 }) => {
 	const importAll = r => r.keys().map(r);
 	const smallSizeImages = importAll(
@@ -27,6 +28,8 @@ const ShopProduct = ({
 		setTextProducts,
 		totalPriceOfAllProducts,
 		setTotalPriceOfAllProducts,
+		listOfProducts,
+		setListOfProducts,
 	] = useCartValue();
 
 	const displayCorrectSumOfProducts = amountOfProducts => {
@@ -49,6 +52,17 @@ const ShopProduct = ({
 		const addedAmountOfProduct = amount + 1;
 		const totalPrice = totalPriceOfAllProducts + productPrice;
 		const newProducts = [...products];
+		const newListOfProductsInCart = listOfProducts;
+
+		newListOfProductsInCart.push({
+			productName,
+			productPrice,
+			imageIndex,
+			imageAlt,
+			productId,
+		});
+
+		setListOfProducts(newListOfProductsInCart);
 
 		newProducts.map(product => {
 			if (product.name === _productName) {
@@ -63,7 +77,6 @@ const ShopProduct = ({
 		setAmountOfAllProducts(amountOfAllProducts + 1);
 
 		displayCorrectSumOfProducts(amountOfAllProducts + 1);
-		console.log(totalPriceOfAllProducts);
 	};
 
 	return (
@@ -104,6 +117,7 @@ ShopProduct.propTypes = {
 	productPrice: PropTypes.number.isRequired,
 	imageIndex: PropTypes.number.isRequired,
 	imageAlt: PropTypes.string.isRequired,
+	productId: PropTypes.string.isRequired,
 };
 
 export default ShopProduct;

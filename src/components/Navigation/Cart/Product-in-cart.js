@@ -1,27 +1,37 @@
 import React from 'react';
-import { useProductsValue } from '../../Shop/context/productsContext';
+import PropTypes from 'prop-types';
 
-const ProductInCart = () => {
-	const products = useProductsValue()[0];
+const ProductInCart = ({ productName, productPrice, imageIndex, imageAlt }) => {
+	const importAll = r => r.keys().map(r);
+	const smallSizeImages = importAll(
+		require.context('../../../img/products/small', false, /\.(png|jpe?g|svg)$/),
+	);
 
 	return (
 		<>
-			{products && (
-				<li className='products-list__product'>
-					<img
-						src='/src/img/products/small/1_citrus_cupcake_small.jpg'
-						alt=''
-						className='products-list__picture'
-					/>
-					<span className='products-list__name'>$</span>
-					<span className='products-list__price'>$</span>
-					<span className='products-list__trash-can'>
-						<i className='material-icons'>delete</i>
-					</span>
-				</li>
-			)}
+			<li className='products-list__product'>
+				<img
+					src={smallSizeImages[imageIndex]}
+					alt={imageAlt}
+					className='products-list__picture'
+				/>
+				<span className='products-list__name'>{productName}</span>
+				<span className='products-list__price'>
+					{productPrice.toString().replace('.', ',')} zł
+				</span>
+				<span className='products-list__trash-can'>
+					<i className='material-icons'>delete</i>
+				</span>
+			</li>
 		</>
 	);
+};
+
+ProductInCart.propTypes = {
+	productName: PropTypes.string.isRequired,
+	productPrice: PropTypes.number.isRequired,
+	imageIndex: PropTypes.number.isRequired,
+	imageAlt: PropTypes.string.isRequired,
 };
 
 export default ProductInCart;
