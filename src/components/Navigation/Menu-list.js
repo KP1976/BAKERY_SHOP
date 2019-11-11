@@ -5,7 +5,13 @@ import ProductsList from './Cart/Products-list';
 import { useCartValue } from './context/cartContext';
 
 const MenuList = ({ isVisible }) => {
-	const [amountOfProducts, , textProducts] = useCartValue();
+	const [
+		amountOfProducts,
+		,
+		textProducts,
+		,
+		totalPriceOfAllProducts,
+	] = useCartValue();
 	const [productsVisible, setProductsVisible] = useState(false);
 
 	const showProductsInCart = _amountOfProducts => () => {
@@ -40,14 +46,24 @@ const MenuList = ({ isVisible }) => {
 			<li className='menu-list__item'>
 				<button
 					type='button'
-					className={productsVisible && amountOfProducts ? 'products-btn open' : 'products-btn'}
+					className={
+						productsVisible && amountOfProducts
+							? 'products-btn open'
+							: 'products-btn'
+					}
 					onClick={showProductsInCart(amountOfProducts)}>
 					<i className='material-icons'>shopping_cart</i>
 					<span className='products-btn__quantity'>{amountOfProducts}</span>
 					<span className='products-btn__name'>{textProducts}</span>
-					<span className='products-btn__total-price'> 0 zł</span>
+					<span className='products-btn__total-price'>
+						{' '}
+						{totalPriceOfAllProducts.toString().replace('.', ',')} zł
+					</span>
 				</button>
-				<ProductsList isVisible={productsVisible} amountOfProducts={amountOfProducts} />
+				<ProductsList
+					isVisible={productsVisible}
+					amountOfProducts={amountOfProducts}
+				/>
 			</li>
 		</ul>
 	);

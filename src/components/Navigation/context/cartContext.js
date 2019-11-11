@@ -5,11 +5,19 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 	const [amountOfProducts, setAmountOfProducts] = useState(0);
+	const [totalPriceOfAllProducts, setTotalPriceOfAllProducts] = useState(0);
 	const [textProducts, setTextProducts] = useState('produktów –');
 
 	return (
 		<CartContext.Provider
-			value={[amountOfProducts, setAmountOfProducts, textProducts, setTextProducts]}>
+			value={[
+				amountOfProducts,
+				setAmountOfProducts,
+				textProducts,
+				setTextProducts,
+				totalPriceOfAllProducts,
+				setTotalPriceOfAllProducts,
+			]}>
 			{children}
 		</CartContext.Provider>
 	);

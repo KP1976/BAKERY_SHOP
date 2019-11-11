@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { useProductsValue } from './context/productsContext';
 import { useCartValue } from '../Navigation/context/cartContext';
 
-const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, imageAlt }) => {
+const ShopProduct = ({
+	amount,
+	category,
+	productName,
+	productPrice,
+	imageIndex,
+	imageAlt,
+}) => {
 	const importAll = r => r.keys().map(r);
 	const smallSizeImages = importAll(
 		require.context('../../img/products/small', false, /\.(png|jpe?g|svg)$/),
@@ -13,7 +20,14 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 	);
 
 	const [products, setProducts] = useProductsValue();
-	const [amountOfAllProducts, setAmountOfAllProducts, , setTextProducts] = useCartValue();
+	const [
+		amountOfAllProducts,
+		setAmountOfAllProducts,
+		,
+		setTextProducts,
+		totalPriceOfAllProducts,
+		setTotalPriceOfAllProducts,
+	] = useCartValue();
 
 	const displayCorrectSumOfProducts = amountOfProducts => {
 		switch (amountOfProducts) {
@@ -33,6 +47,7 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 
 	const addProduct = _productName => () => {
 		const addedAmountOfProduct = amount + 1;
+		const totalPrice = totalPriceOfAllProducts + productPrice;
 		const newProducts = [...products];
 
 		newProducts.map(product => {
@@ -43,10 +58,12 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 			return product;
 		});
 
+		setTotalPriceOfAllProducts(totalPrice);
 		setProducts(newProducts);
 		setAmountOfAllProducts(amountOfAllProducts + 1);
 
 		displayCorrectSumOfProducts(amountOfAllProducts + 1);
+		console.log(totalPriceOfAllProducts);
 	};
 
 	return (
@@ -58,7 +75,9 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 				src={smallSizeImages[imageIndex]}
 				alt={imageAlt}
 			/>
-			<span className={amount ? 'product__amount visible' : 'product__amount'}>{amount}</span>
+			<span className={amount ? 'product__amount visible' : 'product__amount'}>
+				{amount}
+			</span>
 			<div
 				className='product__shop-cart-box'
 				role='button'
@@ -70,7 +89,9 @@ const ShopProduct = ({ amount, category, productName, productPrice, imageIndex, 
 			</div>
 			<div className='product__description-box'>
 				<span className='product__name'>{productName}</span>
-				<span className='product__price'>{productPrice}</span>
+				<span className='product__price'>
+					{productPrice.toString().replace('.', ',')} zł
+				</span>
 			</div>
 		</figure>
 	);
@@ -80,7 +101,7 @@ ShopProduct.propTypes = {
 	amount: PropTypes.number.isRequired,
 	category: PropTypes.string.isRequired,
 	productName: PropTypes.string.isRequired,
-	productPrice: PropTypes.string.isRequired,
+	productPrice: PropTypes.number.isRequired,
 	imageIndex: PropTypes.number.isRequired,
 	imageAlt: PropTypes.string.isRequired,
 };
