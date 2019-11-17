@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 
 import { FirebaseProvider } from './DataBase/firebase';
 import { ProductsProvider } from './components/Shop/context/productsContext';
+import { TabsProvider } from './components/Shop/context/tabsContext';
 import { CartProvider } from './components/Navigation/context/cartContext';
 
 import './scss/main.scss';
@@ -18,15 +19,17 @@ const App = () => {
 		<Fragment>
 			<FirebaseProvider>
 				<ProductsProvider>
-					<CartProvider>
-						<nav>
-							<NavBar />
-						</nav>
-						<Header />
-						<AboutUs />
-						<Shop />
-						<Footer />
-					</CartProvider>
+					<TabsProvider>
+						<CartProvider>
+							<nav>
+								<NavBar />
+							</nav>
+							<Header />
+							<AboutUs />
+							<Shop />
+							<Footer />
+						</CartProvider>
+					</TabsProvider>
 				</ProductsProvider>
 			</FirebaseProvider>
 		</Fragment>

@@ -6,7 +6,7 @@ import { FirebaseContext } from '../../DataBase/firebase';
 import ShopTab from './ShopTab';
 
 const ShopTabs = () => {
-	const productsFromDataBase = useContext(FirebaseContext);
+	const productsFromDataBase = useContext(FirebaseContext)[0];
 	const [tabs, setActiveTab] = useTabsValue();
 	const setProducts = useProductsValue();
 
@@ -34,7 +34,9 @@ const ShopTabs = () => {
 				break;
 			}
 			case productCategory: {
-				const tab = newArray.filter(product => product.category === productCategory);
+				const tab = newArray.filter(
+					product => product.category === productCategory,
+				);
 				setProducts[1](tab);
 				break;
 			}

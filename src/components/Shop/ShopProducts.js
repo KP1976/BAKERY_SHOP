@@ -7,7 +7,7 @@ import { useProductsValue } from './context/productsContext';
 import { FirebaseContext } from '../../DataBase/firebase';
 
 const ShopProducts = () => {
-	const productsFromDataBase = useContext(FirebaseContext);
+	const productsFromDataBase = useContext(FirebaseContext)[0];
 	const [products, setProducts] = useProductsValue();
 
 	useEffect(() => {

@@ -36,7 +36,10 @@ export const FirebaseProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<FirebaseContext.Provider value={productsFromDataBase}>{children}</FirebaseContext.Provider>
+		<FirebaseContext.Provider
+			value={[productsFromDataBase, setProductsFromDataBase]}>
+			{children}
+		</FirebaseContext.Provider>
 	);
 };
 

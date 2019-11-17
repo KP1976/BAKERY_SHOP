@@ -13,11 +13,13 @@ export const TabsContext = createContext();
 
 export const TabsProvider = ({ children }) => {
 	const [tabs, setActiveTab] = useState(initialTabs);
-	return <TabsContext.Provider value={[tabs, setActiveTab]}>{children}</TabsContext.Provider>;
+	return (
+		<TabsContext.Provider value={[tabs, setActiveTab]}>{children}</TabsContext.Provider>
+	);
 };
 
 TabsProvider.propTypes = {
-	children: PropTypes.array.isRequired,
+	children: PropTypes.object.isRequired,
 };
 
 export const useTabsValue = () => useContext(TabsContext);
