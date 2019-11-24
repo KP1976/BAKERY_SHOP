@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import ProductInCart from './Product-in-cart';
 
 import { useCartValue } from '../context/cartContext';
-import { useTabsValue } from '../../Shop/context/tabsContext';
+import { useProductsValue } from '../../Shop/context/productsContext';
 import { FirebaseContext } from '../../../DataBase/firebase';
 
-const ProductsList = ({ isVisible, amountOfProducts, totalPriceOfAllProducts }) => {
+const ProductsList = ({
+	isVisible,
+	amountOfProducts,
+	totalPriceOfAllProducts,
+}) => {
 	const [
 		,
 		setAmountOfProducts,
@@ -17,10 +21,11 @@ const ProductsList = ({ isVisible, amountOfProducts, totalPriceOfAllProducts }) 
 		listOfProducts,
 		setListOfProducts,
 	] = useCartValue();
-	const [productsFromDataBase, setProductsFromDataBase] = useContext(FirebaseContext);
-	const [tabs, setActiveTab] = useTabsValue();
+	const productsFromDataBase = useContext(FirebaseContext);
+	const [products, setProducts] = useProductsValue();
 
 	const clearAmountsOfProducts = () => {
+		const oldProducts = [...products];
 		const productsAfterClear = productsFromDataBase.map(product => {
 			const _product = product;
 			if (_product.amount > 0) {
@@ -29,18 +34,8 @@ const ProductsList = ({ isVisible, amountOfProducts, totalPriceOfAllProducts }) 
 			return _product;
 		});
 
-		const resetTabs = tabs.map(tab => {
-			const _tab = tab;
-			if (_tab.active === true) {
-				_tab.active = false;
-			}
-			return _tab;
-		});
-
-		resetTabs[0].active = true;
-
-		setActiveTab(resetTabs);
-		setProductsFromDataBase(productsAfterClear);
+		setProducts(productsAfterClear);
+		setProducts(oldProducts);
 	};
 
 	const clearProductsFromCart = () => {
@@ -54,7 +49,9 @@ const ProductsList = ({ isVisible, amountOfProducts, totalPriceOfAllProducts }) 
 	return (
 		<ul
 			className={
-				isVisible && amountOfProducts > 0 ? 'products-list is-visible' : 'products-list'
+				isVisible && amountOfProducts > 0
+					? 'products-list is-visible'
+					: 'products-list'
 			}>
 			{listOfProducts &&
 				listOfProducts.map(product => (

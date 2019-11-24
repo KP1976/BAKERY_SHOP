@@ -6,9 +6,9 @@ import { FirebaseContext } from '../../DataBase/firebase';
 import ShopTab from './ShopTab';
 
 const ShopTabs = () => {
-	const productsFromDataBase = useContext(FirebaseContext)[0];
+	const productsFromDataBase = useContext(FirebaseContext);
 	const [tabs, setActiveTab] = useTabsValue();
-	const setProducts = useProductsValue();
+	const setProducts = useProductsValue()[1];
 
 	const changeActiveTab = indexOfClickedTab => {
 		const copyOfinitialTabs = [...tabs];
@@ -30,14 +30,14 @@ const ShopTabs = () => {
 
 		switch (productCategory) {
 			case 'Wszystko': {
-				setProducts[1](newArray);
+				setProducts(newArray);
 				break;
 			}
 			case productCategory: {
 				const tab = newArray.filter(
 					product => product.category === productCategory,
 				);
-				setProducts[1](tab);
+				setProducts(tab);
 				break;
 			}
 			default:
