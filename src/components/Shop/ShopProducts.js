@@ -31,7 +31,8 @@ const ShopProducts = () => {
 						productPrice={product.price}
 						imageAlt={product.image.alt}
 						amount={product.amount}
-						productId={uuid.v4()}
+						productIdInCart={uuid.v4()}
+						productId={product.id}
 					/>
 				))}
 		</div>

@@ -10,6 +10,7 @@ const ShopProduct = ({
 	productPrice,
 	imageIndex,
 	imageAlt,
+	productIdInCart,
 	productId,
 }) => {
 	const importAll = r => r.keys().map(r);
@@ -59,6 +60,7 @@ const ShopProduct = ({
 			productPrice,
 			imageIndex,
 			imageAlt,
+			productIdInCart,
 			productId,
 		});
 
@@ -117,7 +119,8 @@ ShopProduct.propTypes = {
 	productPrice: PropTypes.number.isRequired,
 	imageIndex: PropTypes.number.isRequired,
 	imageAlt: PropTypes.string.isRequired,
-	productId: PropTypes.string.isRequired,
+	productIdInCart: PropTypes.string.isRequired,
+	productId: PropTypes.number.isRequired,
 };
 
 export default ShopProduct;

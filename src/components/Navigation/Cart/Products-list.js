@@ -56,11 +56,13 @@ const ProductsList = ({
 			{listOfProducts &&
 				listOfProducts.map(product => (
 					<ProductInCart
-						key={product.productId}
+						key={product.productIdInCart}
 						productName={product.productName}
 						productPrice={product.productPrice}
 						imageIndex={product.imageIndex}
 						imageAlt={product.imageAlt}
+						productIdInCart={product.productIdInCart}
+						productId={product.productId}
 					/>
 				))}
 
