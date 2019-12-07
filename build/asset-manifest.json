@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/BAKERY_SHOP/static/css/main.87cb14b7.chunk.css",
+    "main.js": "/BAKERY_SHOP/static/js/main.71ddf14a.chunk.js",
+    "main.js.map": "/BAKERY_SHOP/static/js/main.71ddf14a.chunk.js.map",
+    "runtime-main.js": "/BAKERY_SHOP/static/js/runtime-main.5490e787.js",
+    "runtime-main.js.map": "/BAKERY_SHOP/static/js/runtime-main.5490e787.js.map",
+    "static/js/2.8645b4e4.chunk.js": "/BAKERY_SHOP/static/js/2.8645b4e4.chunk.js",
+    "static/js/2.8645b4e4.chunk.js.map": "/BAKERY_SHOP/static/js/2.8645b4e4.chunk.js.map",
+    "index.html": "/BAKERY_SHOP/index.html",
+    "precache-manifest.62b69697381844e8e9abc7952681eb88.js": "/BAKERY_SHOP/precache-manifest.62b69697381844e8e9abc7952681eb88.js",
+    "service-worker.js": "/BAKERY_SHOP/service-worker.js",
+    "static/css/main.87cb14b7.chunk.css.map": "/BAKERY_SHOP/static/css/main.87cb14b7.chunk.css.map",
+    "static/media/1_citrus_cupcake.jpg": "/BAKERY_SHOP/static/media/1_citrus_cupcake.02924d4e.jpg",
+    "static/media/1_citrus_cupcake_small.jpg": "/BAKERY_SHOP/static/media/1_citrus_cupcake_small.8e81ab63.jpg",
+    "static/media/2_cheese_cake.jpg": "/BAKERY_SHOP/static/media/2_cheese_cake.ccae17e8.jpg",
+    "static/media/2_cheese_cake_small.jpg": "/BAKERY_SHOP/static/media/2_cheese_cake_small.2285b8d3.jpg",
+    "static/media/3_fruit_cupcake.jpg": "/BAKERY_SHOP/static/media/3_fruit_cupcake.c61f4ee6.jpg",
+    "static/media/3_fruit_cupcake_small.jpg": "/BAKERY_SHOP/static/media/3_fruit_cupcake_small.80e782bb.jpg",
+    "static/media/4_citric_candy.jpg": "/BAKERY_SHOP/static/media/4_citric_candy.d019ce78.jpg",
+    "static/media/4_citric_candy_small.jpg": "/BAKERY_SHOP/static/media/4_citric_candy_small.860dee9a.jpg",
+    "static/media/5_meringue.jpg": "/BAKERY_SHOP/static/media/5_meringue.f382daeb.jpg",
+    "static/media/5_meringue_small.jpg": "/BAKERY_SHOP/static/media/5_meringue_small.8931c865.jpg",
+    "static/media/6_raspberry_candy.jpg": "/BAKERY_SHOP/static/media/6_raspberry_candy.b0293ddd.jpg",
+    "static/media/6_raspberry_candy_small.jpg": "/BAKERY_SHOP/static/media/6_raspberry_candy_small.44abbb7c.jpg",
+    "static/media/7_cake.jpg": "/BAKERY_SHOP/static/media/7_cake.b7c7cbb9.jpg",
+    "static/media/7_cake_small.jpg": "/BAKERY_SHOP/static/media/7_cake_small.49828c0d.jpg",
+    "static/media/8_opium_cake.jpg": "/BAKERY_SHOP/static/media/8_opium_cake.aaaa5047.jpg",
+    "static/media/8_opium_cake_small.jpg": "/BAKERY_SHOP/static/media/8_opium_cake_small.9ff1547f.jpg",
+    "static/media/9_donut1.jpg": "/BAKERY_SHOP/static/media/9_donut1.88b34159.jpg",
+    "static/media/9_donut1_small.jpg": "/BAKERY_SHOP/static/media/9_donut1_small.8aa7ede2.jpg",
+    "static/media/about_us_picture.jpg": "/BAKERY_SHOP/static/media/about_us_picture.e69abf8e.jpg",
+    "static/media/about_us_picture_small.jpg": "/BAKERY_SHOP/static/media/about_us_picture_small.4827ba50.jpg",
+    "static/media/header-photo.jpg": "/BAKERY_SHOP/static/media/header-photo.9a21d75d.jpg",
+    "static/media/header-photo_small.jpg": "/BAKERY_SHOP/static/media/header-photo_small.447212a4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5490e787.js",
+    "static/js/2.8645b4e4.chunk.js",
+    "static/css/main.87cb14b7.chunk.css",
+    "static/js/main.71ddf14a.chunk.js"
+  ]
+}

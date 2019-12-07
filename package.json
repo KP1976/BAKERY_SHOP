@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/KP1976/BAKERY_SHOP/issues"
   },
-  "homepage": "https://github.com/KP1976/BAKERY_SHOP#readme",
+  "homepage": "https://kp1976.github.io/BAKERY_SHOP",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
@@ -26,6 +26,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2",
     "react-scripts": "^3.0.1"
   },
@@ -43,7 +44,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
