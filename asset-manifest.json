@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/BAKERY_SHOP/static/css/main.87cb14b7.chunk.css",
-    "main.js": "/BAKERY_SHOP/static/js/main.71ddf14a.chunk.js",
-    "main.js.map": "/BAKERY_SHOP/static/js/main.71ddf14a.chunk.js.map",
+    "main.js": "/BAKERY_SHOP/static/js/main.0d0ef9b8.chunk.js",
+    "main.js.map": "/BAKERY_SHOP/static/js/main.0d0ef9b8.chunk.js.map",
     "runtime-main.js": "/BAKERY_SHOP/static/js/runtime-main.5490e787.js",
     "runtime-main.js.map": "/BAKERY_SHOP/static/js/runtime-main.5490e787.js.map",
     "static/js/2.8645b4e4.chunk.js": "/BAKERY_SHOP/static/js/2.8645b4e4.chunk.js",
     "static/js/2.8645b4e4.chunk.js.map": "/BAKERY_SHOP/static/js/2.8645b4e4.chunk.js.map",
     "index.html": "/BAKERY_SHOP/index.html",
-    "precache-manifest.62b69697381844e8e9abc7952681eb88.js": "/BAKERY_SHOP/precache-manifest.62b69697381844e8e9abc7952681eb88.js",
+    "precache-manifest.c4aaec53f1358aa68d95934cfc0d44e6.js": "/BAKERY_SHOP/precache-manifest.c4aaec53f1358aa68d95934cfc0d44e6.js",
     "service-worker.js": "/BAKERY_SHOP/service-worker.js",
     "static/css/main.87cb14b7.chunk.css.map": "/BAKERY_SHOP/static/css/main.87cb14b7.chunk.css.map",
     "static/media/1_citrus_cupcake.jpg": "/BAKERY_SHOP/static/media/1_citrus_cupcake.02924d4e.jpg",
@@ -38,6 +38,6 @@
     "static/js/runtime-main.5490e787.js",
     "static/js/2.8645b4e4.chunk.js",
     "static/css/main.87cb14b7.chunk.css",
-    "static/js/main.71ddf14a.chunk.js"
+    "static/js/main.0d0ef9b8.chunk.js"
   ]
 }
