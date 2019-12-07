@@ -25,29 +25,12 @@ const ShopProduct = ({
 	const [
 		amountOfAllProducts,
 		setAmountOfAllProducts,
-		,
-		setTextProducts,
 		totalPriceOfAllProducts,
 		setTotalPriceOfAllProducts,
 		listOfProducts,
 		setListOfProducts,
+		displayCorrectSumOfProducts,
 	] = useCartValue();
-
-	const displayCorrectSumOfProducts = amountOfProducts => {
-		switch (amountOfProducts) {
-			case 1:
-				setTextProducts('produkt – ');
-				break;
-			case 2:
-			case 3:
-			case 4:
-				setTextProducts('produkty – ');
-				break;
-			default:
-				setTextProducts('produktów – ');
-				break;
-		}
-	};
 
 	const addProduct = _productName => () => {
 		const addedAmountOfProduct = amount + 1;

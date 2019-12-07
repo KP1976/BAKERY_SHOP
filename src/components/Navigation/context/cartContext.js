@@ -9,17 +9,33 @@ export const CartProvider = ({ children }) => {
 	const [textProducts, setTextProducts] = useState('produktów –');
 	const [listOfProducts, setListOfProducts] = useState([]);
 
+	const displayCorrectSumOfProducts = _amountOfProducts => {
+		switch (_amountOfProducts) {
+			case 1:
+				setTextProducts('produkt – ');
+				break;
+			case 2:
+			case 3:
+			case 4:
+				setTextProducts('produkty – ');
+				break;
+			default:
+				setTextProducts('produktów – ');
+				break;
+		}
+		return textProducts;
+	};
+
 	return (
 		<CartContext.Provider
 			value={[
 				amountOfProducts,
 				setAmountOfProducts,
-				textProducts,
-				setTextProducts,
 				totalPriceOfAllProducts,
 				setTotalPriceOfAllProducts,
 				listOfProducts,
 				setListOfProducts,
+				displayCorrectSumOfProducts,
 			]}>
 			{children}
 		</CartContext.Provider>

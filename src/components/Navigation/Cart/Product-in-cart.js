@@ -19,14 +19,13 @@ const ProductInCart = ({
 	);
 
 	const [
-		amountOfProducts,
-		setAmountOfProducts,
-		,
-		,
+		amountOfAllProducts,
+		setAmountOfAllProducts,
 		totalPriceOfAllProducts,
 		setTotalPriceOfAllProducts,
 		listOfProducts,
 		setListOfProducts,
+		displayCorrectSumOfProducts,
 	] = useCartValue();
 
 	const productsFromDataBase = useContext(FirebaseContext);
@@ -39,7 +38,7 @@ const ProductInCart = ({
 			product => product.productIdInCart !== idInCart,
 		);
 		const updatedTotalPrice = totalPriceOfAllProducts - price;
-		const updatedamountOfProducts = amountOfProducts - 1;
+		const updatedamountOfProducts = amountOfAllProducts - 1;
 
 		newProducts.map(product => {
 			if (product.id === id) {
@@ -51,9 +50,11 @@ const ProductInCart = ({
 
 		setListOfProducts(filteredListOfProducts);
 		setTotalPriceOfAllProducts(updatedTotalPrice);
-		setAmountOfProducts(updatedamountOfProducts);
+		setAmountOfAllProducts(updatedamountOfProducts);
 		setProducts(newProducts);
 		setProducts(oldProducts);
+
+		displayCorrectSumOfProducts(updatedamountOfProducts);
 	};
 
 	return (

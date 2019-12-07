@@ -8,9 +8,11 @@ const MenuList = ({ isVisible }) => {
 	const [
 		amountOfProducts,
 		,
-		textProducts,
-		,
 		totalPriceOfAllProducts,
+		,
+		,
+		,
+		displayCorrectSumOfProducts,
 	] = useCartValue();
 	const [productsVisible, setProductsVisible] = useState(false);
 
@@ -54,7 +56,9 @@ const MenuList = ({ isVisible }) => {
 					onClick={showProductsInCart(amountOfProducts)}>
 					<i className='material-icons'>shopping_cart</i>
 					<span className='products-btn__quantity'>{amountOfProducts}</span>
-					<span className='products-btn__name'>{textProducts}</span>
+					<span className='products-btn__name'>
+						{displayCorrectSumOfProducts(amountOfProducts)}
+					</span>
 					<span className='products-btn__total-price'>
 						{' '}
 						{totalPriceOfAllProducts.toString().replace('.', ',')} zł

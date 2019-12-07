@@ -15,11 +15,10 @@ const ProductsList = ({
 		,
 		setAmountOfProducts,
 		,
-		setTextProducts,
-		,
 		setTotalPriceOfAllProducts,
 		listOfProducts,
 		setListOfProducts,
+		displayCorrectSumOfProducts,
 	] = useCartValue();
 	const productsFromDataBase = useContext(FirebaseContext);
 	const [products, setProducts] = useProductsValue();
@@ -42,7 +41,7 @@ const ProductsList = ({
 		setListOfProducts([]);
 		setAmountOfProducts(0);
 		setTotalPriceOfAllProducts(0);
-		setTextProducts('produktów –');
+		displayCorrectSumOfProducts(0);
 		clearAmountsOfProducts();
 	};
 
